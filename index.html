@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Launcher</title>
+    <link rel="stylesheet" href="launcher.css">
+</head>
+<body>
+<div id="launcher">
+    <aside>
+        <img src="logo.png" alt="Minecraft Logo" id="logo">
+        <nav>
+            <ul>
+                <li><a href="#" id="home-tab">Home</a></li>
+                <li><a href="#" id="news-tab">News</a></li>
+                <li><a href="#" id="settings-tab">Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main>
+        <section id="home" class="content active">
+            <h1>Welcome to Minecraft</h1>
+            <button id="play-button">Play</button>
+        </section>
+        <section id="news" class="content">
+            <h1>Latest News</h1>
+            <div id="news-content"></div>
+        </section>
+        <section id="settings" class="content">
+            <h1>Settings</h1>
+            <!-- Settings content here -->
+        </section>
+    </main>
+</div>
+<script src="launcher.js"></script>
+</body>
+</html>
