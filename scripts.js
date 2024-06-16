@@ -100,7 +100,14 @@ document.addEventListener('DOMContentLoaded', function() {
             fetch(path)
                 .then(response => response.text())
                 .then(html => {
-                    document.documentElement.innerHTML = html;
+                    // Use DOMParser to parse the fetched HTML string
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+
+                    // Replace the entire document's HTML
+                    document.open();
+                    document.write(doc.documentElement.outerHTML);
+                    document.close();
                 })
                 .catch(error => {
                     console.error('Error loading version content:', error);
