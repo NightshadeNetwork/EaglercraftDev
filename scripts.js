@@ -131,3 +131,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial load of the home content
     loadPage('home');
 });
+``
