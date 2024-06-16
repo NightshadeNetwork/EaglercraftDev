@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.cookie = `version=${versionSelector};path=/;SameSite=None;Secure`;
         document.cookie = `theme=${themeSelector};path=/;SameSite=None;Secure`;
         applyTheme(themeSelector);
-        loadVersionContent(versionSelector);
         console.log('Settings saved:', { version: versionSelector, theme: themeSelector });
     };
 
@@ -62,10 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (cookies.version) {
             versionSelector.value = cookies.version;
-            loadVersionContent(cookies.version);
         } else {
             versionSelector.value = 'Release 1.8.8'; // Default version
-            loadVersionContent('Release 1.8.8');
         }
 
         if (cookies.theme) {
@@ -82,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.href = theme;
     };
 
-    // Function to load version-specific content
+    // Function to load version-specific content into the body
     const loadVersionContent = (version) => {
         let path;
         switch (version) {
@@ -103,8 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
             fetch(path)
                 .then(response => response.text())
                 .then(html => {
-                    const contentSection = document.getElementById('home');
-                    contentSection.innerHTML = html;
+                    document.body.innerHTML = html;
                 })
                 .catch(error => {
                     console.error('Error loading version content:', error);
