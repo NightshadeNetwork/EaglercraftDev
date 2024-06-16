@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
             fetch(path)
                 .then(response => response.text())
                 .then(html => {
-                    document.body.innerHTML = html;
+                    document.documentElement.innerHTML = html;
                 })
                 .catch(error => {
                     console.error('Error loading version content:', error);
@@ -131,4 +131,3 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial load of the home content
     loadPage('home');
 });
-``
