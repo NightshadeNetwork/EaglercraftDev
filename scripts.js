@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (page === 'settings') {
                     loadSettings();
                 }
+                if (page === 'home') {
+                    initializePlayButton();
+                }
             })
             .catch(error => {
                 contentSection.innerHTML = '<p>Failed to load content.</p>';
@@ -39,11 +42,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const saveSettings = () => {
         const versionSelector = document.getElementById('version-selector').value;
         const themeSelector = document.getElementById('theme-selector').value;
-        document.cookie = `version=${versionSelector};path=/`;
-        document.cookie = `theme=${themeSelector};path=/`;
+        document.cookie = `version=${versionSelector};path=/;SameSite=None;Secure`;
+        document.cookie = `theme=${themeSelector};path=/;SameSite=None;Secure`;
         applyTheme(themeSelector);
         loadVersionContent(versionSelector);
-        alert('Settings saved!');
+        console.log('Settings saved:', { version: versionSelector, theme: themeSelector });
     };
 
     // Function to load settings from cookies
@@ -60,6 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (cookies.version) {
             versionSelector.value = cookies.version;
             loadVersionContent(cookies.version);
+        } else {
+            versionSelector.value = 'Release 1.8.8'; // Default version
+            loadVersionContent('Release 1.8.8');
         }
 
         if (cookies.theme) {
@@ -72,11 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to apply theme
     const applyTheme = (theme) => {
-        document.querySelectorAll('link[rel=stylesheet]').forEach((link) => {
-            if (link.href.includes('styles')) {
-                link.href = theme;
-            }
-        });
+        const link = document.getElementById('theme-stylesheet');
+        link.href = theme;
     };
 
     // Function to load version-specific content
@@ -106,6 +109,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 .catch(error => {
                     console.error('Error loading version content:', error);
                 });
+        }
+    };
+
+    // Initialize play button functionality
+    const initializePlayButton = () => {
+        const playButton = document.getElementById('play-button');
+        if (playButton) {
+            playButton.addEventListener('click', () => {
+                const versionCookie = document.cookie.split('; ').find(row => row.startsWith('version='));
+                if (versionCookie) {
+                    const version = versionCookie.split('=')[1];
+                    console.log('Attempting to launch version:', version);
+                    // Actual game launching logic here
+                    loadVersionContent(version); // Load the version content in place
+                } else {
+                    console.error('Version not found in cookies');
+                }
+            });
+        } else {
+            console.error('Play button not found');
         }
     };
 
