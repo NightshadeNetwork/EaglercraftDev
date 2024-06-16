@@ -1,4 +1,43 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Function to apply theme
+    const applyTheme = (theme) => {
+        const link = document.getElementById('theme-stylesheet');
+        link.href = theme;
+    };
+
+    // Function to load settings from cookies
+    const loadSettings = () => {
+        const cookies = document.cookie.split(';').reduce((acc, cookie) => {
+            const [key, value] = cookie.trim().split('=');
+            acc[key] = value;
+            return acc;
+        }, {});
+
+        const versionSelector = document.getElementById('version-selector');
+        const themeSelector = document.getElementById('theme-selector');
+
+        if (cookies.version && versionSelector) {
+            versionSelector.value = cookies.version;
+        }
+
+        if (cookies.theme) {
+            if (themeSelector) {
+                themeSelector.value = cookies.theme;
+            }
+            applyTheme(cookies.theme);
+        }
+    };
+
+    // Function to save settings to cookies
+    const saveSettings = () => {
+        const versionSelector = document.getElementById('version-selector').value;
+        const themeSelector = document.getElementById('theme-selector').value;
+        document.cookie = `version=${versionSelector};path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
+        document.cookie = `theme=${themeSelector};path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
+        applyTheme(themeSelector);
+        console.log('Settings saved:', { version: versionSelector, theme: themeSelector });
+    };
+
     // Handle tab switching
     const tabs = document.querySelectorAll('nav ul li a');
     const contents = document.querySelectorAll('.content');
@@ -27,6 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 contentSection.classList.add('active');
                 if (page === 'settings') {
                     loadSettings();
+                    const saveButton = document.getElementById('save-settings');
+                    if (saveButton) {
+                        saveButton.addEventListener('click', saveSettings);
+                    }
                 }
                 if (page === 'home') {
                     initializePlayButton();
@@ -36,47 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 contentSection.innerHTML = '<p>Failed to load content.</p>';
                 console.error('Error loading page:', error);
             });
-    };
-
-    // Function to save settings to cookies
-    const saveSettings = () => {
-        const versionSelector = document.getElementById('version-selector').value;
-        const themeSelector = document.getElementById('theme-selector').value;
-        document.cookie = `version=${versionSelector};path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
-        document.cookie = `theme=${themeSelector};path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
-        applyTheme(themeSelector);
-        console.log('Settings saved:', { version: versionSelector, theme: themeSelector });
-    };
-
-    // Function to load settings from cookies
-    const loadSettings = () => {
-        const cookies = document.cookie.split(';').reduce((acc, cookie) => {
-            const [key, value] = cookie.trim().split('=');
-            acc[key] = value;
-            return acc;
-        }, {});
-
-        const versionSelector = document.getElementById('version-selector');
-        const themeSelector = document.getElementById('theme-selector');
-
-        if (cookies.version) {
-            versionSelector.value = cookies.version;
-        } else {
-            versionSelector.value = 'Release 1.8.8'; // Default version
-        }
-
-        if (cookies.theme) {
-            themeSelector.value = cookies.theme;
-            applyTheme(cookies.theme);
-        }
-
-        document.getElementById('save-settings').addEventListener('click', saveSettings);
-    };
-
-    // Function to apply theme
-    const applyTheme = (theme) => {
-        const link = document.getElementById('theme-stylesheet');
-        link.href = theme;
     };
 
     // Function to load version-specific content into the body
@@ -124,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (versionCookie) {
                     const version = versionCookie.split('=')[1];
                     console.log('Attempting to launch version:', version);
-                    // Actual game launching logic here
+                    // TODO maybe have an animation?
                     loadVersionContent(version); // Load the version content in place
                 } else {
                     console.error('Version not found in cookies');
@@ -136,5 +138,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Initial load of the home content
+    loadSettings();
     loadPage('home');
 });
