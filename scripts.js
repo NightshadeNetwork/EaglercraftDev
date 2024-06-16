@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const saveSettings = () => {
         const versionSelector = document.getElementById('version-selector').value;
         const themeSelector = document.getElementById('theme-selector').value;
-        document.cookie = `version=${versionSelector};path=/;SameSite=None;Secure`;
-        document.cookie = `theme=${themeSelector};path=/;SameSite=None;Secure`;
+        document.cookie = `version=${versionSelector};path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
+        document.cookie = `theme=${themeSelector};path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
         applyTheme(themeSelector);
         console.log('Settings saved:', { version: versionSelector, theme: themeSelector });
     };
