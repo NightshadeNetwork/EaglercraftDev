@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.cookie = `version=${versionSelector};path=/`;
         document.cookie = `theme=${themeSelector};path=/`;
         applyTheme(themeSelector);
+        loadVersionContent(versionSelector);
         alert('Settings saved!');
     };
 
@@ -58,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (cookies.version) {
             versionSelector.value = cookies.version;
+            loadVersionContent(cookies.version);
         }
 
         if (cookies.theme) {
@@ -75,6 +77,36 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.href = theme;
             }
         });
+    };
+
+    // Function to load version-specific content
+    const loadVersionContent = (version) => {
+        let path;
+        switch (version) {
+            case 'Release 1.8.8':
+                path = './1.8/index.html';
+                break;
+            case 'Release 1.5.2':
+                path = './1.5/index.html';
+                break;
+            case 'Beta 1.3':
+                path = './1.3/index.html';
+                break;
+            default:
+                path = ''; // Handle other versions or default behavior
+        }
+
+        if (path) {
+            fetch(path)
+                .then(response => response.text())
+                .then(html => {
+                    const contentSection = document.getElementById('home');
+                    contentSection.innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error loading version content:', error);
+                });
+        }
     };
 
     // Initial load of the home content
