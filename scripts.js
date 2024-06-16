@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (versionCookie) {
                     const version = versionCookie.split('=')[1];
                     console.log('Attempting to launch version:', version);
-                    // TODO maybe have an animation?
+                    // I don't know.
                     loadVersionContent(version); // Load the version content in place
                 } else {
                     console.error('Version not found in cookies');
