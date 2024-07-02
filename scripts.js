@@ -146,5 +146,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initial load of the home content
     loadSettings();
-    loadPage('home');
+    initializePlayButton(); // Initialize play button on initial load
 });
