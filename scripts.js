@@ -54,13 +54,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to load page content using AJAX
     const loadPage = (page) => {
+        console.log(`Loading page: ${page}`);
         const contentSection = document.getElementById(page);
         if (contentSection.classList.contains('active')) return;
 
         contents.forEach(content => content.classList.remove('active'));
 
         fetch(`${page}.html`)
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.text();
+            })
             .then(html => {
                 contentSection.innerHTML = html;
                 contentSection.classList.add('active');
@@ -100,13 +106,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (path) {
             fetch(path)
-                .then(response => response.text())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.text();
+                })
                 .then(html => {
-                    // Use DOMParser to parse the fetched HTML string
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, 'text/html');
-
-                    // Replace the entire document's HTML
                     document.open();
                     document.write(doc.documentElement.outerHTML);
                     document.close();
@@ -126,7 +134,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (versionCookie) {
                     const version = versionCookie.split('=')[1];
                     console.log('Attempting to launch version:', version);
-                    // I don't know.
                     loadVersionContent(version); // Load the version content in place
                 } else {
                     console.error('Version not found in cookies');
