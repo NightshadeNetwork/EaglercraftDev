@@ -165,29 +165,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (playButton) {
             playButton.addEventListener('click', () => {
                 const versionCookie = document.cookie.split('; ').find(row => row.startsWith('version='));
-                const clientEPK1_8Cookie = document.cookie.split('; ').find(row => row.startsWith('ClientEPK1_8='));
-                const clientEPK1_5Cookie = document.cookie.split('; ').find(row => row.startsWith('ClientEPK1_5='));
-
                 if (versionCookie) {
                     const version = versionCookie.split('=')[1];
-                    const clientEPK1_8 = clientEPK1_8Cookie ? clientEPK1_8Cookie.split('=')[1] : 'default-1.8.epk';
-                    const clientEPK1_5 = clientEPK1_5Cookie ? clientEPK1_5Cookie.split('=')[1] : 'default-1.5.epk';
-
                     console.log('Attempting to launch version:', version);
-
-                    if (version === 'Release 1.8.8') {
-                        window.eaglercraftXOpts.assetsURI = `/1.8/${clientEPK1_8}`;
-                    } else if (version === 'Release 1.5.2') {
-                        window.eaglercraftOpts.assetsURI = `/1.5/${clientEPK1_5}`;
-                    }
-
                     loadVersionContent(version); // Load the version content in place
                 } else {
                     console.error('Version not found in cookies');
                 }
             });
         } else {
-            console.error('Play button not found/loaded.');
+            console.error('Play button not found');
         }
     };
 
