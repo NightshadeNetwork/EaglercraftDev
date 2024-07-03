@@ -53,41 +53,48 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Function to load page content using AJAX
-    const loadPage = (page) => {
-        console.log(`Loading page: ${page}`);
-        const contentSection = document.getElementById(page);
-        // if (contentSection.classList.contains('active')) return;
+const loadPage = (page) => {
+    console.log(`Loading page: ${page}`);
+    const contentSection = document.getElementById(page);
 
-        contents.forEach(content => content.classList.remove('active'));
+    // Clear and hide all content sections
+    contents.forEach(content => {
+        content.classList.remove('active');
+        content.innerHTML = '';
+        content.style.display = 'none';
+    });
 
-        fetch(`${page}.html`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
+    // Show the target content section
+    contentSection.style.display = 'block';
+
+    fetch(`${page}.html`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(html => {
+            contentSection.innerHTML = html;
+            contentSection.classList.add('active');
+            if (page === 'settings') {
+                loadSettings();
+                const versionSelector = document.getElementById('version-selector');
+                const themeSelector = document.getElementById('theme-selector');
+                if (versionSelector && themeSelector) {
+                    versionSelector.addEventListener('change', saveSettings);
+                    themeSelector.addEventListener('change', saveSettings);
                 }
-                return response.text();
-            })
-            .then(html => {
-                contentSection.innerHTML = html;
-                contentSection.classList.add('active');
-                if (page === 'settings') {
-                    loadSettings();
-                    const versionSelector = document.getElementById('version-selector');
-                    const themeSelector = document.getElementById('theme-selector');
-                    if (versionSelector && themeSelector) {
-                        versionSelector.addEventListener('change', saveSettings);
-                        themeSelector.addEventListener('change', saveSettings);
-                    }
-                }
-                if (page === 'home') {
-                    initializePlayButton();
-                }
-            })
-            .catch(error => {
-                contentSection.innerHTML = '<p>Failed to load content.</p>';
-                console.error('Error loading page:', error);
-            });
-    };
+            }
+            if (page === 'home') {
+                initializePlayButton();
+            }
+        })
+        .catch(error => {
+            contentSection.innerHTML = '<p>Failed to load content.</p>';
+            console.error('Error loading page:', error);
+        });
+};
 
     // Function to load version-specific content into the body
     const loadVersionContent = (version) => {
