@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadPage = (page) => {
         console.log(`Loading page: ${page}`);
         const contentSection = document.getElementById(page);
-        if (contentSection.classList.contains('active')) return;
+        // if (contentSection.classList.contains('active')) return;
 
         contents.forEach(content => content.classList.remove('active'));
 
@@ -72,9 +72,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 contentSection.classList.add('active');
                 if (page === 'settings') {
                     loadSettings();
-                    const saveButton = document.getElementById('save-settings');
-                    if (saveButton) {
-                        saveButton.addEventListener('click', saveSettings);
+                    const versionSelector = document.getElementById('version-selector');
+                    const themeSelector = document.getElementById('theme-selector');
+                    if (versionSelector && themeSelector) {
+                        versionSelector.addEventListener('change', saveSettings);
+                        themeSelector.addEventListener('change', saveSettings);
                     }
                 }
                 if (page === 'home') {
