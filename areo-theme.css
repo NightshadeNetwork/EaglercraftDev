@@ -1,9 +1,9 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%);
+    color: #2d3436;
 }
 
 /* Layout and Container Styles */
@@ -14,10 +14,11 @@ body, html {
 
 aside {
     width: 200px;
-    background-color: #2c3e50;
+    background: rgba(255, 255, 255, 0.8);
     color: white;
     padding: 20px;
     box-sizing: border-box;
+    backdrop-filter: blur(10px);
 }
 
 #logo {
@@ -40,21 +41,23 @@ nav ul li a {
     text-decoration: none;
     display: block;
     padding: 10px;
-    background-color: #34495e;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    transition: background 0.3s, transform 0.3s;
 }
 
 nav ul li a.active, nav ul li a:hover {
-    background-color: #1abc9c;
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.05);
 }
 
 main {
     flex-grow: 1;
-    background-color: #ecf0f1;
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     box-sizing: border-box;
     overflow-y: auto;
+    backdrop-filter: blur(10px);
 }
 
 /* Content Display Styles */
@@ -68,28 +71,30 @@ main {
 
 /* Button Styles */
 button, #play-button {
-    background-color: #43b581;
+    background: rgba(255, 255, 255, 0.6);
     border: none;
     padding: 10px 20px;
     font-size: 18px;
-    color: #fff;
-    border-radius: 5px;
+    color: #2d3436;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s, transform 0.3s;
 }
 
 button:hover, #play-button:hover {
-    background-color: #3b9f72;
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.05);
 }
 
 /* Input Styles */
 input, select {
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+    border-radius: 10px;
     font-size: 16px;
     margin-bottom: 10px;
     width: calc(100% - 22px);
+    background: rgba(255, 255, 255, 0.6);
 }
 
 input:focus, select:focus {
@@ -117,7 +122,7 @@ input:focus, select:focus {
 
 /* Additional Styling for Better Visuals */
 h1, h2, h3 {
-    color: #2c3e50;
+    color: #2d3436;
 }
 
 p {
