@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Eaglercraft Launcher | Eaglercraft 1.3</title>
     <script type="text/javascript" src="/1.3/classes.js"></script>
@@ -9,7 +9,7 @@ if(document.location.href.startsWith("file:")) {
 alert("You're not supposed to 'open' this file in your browser. Please upload this folder to your HTTP(s) server and access it via the internet. This is not a bug, please read the documentation");
 }else {
 window.addEventListener("load", function(){
-window.minecraftOpts = ["game_frame","assets.epk"];
+window.minecraftOpts = ["game_frame","/1.3/assets.epk"];
 (function(){
 var q = window.location.search;
 if(typeof q === 'string' && q.startsWith("?")) {
