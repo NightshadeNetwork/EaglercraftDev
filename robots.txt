@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /$
+Disallow: /
+
+Host: eaglercraft.dev
+Host: blog.eaglercraft.dev
+Host: servers.eaglercraft.dev
+Host: reddit.eaglercraft.dev
