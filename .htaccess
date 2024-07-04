@@ -1,0 +1,257 @@
+# Enable mod_rewrite
+RewriteEngine On
+
+# Redirect HTTP to HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect www to non-www
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# Allow access to HTML files
+RewriteCond %{REQUEST_URI} !\.html$
+
+# Check if the request is not coming from your domain
+RewriteCond %{HTTP:CF-Host} !^(.+\.)?eaglercraft\.dev$ [NC]
+
+# If both conditions are met, deny access
+RewriteRule . - [F,L]
+
+# Clean URLs: Remove .html extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Block access to sensitive files
+<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</FilesMatch>
+
+# Prevent script injections
+RewriteCond %{QUERY_STRING} (<|%3C).*script.*(>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|[|%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|[|%[0-9A-Z]{0,2})
+RewriteRule ^(.*)$ index.html [F,L]
+
+# Custom error pages
+ErrorDocument 400 /errors/400.html
+ErrorDocument 401 /errors/401.html
+ErrorDocument 403 /errors/403.html
+ErrorDocument 404 /errors/404.html
+ErrorDocument 500 /errors/500.html
+
+# Catch-all for other 4xx and 5xx errors
+ErrorDocument 402 /errors/4xx.html
+ErrorDocument 405 /errors/4xx.html
+ErrorDocument 406 /errors/4xx.html
+ErrorDocument 407 /errors/4xx.html
+ErrorDocument 408 /errors/4xx.html
+ErrorDocument 409 /errors/4xx.html
+ErrorDocument 410 /errors/4xx.html
+ErrorDocument 411 /errors/4xx.html
+ErrorDocument 412 /errors/4xx.html
+ErrorDocument 413 /errors/4xx.html
+ErrorDocument 414 /errors/4xx.html
+ErrorDocument 415 /errors/4xx.html
+ErrorDocument 416 /errors/4xx.html
+ErrorDocument 417 /errors/4xx.html
+ErrorDocument 501 /errors/5xx.html
+ErrorDocument 502 /errors/5xx.html
+ErrorDocument 503 /errors/5xx.html
+ErrorDocument 504 /errors/5xx.html
+ErrorDocument 505 /errors/5xx.html
+
+# Prevent viewing of .htaccess and other hidden files
+<FilesMatch "^\.(?!well-known)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Prevent directory listings
+Options -Indexes
+
+# Limit file uploads to 10MB
+LimitRequestBody 10240000
+
+# Security headers
+<IfModule mod_headers.c>
+    # Content Security Policy (CSP)
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests;" env=!CF-Visitor
+
+    # Other security headers
+    Header always set X-Frame-Options "SAMEORIGIN" env=!CF-Visitor
+    Header set X-Content-Type-Options "nosniff" env=!CF-Visitor
+    Header set Referrer-Policy "strict-origin-when-cross-origin" env=!CF-Visitor
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), vr=()" env=!CF-Visitor
+    Header set X-XSS-Protection "1; mode=block" env=!CF-Visitor
+
+    # HSTS (31536000 seconds = 1 year)
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+
+    # Remove server information
+    Header unset Server
+    Header always unset X-Powered-By
+    ServerSignature Off
+
+    # Cache-Control for HTML files
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "max-age=0, private, no-cache, no-store, must-revalidate"
+    </FilesMatch>
+
+    # Feature-Policy
+    Header set Feature-Policy "geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; fullscreen 'self'; payment 'none'"
+</IfModule>
+
+# MIME types
+<IfModule mod_mime.c>
+    AddType application/javascript .js
+    AddType text/css .css
+    AddType image/svg+xml .svg
+    AddType application/vnd.ms-fontobject .eot
+    AddType application/x-font-ttf .ttf
+    AddType application/x-font-woff .woff
+    AddType application/font-woff2 .woff2
+    AddType application/json .json
+    AddType text/xml .xml
+    AddType application/xml .xml
+    AddType image/webp .webp
+</IfModule>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json application/xml
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+</IfModule>
+
+# Browser caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/x-shockwave-flash "access plus 1 month"
+    
+    # No caching for HTML files
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Enable Keep-Alive
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
+
+# If you're using Cloudflare's "Rocket Loader" (I don't know if this works with Eaglercraft.)
+# <IfModule mod_headers.c>
+#     Header set CF-Rocket-Loader "minify=on"
+# </IfModule>
+
+# Disable HTTP TRACE and TRACK methods
+RewriteCond %{REQUEST_METHOD} ^TRACE
+RewriteRule .* - [F]
+
+# Prevent hotlinking of images
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?eaglercraft\.dev [NC]
+RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [NC,F,L]
+
+# MAINTENANCE
+# Uncomment these lines when you need to put the site into maintenance mode.
+# RewriteCond %{REQUEST_URI} !/maintenance.html$ [NC]
+# RewriteCond %{REQUEST_URI} !\.(jpe?g?|png|gif|css|js)$ [NC]
+# RewriteRule .* /maintenance.html [R=503,L]
+# ErrorDocument 503 /maintenance.html
+
+# Block bad bots
+RewriteCond %{HTTP_USER_AGENT} ^BlackWidow [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Bot\ mailto:craftbot@yahoo.com [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ChinaClaw [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Custo [OR]
+RewriteCond %{HTTP_USER_AGENT} ^DISCo [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Download\ Demon [OR]
+RewriteCond %{HTTP_USER_AGENT} ^eCatch [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EirGrabber [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EmailSiphon [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EmailWolf [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Express\ WebPictures [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ExtractorPro [OR]
+RewriteCond %{HTTP_USER_AGENT} ^EyeNetIE [OR]
+RewriteCond %{HTTP_USER_AGENT} ^FlashGet [OR]
+RewriteCond %{HTTP_USER_AGENT} ^GetRight [OR]
+RewriteCond %{HTTP_USER_AGENT} ^GetWeb! [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Go!Zilla [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Go-Ahead-Got-It [OR]
+RewriteCond %{HTTP_USER_AGENT} ^GrabNet [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Grafula [OR]
+RewriteCond %{HTTP_USER_AGENT} ^HMView [OR]
+RewriteCond %{HTTP_USER_AGENT} HTTrack [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^Image\ Stripper [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Image\ Sucker [OR]
+RewriteCond %{HTTP_USER_AGENT} Indy\ Library [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} ^InterGET [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Internet\ Ninja [OR]
+RewriteCond %{HTTP_USER_AGENT} ^JetCar [OR]
+RewriteCond %{HTTP_USER_AGENT} ^JOC\ Web\ Spider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^larbin [OR]
+RewriteCond %{HTTP_USER_AGENT} ^LeechFTP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mass\ Downloader [OR]
+RewriteCond %{HTTP_USER_AGENT} ^MIDown\ tool [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mister\ PiX [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Navroad [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NearSite [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NetAnts [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NetSpider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Net\ Vampire [OR]
+RewriteCond %{HTTP_USER_AGENT} ^NetZIP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Octopus [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Offline\ Explorer [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Offline\ Navigator [OR]
+RewriteCond %{HTTP_USER_AGENT} ^PageGrabber [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Papa\ Foto [OR]
+RewriteCond %{HTTP_USER_AGENT} ^pavuk [OR]
+RewriteCond %{HTTP_USER_AGENT} ^pcBrowser [OR]
+RewriteCond %{HTTP_USER_AGENT} ^RealDownload [OR]
+RewriteCond %{HTTP_USER_AGENT} ^ReGet [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SiteSnagger [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SmartDownload [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SuperBot [OR]
+RewriteCond %{HTTP_USER_AGENT} ^SuperHTTP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Surfbot [OR]
+RewriteCond %{HTTP_USER_AGENT} ^tAkeOut [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Teleport\ Pro [OR]
+RewriteCond %{HTTP_USER_AGENT} ^VoidEYE [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Web\ Image\ Collector [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Web\ Sucker [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebAuto [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebCopier [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebFetch [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebGo\ IS [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebLeacher [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebReaper [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebSauger [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Website\ eXtractor [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Website\ Quester [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebStripper [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebWhacker [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WebZIP [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Wget [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Widow [OR]
+RewriteCond %{HTTP_USER_AGENT} ^WWWOFFLE [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Xaldon\ WebSpider [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Zeus
+RewriteRule ^.* - [F,L]
+
+# Prevent access to specific files
+<FilesMatch "(^#.*#|\.(bak|config|dist|fla|in[ci]|log
