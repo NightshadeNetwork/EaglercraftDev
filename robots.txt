@@ -1,8 +1,13 @@
 User-agent: *
 Allow: /$
 Disallow: /
+Disallow: /1.8/
+Disallow: /1.5/
+Disallow: /1.3/
 
 Host: eaglercraft.dev
 Host: blog.eaglercraft.dev
 Host: servers.eaglercraft.dev
 Host: reddit.eaglercraft.dev
+
+Sitemap: https://eaglercraft.dev/sitemap.xml
