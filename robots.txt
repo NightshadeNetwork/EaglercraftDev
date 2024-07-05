@@ -4,11 +4,7 @@ Disallow: /
 Disallow: /1.8/
 Disallow: /1.5/
 Disallow: /1.3/
-Disallow: /400
-Disallow: /401
-Disallow: /403
-Disallow: /404
-Disallow: /500
+Disallow: /errors/
 
 Host: eaglercraft.dev
 Host: blog.eaglercraft.dev
