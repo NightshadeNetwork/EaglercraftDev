@@ -10,11 +10,16 @@ RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
 # Allow access to HTML files
-RewriteCond %{REQUEST_URI} !\.html$
+# RewriteCond %{REQUEST_URI} !\.html$
+# Check if the request is not coming from your domain
+# RewriteCond %{HTTP:CF-Host} !^(.+\.)?eaglercraft\.dev$ [NC]
+# If both conditions are met, deny access
+# RewriteRule . - [F,L]
 
+# Allow access to common web files
+RewriteCond %{REQUEST_URI} !\.(js|css|jpg|jpeg|png|gif|ico|svg|webp|html)$ [NC]
 # Check if the request is not coming from your domain
 RewriteCond %{HTTP:CF-Host} !^(.+\.)?eaglercraft\.dev$ [NC]
-
 # If both conditions are met, deny access
 RewriteRule . - [F,L]
 
