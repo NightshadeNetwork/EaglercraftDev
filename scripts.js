@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to load page content using AJAX
     const loadPage = (page) => {
-        console.log(`Loading page: ${page}`);
         const contentSection = document.getElementById(page);
 
         // Clear and hide all content sections
@@ -167,14 +166,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 const versionCookie = document.cookie.split('; ').find(row => row.startsWith('version='));
                 if (versionCookie) {
                     const version = versionCookie.split('=')[1];
-                    console.log('Attempting to launch version:', version);
                     loadVersionContent(version); // Load the version content in place
                 } else {
                     console.error('Version not found in cookies');
                 }
             });
         } else {
-            console.error('Play button not found');
+            console.error('Play button not found??');
         }
     };
 
