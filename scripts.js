@@ -5,66 +5,66 @@ document.addEventListener('DOMContentLoaded', function() {
         link.href = theme;
     };
 
+    // Function to set a cookie
+    const setCookie = (name, value, days = 365) => {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = "; expires=" + date.toUTCString();
+        document.cookie = name + "=" + (value || "") + expires + ";path=/;SameSite=None;Secure";
+    };
+
+    // Function to get a cookie
+    const getCookie = (name) => {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for(let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    };
+
     // Function to load settings from cookies
     const loadSettings = () => {
-        const cookies = document.cookie.split(';').reduce((acc, cookie) => {
-            const [key, value] = cookie.trim().split('=');
-            acc[key] = value;
-            return acc;
-        }, {});
+        // Set default cookies only if they don't exist
+        if (!getCookie('version')) setCookie('version', 'Release 1.8.8');
+        if (!getCookie('theme')) setCookie('theme', 'styles/styles.css');
+        if (!getCookie('ClientEPK1_8')) setCookie('ClientEPK1_8', 'default-1.8.epk');
+        if (!getCookie('ClientEPK1_5')) setCookie('ClientEPK1_5', 'default-1.5.epk');
 
         const versionSelector = document.getElementById('version-selector');
         const themeSelector = document.getElementById('theme-selector');
         const clientTheme18Selector = document.getElementById('client-theme-1.8');
         const clientTheme15Selector = document.getElementById('client-theme-1.5');
 
-        if (!cookies.version) {
-            document.cookie = `version=Release 1.8.8;path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
-        } else if (versionSelector) {
-            versionSelector.value = cookies.version;
-        }
+        // Set form values from cookies, if the elements exist
+        if (versionSelector) versionSelector.value = getCookie('version');
+        if (themeSelector) themeSelector.value = getCookie('theme');
+        if (clientTheme18Selector) clientTheme18Selector.value = getCookie('ClientEPK1_8');
+        if (clientTheme15Selector) clientTheme15Selector.value = getCookie('ClientEPK1_5');
 
-        if (!cookies.theme) {
-            document.cookie = `theme=styles/styles.css;path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
-            applyTheme('styles/styles.css');
-        } else {
-            if (themeSelector) {
-                themeSelector.value = cookies.theme;
-            }
-            applyTheme(cookies.theme);
-        }
-
-        if (!cookies.ClientEPK1_8) {
-            document.cookie = `ClientEPK1_8=default-1.8.epk;path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
-        } else if (clientTheme18Selector) {
-            clientTheme18Selector.value = cookies.ClientEPK1_8;
-        }
-
-        if (!cookies.ClientEPK1_5) {
-            document.cookie = `ClientEPK1_5=default-1.5.epk;path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
-        } else if (clientTheme15Selector) {
-            clientTheme15Selector.value = cookies.ClientEPK1_5;
-        }
+        applyTheme(getCookie('theme'));
     };
 
     // Function to save settings to cookies
     const saveSettings = () => {
-        const versionSelector = document.getElementById('version-selector').value;
-        const themeSelector = document.getElementById('theme-selector').value;
-        const clientTheme18Selector = document.getElementById('client-theme-1.8').value;
-        const clientTheme15Selector = document.getElementById('client-theme-1.5').value;
+        const versionSelector = document.getElementById('version-selector');
+        const themeSelector = document.getElementById('theme-selector');
+        const clientTheme18Selector = document.getElementById('client-theme-1.8');
+        const clientTheme15Selector = document.getElementById('client-theme-1.5');
 
-        document.cookie = `version=${versionSelector};path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
-        document.cookie = `theme=${themeSelector};path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
-        document.cookie = `ClientEPK1_8=${clientTheme18Selector};path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
-        document.cookie = `ClientEPK1_5=${clientTheme15Selector};path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
+        if (versionSelector) setCookie('version', versionSelector.value);
+        if (themeSelector) setCookie('theme', themeSelector.value);
+        if (clientTheme18Selector) setCookie('ClientEPK1_8', clientTheme18Selector.value);
+        if (clientTheme15Selector) setCookie('ClientEPK1_5', clientTheme15Selector.value);
 
-        applyTheme(themeSelector);
+        applyTheme(themeSelector ? themeSelector.value : getCookie('theme'));
         console.log('Settings saved:', {
-            version: versionSelector,
-            theme: themeSelector,
-            clientTheme1_8: clientTheme18Selector,
-            clientTheme1_5: clientTheme15Selector
+            version: getCookie('version'),
+            theme: getCookie('theme'),
+            clientTheme1_8: getCookie('ClientEPK1_8'),
+            clientTheme1_5: getCookie('ClientEPK1_5')
         });
     };
 
@@ -74,6 +74,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     tabs.forEach(tab => {
         tab.addEventListener('click', function(event) {
+            // Check if this is the about tab
+            if (this.id === 'about-tab') {
+                // Let the default behavior happen (open in new tab)
+                return;
+            }
+
             event.preventDefault();
             tabs.forEach(t => t.classList.remove('active'));
             tab.classList.add('active');
@@ -85,6 +91,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to load page content using AJAX
     const loadPage = (page) => {
         const contentSection = document.getElementById(page);
+
+        // Check if the content section exists
+        if (!contentSection) {
+            console.error(`Content section for ${page} not found`);
+            return;
+        }
 
         // Clear and hide all content sections
         contents.forEach(content => {
@@ -143,7 +155,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 path = './1.3/index.html';
                 break;
             default:
-                path = ''; // Handle other versions or default behavior
+                console.error('Unknown version:', version);
+                return; // Exit the function if version is unknown
         }
 
         if (path) {
@@ -172,20 +185,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const playButton = document.getElementById('play-button');
         if (playButton) {
             playButton.addEventListener('click', () => {
-                const versionCookie = document.cookie.split('; ').find(row => row.startsWith('version='));
-                if (versionCookie) {
-                    const version = versionCookie.split('=')[1];
+                const version = getCookie('version');
+                if (version) {
                     loadVersionContent(version); // Load the version content in place
                 } else {
                     console.error('Version not found in cookies');
                 }
             });
         } else {
-            console.error('Play button not found??');
+            console.error('Play button not found');
         }
     };
 
-    // Initial load of the home content
+    // Initial load of settings and home content
     loadSettings();
+    loadPage('home');
     initializePlayButton(); // Initialize play button on initial load
 });
