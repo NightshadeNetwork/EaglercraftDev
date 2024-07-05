@@ -18,22 +18,31 @@ document.addEventListener('DOMContentLoaded', function() {
         const clientTheme18Selector = document.getElementById('client-theme-1.8');
         const clientTheme15Selector = document.getElementById('client-theme-1.5');
 
-        if (cookies.version && versionSelector) {
+        if (!cookies.version) {
+            document.cookie = `version=Release 1.8.8;path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
+        } else if (versionSelector) {
             versionSelector.value = cookies.version;
         }
 
-        if (cookies.theme) {
+        if (!cookies.theme) {
+            document.cookie = `theme=styles/styles.css;path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
+            applyTheme('styles/styles.css');
+        } else {
             if (themeSelector) {
                 themeSelector.value = cookies.theme;
             }
             applyTheme(cookies.theme);
         }
 
-        if (cookies.ClientEPK1_8 && clientTheme18Selector) {
+        if (!cookies.ClientEPK1_8) {
+            document.cookie = `ClientEPK1_8=default-1.8.epk;path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
+        } else if (clientTheme18Selector) {
             clientTheme18Selector.value = cookies.ClientEPK1_8;
         }
 
-        if (cookies.ClientEPK1_5 && clientTheme15Selector) {
+        if (!cookies.ClientEPK1_5) {
+            document.cookie = `ClientEPK1_5=default-1.5.epk;path=/;SameSite=None;Secure;max-age=31536000`; // 1 year
+        } else if (clientTheme15Selector) {
             clientTheme15Selector.value = cookies.ClientEPK1_5;
         }
     };
@@ -90,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(`${page}.html`)
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
+                    throw new Error('Network response was not ok :( ' + response.statusText);
                 }
                 return response.text();
             })
