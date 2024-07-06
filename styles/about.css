@@ -62,11 +62,10 @@ p {
     border-radius: 5px;
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
-    display: inline-block;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    display: block;
+    margin: 20px auto;
 }
+
 .cta:hover {
     background-color: #018786;
 }
