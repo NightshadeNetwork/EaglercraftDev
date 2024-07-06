@@ -57,11 +57,15 @@ p {
     background-color: #03dac6;
     color: #000000;
     padding: 10px 20px;
+    text-align: center;
     text-decoration: none;
     border-radius: 5px;
+    font-family: "Courier New", Courier, monospace;
     font-weight: bold;
     display: inline-block;
+    margin: auto;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 .cta:hover {
     background-color: #018786;
