@@ -12,7 +12,7 @@ nav ul li a:hover {
 #play-button,
 button,
 nav ul li a {
-    color: #fff;
+    color: #0D0D0D;
     transition: background-color 0.3s;
 }
 input,
