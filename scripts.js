@@ -176,6 +176,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                 .catch(error => {
                     console.error('Error loading version content:', error);
+                    console.error('Error name:', error.name);
+                    console.error('Error message:', error.message);
+                    console.error('Error stack:', error.stack);
                 });
         }
     };
@@ -189,11 +192,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (version) {
                     loadVersionContent(version); // Load the version content in place
                 } else {
-                    console.error('Version not found in cookies');
+                    console.error('Version not found in cookies! :(');
                 }
             });
         } else {
-            console.error('Play button not found');
+            console.error('Play button not found :(');
         }
     };
 
