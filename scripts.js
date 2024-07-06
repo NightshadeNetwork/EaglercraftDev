@@ -9,7 +9,6 @@ const getCookie = (name) => {
     return null;
 };
 
-// Function to set a cookie
 const setCookie = (name, value, days = 365) => {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -17,7 +16,6 @@ const setCookie = (name, value, days = 365) => {
     document.cookie = name + "=" + (value || "") + expires + ";path=/;SameSite=None;Secure";
 };
 
-// Function to apply theme
 const applyTheme = (theme) => {
     const link = document.getElementById('theme-stylesheet');
     if (link) {
@@ -25,13 +23,10 @@ const applyTheme = (theme) => {
     }
 };
 
-// Apply theme immediately when the script loads
 applyTheme(getCookie('theme') || 'styles/styles.css');
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Function to load settings from cookies
     const loadSettings = () => {
-        // Set default cookies only if they don't exist
         if (!getCookie('version')) setCookie('version', 'Release 1.8.8');
         if (!getCookie('theme')) setCookie('theme', 'styles/styles.css');
         if (!getCookie('ClientEPK1_8')) setCookie('ClientEPK1_8', 'default-1.8.epk');
@@ -73,15 +68,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });*/
     };
 
-    // Handle tab switching
     const tabs = document.querySelectorAll('nav ul li a');
     const contents = document.querySelectorAll('.content');
 
     tabs.forEach(tab => {
         tab.addEventListener('click', function(event) {
-            // Check if this is the about tab
-            if (this.id === 'about-tab') {
-                // Let the default behavior happen (open in new tab)
+            if (this.id === 'about-tab' || this.id === 'discord-tab') {
                 return;
             }
 
@@ -93,24 +85,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Function to load page content using AJAX
     const loadPage = (page) => {
         const contentSection = document.getElementById(page);
-
-        // Check if the content section exists
         if (!contentSection) {
             console.error(`Content section for ${page} not found`);
             return;
         }
 
-        // Clear and hide all content sections
         contents.forEach(content => {
             content.classList.remove('active');
             content.innerHTML = '';
             content.style.display = 'none';
         });
 
-        // Show the target content section
         contentSection.style.display = 'block';
 
         fetch(`${page}.html`)
@@ -146,7 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     };
 
-    // Function to load version-specific content into the body
     const loadVersionContent = (version) => {
         let path;
         switch (version) {
@@ -161,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 break;
             default:
                 path = './1.8/index.html'
-                console.error('Unknown version:', version);
+                console.error('Unknown version:', version, 'launching 1.8 instead.');
                 break;
         }
 
@@ -196,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
             playButton.addEventListener('click', () => {
                 const version = getCookie('version');
                 if (version) {
-                    loadVersionContent(version); // Load the version content in place
+                    loadVersionContent(version); 
                 } else {
                     console.error('Version not found in cookies! :(');
                 }
@@ -207,7 +193,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Initial load of settings and home content
     loadSettings();
     const themeSelector = document.getElementById('theme-selector');
     if (themeSelector) {
@@ -217,5 +202,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     loadPage('home');
-    //initializePlayButton(); // Initialize play button on initial load
+    //initializePlayButton();
 });
