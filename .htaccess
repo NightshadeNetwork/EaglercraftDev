@@ -60,11 +60,32 @@ ErrorDocument 414 /errors/4xx.html
 ErrorDocument 415 /errors/4xx.html
 ErrorDocument 416 /errors/4xx.html
 ErrorDocument 417 /errors/4xx.html
+ErrorDocument 418 /errors/4xx.html
+ErrorDocument 419 /errors/4xx.html
+ErrorDocument 420 /errors/4xx.html
+ErrorDocument 421 /errors/4xx.html
+ErrorDocument 422 /errors/4xx.html
+ErrorDocument 423 /errors/4xx.html
+ErrorDocument 424 /errors/4xx.html
+ErrorDocument 425 /errors/4xx.html
+ErrorDocument 426 /errors/4xx.html
+ErrorDocument 427 /errors/4xx.html
+ErrorDocument 428 /errors/4xx.html
+ErrorDocument 429 /errors/4xx.html
+ErrorDocument 430 /errors/4xx.html
+ErrorDocument 431 /errors/4xx.html
+ErrorDocument 500 /errors/5xx.html
 ErrorDocument 501 /errors/5xx.html
 ErrorDocument 502 /errors/5xx.html
 ErrorDocument 503 /errors/5xx.html
 ErrorDocument 504 /errors/5xx.html
 ErrorDocument 505 /errors/5xx.html
+ErrorDocument 506 /errors/5xx.html
+ErrorDocument 507 /errors/5xx.html
+ErrorDocument 508 /errors/5xx.html
+ErrorDocument 509 /errors/5xx.html
+ErrorDocument 510 /errors/5xx.html
+ErrorDocument 511 /errors/5xx.html
 
 # Block access to sensitive files
 <FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
