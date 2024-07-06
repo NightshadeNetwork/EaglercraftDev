@@ -1,29 +1,33 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Function to apply theme
-    const applyTheme = (theme) => {
-        const link = document.getElementById('theme-stylesheet');
+const getCookie = (name) => {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+};
+
+// Function to set a cookie
+const setCookie = (name, value, days = 365) => {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "; expires=" + date.toUTCString();
+    document.cookie = name + "=" + (value || "") + expires + ";path=/;SameSite=None;Secure";
+};
+
+// Function to apply theme
+const applyTheme = (theme) => {
+    const link = document.getElementById('theme-stylesheet');
+    if (link) {
         link.href = theme;
-    };
+    }
+};
 
-    // Function to set a cookie
-    const setCookie = (name, value, days = 365) => {
-        const date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        const expires = "; expires=" + date.toUTCString();
-        document.cookie = name + "=" + (value || "") + expires + ";path=/;SameSite=None;Secure";
-    };
-
-    // Function to get a cookie
-    const getCookie = (name) => {
-        const nameEQ = name + "=";
-        const ca = document.cookie.split(';');
-        for(let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-        }
-        return null;
-    };
+// Apply theme immediately when the script loads
+applyTheme(getCookie('theme') || 'styles/styles.css');
+document.addEventListener('DOMContentLoaded', function() {
 
     // Function to load settings from cookies
     const loadSettings = () => {
@@ -44,10 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (clientTheme18Selector) clientTheme18Selector.value = getCookie('ClientEPK1_8');
         if (clientTheme15Selector) clientTheme15Selector.value = getCookie('ClientEPK1_5');
 
-        applyTheme(getCookie('theme'));
+        applyTheme(getCookie('theme') || 'styles/styles.css');
     };
 
-    // Function to save settings to cookies
     const saveSettings = () => {
         const versionSelector = document.getElementById('version-selector');
         const themeSelector = document.getElementById('theme-selector');
@@ -55,17 +58,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const clientTheme15Selector = document.getElementById('client-theme-1.5');
 
         if (versionSelector) setCookie('version', versionSelector.value);
-        if (themeSelector) setCookie('theme', themeSelector.value);
+        if (themeSelector) {
+            setCookie('theme', themeSelector.value);
+            applyTheme(themeSelector.value);
+        }
         if (clientTheme18Selector) setCookie('ClientEPK1_8', clientTheme18Selector.value);
         if (clientTheme15Selector) setCookie('ClientEPK1_5', clientTheme15Selector.value);
 
-        applyTheme(themeSelector ? themeSelector.value : getCookie('theme'));
-        console.log('Settings saved:', {
+        /*console.log('Settings saved:', {
             version: getCookie('version'),
             theme: getCookie('theme'),
             clientTheme1_8: getCookie('ClientEPK1_8'),
             clientTheme1_5: getCookie('ClientEPK1_5')
-        });
+        });*/
     };
 
     // Handle tab switching
@@ -187,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const initializePlayButton = () => {
         const playButton = document.getElementById('play-button');
         if (playButton) {
-            console.log('Play button found and initialized');
+            //console.log('Play button found and initialized');
             playButton.addEventListener('click', () => {
                 const version = getCookie('version');
                 if (version) {
@@ -204,6 +209,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initial load of settings and home content
     loadSettings();
+    const themeSelector = document.getElementById('theme-selector');
+    if (themeSelector) {
+        themeSelector.addEventListener('change', function() {
+            setCookie('theme', this.value);
+            applyTheme(this.value);
+        });
+    }
     loadPage('home');
     //initializePlayButton(); // Initialize play button on initial load
 });
