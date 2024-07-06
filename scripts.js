@@ -155,8 +155,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 path = './1.3/index.html';
                 break;
             default:
+                path = './1.8/index.html'
                 console.error('Unknown version:', version);
-                return; // Exit the function if version is unknown
+                break;
         }
 
         if (path) {
