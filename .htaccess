@@ -9,15 +9,8 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
-# Allow access to HTML files
-# RewriteCond %{REQUEST_URI} !\.html$
-# Check if the request is not coming from your domain
-# RewriteCond %{HTTP:CF-Host} !^(.+\.)?eaglercraft\.dev$ [NC]
-# If both conditions are met, deny access
-# RewriteRule . - [F,L]
-
 # Allow access to common web files
-RewriteCond %{REQUEST_URI} !\.(js|css|jpg|jpeg|png|gif|ico|svg|webp|html)$ [NC]
+RewriteCond %{REQUEST_URI} !\.(js|css|epk|jpg|jpeg|png|gif|ico|svg|webp|html)$ [NC]
 # Check if the request is not coming from your domain
 RewriteCond %{HTTP:CF-Host} !^(.+\.)?eaglercraft\.dev$ [NC]
 # If both conditions are met, deny access
@@ -70,7 +63,6 @@ ErrorDocument 503 /errors/5xx.html
 ErrorDocument 504 /errors/5xx.html
 ErrorDocument 505 /errors/5xx.html
 
-
 # Block access to sensitive files
 <FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
     Order allow,deny
@@ -98,8 +90,8 @@ LimitRequestBody 10240000
 
 # Security headers
 <IfModule mod_headers.c>
-    # Content Security Policy (CSP)
-    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests;" env=!CF-Visitor
+    # Content Security Policy (CSP) - Modified to allow blob: URLs for images
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests;" env=!CF-Visitor
 
     # Other security headers
     Header always set X-Frame-Options "SAMEORIGIN" env=!CF-Visitor
