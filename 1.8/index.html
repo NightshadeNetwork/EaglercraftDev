@@ -5,84 +5,56 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
 	<meta name="description" content="This isn't possible.">
-	<meta name="keywords" content="eaglercraft, eaglercraftx, minecraft, 1.8, 1.8.8" />
-	<title>Eaglercraft Launcher | EaglercraftX 1.8</title>
+	<meta name="keywords" content="eaglercraft, eaglercraftx">
+	<title>Eaglercraft Launcher | Eaglercraft 1.8</title>
 	<meta property="og:locale" content="en-US">
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="Eaglercraft Launcher | EaglercraftX 1.8">
+	<meta property="og:title" content="Eaglercraft Launcher | Eaglercraft 1.8">
 	<meta property="og:description" content="This isn't possible.">
 	<link rel="icon" href="/logo.png" type="image/png">
-	<script type="text/javascript" src="/1.8/classes.js"></script>
-	<script type="text/javascript">                          '<p>Error message: ' + error.message + '</p>';
-		"use strict";
-        window.addEventListener("load", () => {
-            if (document.location.href.startsWith("file:")) {
-                alert("HTTP please, do not open this file locally, run a local HTTP server and load it via HTTP");
-            } else {
-                const relayId = Math.floor(Math.random() * 3);
-                console.log("ClientEPK1.8 cookie value:", getCookieValue('ClientEPK1.8'));
-                window.eaglercraftXOpts = {
-                    demoMode: false,
-                    container: "game_frame",
-                    assetsURI: "/1.8/assets/" + getCookieValue('ClientEPK1.8'),
-                    localesURI: "/1.8/lang/",
-                    worldsDB: "worlds",
-                    logInvalidCerts: true,
-                    servers: [
-                        { addr: "wss://us.nightshade.lol", name: "Nightshade Network" }
-                    ],
-                    relays: [
-                        { addr: "wss://relay.deev.is/", comment: "lax1dude relay #1", primary: relayId == 0 },
-                        { addr: "wss://relay.lax1dude.net/", comment: "lax1dude relay #2", primary: relayId == 1 },
-                        { addr: "wss://relay.theludos.com", comment: "ayunami relay #1", primary: relayId == 2 }
-                    ]
-                };
-
-                var q = window.location.search;
-                if (typeof q === "string" && q.startsWith("?")) {
-                    q = new URLSearchParams(q);
-                    var s = q.get("server");
-                    if (s) window.eaglercraftXOpts.joinServer = s;
-                }
-
-                try {
-                    console.log("Starting Eaglercraft initialization...");
-                    console.log("Eaglercraft options:", JSON.stringify(window.eaglercraftXOpts, null, 2));
-                    if (typeof main !== 'function') {
-                        throw new Error("main function is not defined");
+        <script type="text/javascript" src="/1.8/classes.js"></script>
+        <script type="text/javascript">
+            "use strict";
+            window.addEventListener("load", () => {
+                if(document.location.href.startsWith("file:")) {
+                    alert("HTTP please, do not open this file locally, run a local HTTP server and load it via HTTP");
+                }else {                    
+                    const relayId = Math.floor(Math.random() * 3);
+                    window.eaglercraftXOpts = {
+                        demoMode: false,
+                        container: "game_frame",
+                        assetsURI: "/1.8/assets/" + getCookieValue('ClientEPK1.8')",
+                        localesURI: "/1.8/lang/",
+                        worldsDB: "worlds",
+                        servers: [
+                            { addr: "wss://us.nightshade.lol", name: "Nightshade Network" }
+                        ],
+                        relays: [
+                            { addr: "wss://relay.deev.is/", comment: "lax1dude relay #1", primary: relayId == 0 },
+                            { addr: "wss://relay.lax1dude.net/", comment: "lax1dude relay #2", primary: relayId == 1 },
+                            { addr: "wss://relay.shhnowisnottheti.me/", comment: "ayunami relay #1", primary: relayId == 2 }
+                        ]
+                    };                    
+                    var q = window.location.search;
+                    if(typeof q === "string" && q.startsWith("?")) {
+                        q = new URLSearchParams(q);
+                        var s = q.get("server");
+                        if(s) window.eaglercraftXOpts.joinServer = s;
                     }
+                    
                     main();
-                } catch (error) {
-                    console.error("Error during Eaglercraft initialization:");
-                    console.error(error);
-                    if (error.$jsException) {
-                        console.error("Original Java exception:", error.$jsException);
-                    }
-                    if (error.stack) {
-                        console.error("Error stack trace:", error.stack);
-                    }
-                    // Display error message on the page
-                    var errorDiv = document.createElement('div');
-                    errorDiv.style.color = 'red';
-                    errorDiv.style.padding = '20px';
-                    errorDiv.style.maxWidth = '800px';
-                    errorDiv.style.margin = '20px auto';
-                    errorDiv.innerHTML = '<h2>Error Initializing Eaglercraft</h2>' +
-                                         '<p>An error occurred while trying to start Eaglercraft. Please check the console for more details.</p>' +
-                                         '<p>Error message: ' + error.message + '</p>';
-                    document.body.appendChild(errorDiv);
+                    
                 }
+            });
+            function getCookieValue(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+                return 'default-1.8.epk';
             }
-        });
 
-        function getCookieValue(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-            return 'default-1.8.epk';
-        }
-	</script>
-</head>
-<body style="margin:0px;width:100vw;height:100vh;overflow:hidden;" id="game_frame">
-</body>
+        </script>
+    </head>
+    <body style="margin:0px;width:100vw;height:100vh;overflow:hidden;" id="game_frame">
+    </body>
 </html>

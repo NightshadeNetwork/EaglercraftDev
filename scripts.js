@@ -184,10 +184,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 
-    // Initialize play button functionality
     const initializePlayButton = () => {
         const playButton = document.getElementById('play-button');
         if (playButton) {
+            console.log('Play button found and initialized');
             playButton.addEventListener('click', () => {
                 const version = getCookie('version');
                 if (version) {
@@ -198,11 +198,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         } else {
             console.error('Play button not found :(');
+            setTimeout(initializePlayButton, 100);
         }
     };
 
     // Initial load of settings and home content
     loadSettings();
     loadPage('home');
-    initializePlayButton(); // Initialize play button on initial load
+    //initializePlayButton(); // Initialize play button on initial load
 });
