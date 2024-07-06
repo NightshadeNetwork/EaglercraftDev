@@ -58,7 +58,6 @@ ErrorDocument 421 /errors/4xx.html
 ErrorDocument 422 /errors/4xx.html
 ErrorDocument 423 /errors/4xx.html
 ErrorDocument 424 /errors/4xx.html
-ErrorDocument 425 /errors/4xx.html
 ErrorDocument 426 /errors/4xx.html
 ErrorDocument 428 /errors/4xx.html
 ErrorDocument 429 /errors/4xx.html
