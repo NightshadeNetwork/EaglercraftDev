@@ -23,6 +23,16 @@ RewriteCond %{HTTP:CF-Host} !^(.+\.)?eaglercraft\.dev$ [NC]
 # If both conditions are met, deny access
 RewriteRule . - [F,L]
 
+# Prevent direct access to specific directories
+RewriteCond %{REQUEST_URI} ^/(1\.8|1\.5|1\.3|errors)/ [NC]
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?eaglercraft\.dev [NC]
+RewriteRule ^ - [R=404,L]
+
+# Allow access only from our domain
+RewriteCond %{REQUEST_URI} ^/(1\.8|1\.5|1\.3|errors)/ [NC]
+RewriteCond %{HTTP_HOST} !^(www\.)?eaglercraft\.dev$ [NC]
+RewriteRule ^ - [R=404,L]
+
 # Clean URLs: Remove .html extension
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
@@ -30,6 +40,7 @@ RewriteRule ^(.*)$ $1.html [L]
 
 # Redirect old URLs to new ones
 # Redirect 301 /old-page.html /new-page
+RewriteRule ^news/(.*)$ https://news.eaglercraft.dev/$1 [R=301,L]
 
 # Specific errors.
 ErrorDocument 400 /errors/400.html

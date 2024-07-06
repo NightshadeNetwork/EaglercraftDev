@@ -126,7 +126,7 @@ p {
 #launcher {
     display: flex;
     height: 100vh;
-    position: relative;
+    /*position: relative;*/
 }
 
 #launcher-settings {
@@ -168,6 +168,12 @@ p {
 
 #client-settings {
     margin-top: 20px;
+    background-color: #ecf0f1;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    width: 450px;
 }
 
 #client-settings h3 {
