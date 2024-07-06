@@ -42,115 +42,36 @@ document.addEventListener('DOMContentLoaded', function() {
         if (themeSelector) themeSelector.value = getCookie('theme');
         if (clientTheme18Selector) clientTheme18Selector.value = getCookie('ClientEPK1_8');
         if (clientTheme15Selector) clientTheme15Selector.value = getCookie('ClientEPK1_5');
-
-        applyTheme(getCookie('theme') || 'styles/styles.css');
     };
 
-    const saveSettings = () => {
-        const versionSelector = document.getElementById('version-selector');
-        const themeSelector = document.getElementById('theme-selector');
-        const clientTheme18Selector = document.getElementById('client-theme-1.8');
-        const clientTheme15Selector = document.getElementById('client-theme-1.5');
-
-        if (versionSelector) setCookie('version', versionSelector.value);
-        if (themeSelector) {
-            setCookie('theme', themeSelector.value);
-            applyTheme(themeSelector.value);
+    const loadPage = (page) => {
+        const contents = document.querySelectorAll('.content');
+        contents.forEach(content => {
+            content.classList.remove('active');
+        });
+        const activeContent = document.getElementById(page);
+        if (activeContent) {
+            activeContent.classList.add('active');
         }
-        if (clientTheme18Selector) setCookie('ClientEPK1_8', clientTheme18Selector.value);
-        if (clientTheme15Selector) setCookie('ClientEPK1_5', clientTheme15Selector.value);
-
-        /*console.log('Settings saved:', {
-            version: getCookie('version'),
-            theme: getCookie('theme'),
-            clientTheme1_8: getCookie('ClientEPK1_8'),
-            clientTheme1_5: getCookie('ClientEPK1_5')
-        });*/
     };
 
     const tabs = document.querySelectorAll('nav ul li a');
-    const contents = document.querySelectorAll('.content');
-
+    
     tabs.forEach(tab => {
         tab.addEventListener('click', function(event) {
-            if (this.id === 'about-tab' || this.id === 'discord-tab' || this.id === 'reddit-tab') {
+            const tabId = this.id;
+            if (tabId === 'about-tab' || tabId === 'discord-tab' || tabId === 'reddit-tab') {
                 return;
             }
 
             event.preventDefault();
-            tabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            const target = tab.id.split('-')[0];
-            loadPage(target);
+            const page = tabId.replace('-tab', '');
+            loadPage(page);
         });
     });
 
-    const loadPage = (page) => {
-        const contentSection = document.getElementById(page);
-        if (!contentSection) {
-            console.error(`Content section for ${page} not found`);
-            return;
-        }
-
-        contents.forEach(content => {
-            content.classList.remove('active');
-            content.innerHTML = '';
-            content.style.display = 'none';
-        });
-
-        contentSection.style.display = 'block';
-
-        fetch(`${page}.html`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok :( ' + response.statusText);
-                }
-                return response.text();
-            })
-            .then(html => {
-                contentSection.innerHTML = html;
-                contentSection.classList.add('active');
-                if (page === 'settings') {
-                    loadSettings();
-                    const versionSelector = document.getElementById('version-selector');
-                    const themeSelector = document.getElementById('theme-selector');
-                    const clientTheme18Selector = document.getElementById('client-theme-1.8');
-                    const clientTheme15Selector = document.getElementById('client-theme-1.5');
-                    if (versionSelector && themeSelector && clientTheme18Selector && clientTheme15Selector) {
-                        versionSelector.addEventListener('change', saveSettings);
-                        themeSelector.addEventListener('change', saveSettings);
-                        clientTheme18Selector.addEventListener('change', saveSettings);
-                        clientTheme15Selector.addEventListener('change', saveSettings);
-                    }
-                }
-                if (page === 'home') {
-                    initializePlayButton();
-                }
-            })
-            .catch(error => {
-                contentSection.innerHTML = '<p>Failed to load content.</p>';
-                console.error('Error loading page:', error);
-            });
-    };
-
     const loadVersionContent = (version) => {
-        let path;
-        switch (version) {
-            case 'Release 1.8.8':
-                path = './1.8/index.html';
-                break;
-            case 'Release 1.5.2':
-                path = './1.5/index.html';
-                break;
-            case 'Beta 1.3':
-                path = './1.3/index.html';
-                break;
-            default:
-                path = './1.8/index.html'
-                console.error('Unknown version:', version, 'launching 1.8 instead.');
-                break;
-        }
-
+        const path = version + '.html';
         if (path) {
             fetch(path)
                 .then(response => {
