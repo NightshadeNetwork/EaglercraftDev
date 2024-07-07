@@ -23,8 +23,52 @@ const applyTheme = (theme) => {
     }
 };
 
-applyTheme(getCookie('theme') || 'styles/styles.css');
+const loadPage = (page) => {
+    fetch(`${page}.html`)
+        .then(response => response.text())
+        .then(html => {
+            const content = document.querySelector('main');
+            content.innerHTML = html;
+            if (page === 'home') {
+                initializePlayButton();
+            }
+        })
+        .catch(error => console.error('Error loading page:', error));
+};
+
+const initializePlayButton = () => {
+    const playButton = document.getElementById('play-button');
+    if (playButton) {
+        playButton.addEventListener('click', () => {
+            const version = getCookie('version');
+            if (version) {
+                loadVersionContent(version);
+            } else {
+                console.error('Version not found in cookies!');
+            }
+        });
+    }
+};
+
+const loadVersionContent = (version) => {
+    const path = version.replace(' ', '-').toLowerCase() + '.html';
+    fetch(path)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(html => {
+            document.body.innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Error loading version content:', error);
+        });
+};
+
 document.addEventListener('DOMContentLoaded', function() {
+    applyTheme(getCookie('theme') || 'styles/styles.css');
 
     const loadSettings = () => {
         if (!getCookie('version')) setCookie('version', 'Release 1.8.8');
@@ -37,26 +81,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const clientTheme18Selector = document.getElementById('client-theme-1.8');
         const clientTheme15Selector = document.getElementById('client-theme-1.5');
 
-        // Set form values from cookies, if the elements exist
         if (versionSelector) versionSelector.value = getCookie('version');
         if (themeSelector) themeSelector.value = getCookie('theme');
         if (clientTheme18Selector) clientTheme18Selector.value = getCookie('ClientEPK1_8');
         if (clientTheme15Selector) clientTheme15Selector.value = getCookie('ClientEPK1_5');
     };
 
-    const loadPage = (page) => {
-        const contents = document.querySelectorAll('.content');
-        contents.forEach(content => {
-            content.classList.remove('active');
-        });
-        const activeContent = document.getElementById(page);
-        if (activeContent) {
-            activeContent.classList.add('active');
-        }
-    };
+    loadSettings();
 
     const tabs = document.querySelectorAll('nav ul li a');
-    
     tabs.forEach(tab => {
         tab.addEventListener('click', function(event) {
             const tabId = this.id;
@@ -67,54 +100,12 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             const page = tabId.replace('-tab', '');
             loadPage(page);
+
+            tabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
         });
     });
 
-    const loadVersionContent = (version) => {
-        const path = version + '.html';
-        if (path) {
-            fetch(path)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
-                    }
-                    return response.text();
-                })
-                .then(html => {
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    document.open();
-                    document.write(doc.documentElement.outerHTML);
-                    document.close();
-                })
-                .catch(error => {
-                    console.error('Error loading version content:', error);
-                    console.error('Error name:', error.name);
-                    console.error('Error message:', error.message);
-                    console.error('Error stack:', error.stack);
-                });
-        }
-    };
-
-    const initializePlayButton = () => {
-        const playButton = document.getElementById('play-button');
-        if (playButton) {
-            //console.log('Play button found and initialized');
-            playButton.addEventListener('click', () => {
-                const version = getCookie('version');
-                if (version) {
-                    loadVersionContent(version); 
-                } else {
-                    console.error('Version not found in cookies! :(');
-                }
-            });
-        } else {
-            console.error('Play button not found :(');
-            setTimeout(initializePlayButton, 100);
-        }
-    };
-
-    loadSettings();
     const themeSelector = document.getElementById('theme-selector');
     if (themeSelector) {
         themeSelector.addEventListener('change', function() {
@@ -122,6 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
             applyTheme(this.value);
         });
     }
+
     loadPage('home');
-    //initializePlayButton();
 });
