@@ -31,6 +31,8 @@ const loadPage = (page) => {
             content.innerHTML = html;
             if (page === 'home') {
                 initializePlayButton();
+            } else if (page === 'settings') {
+                initializeSettingsPage();
             }
         })
         .catch(error => console.error('Error loading page:', error));
@@ -67,27 +69,44 @@ const loadVersionContent = (version) => {
         });
 };
 
+const initializeSettingsPage = () => {
+    const versionSelector = document.getElementById('version-selector');
+    const themeSelector = document.getElementById('theme-selector');
+    const clientTheme18Selector = document.getElementById('client-theme-1.8');
+    const clientTheme15Selector = document.getElementById('client-theme-1.5');
+
+    if (versionSelector) {
+        versionSelector.value = getCookie('version') || 'Release 1.8.8';
+        versionSelector.addEventListener('change', function() {
+            setCookie('version', this.value);
+        });
+    }
+
+    if (themeSelector) {
+        themeSelector.value = getCookie('theme') || 'styles/styles.css';
+        themeSelector.addEventListener('change', function() {
+            setCookie('theme', this.value);
+            applyTheme(this.value);
+        });
+    }
+
+    if (clientTheme18Selector) {
+        clientTheme18Selector.value = getCookie('ClientEPK1_8') || 'default-1.8.epk';
+        clientTheme18Selector.addEventListener('change', function() {
+            setCookie('ClientEPK1_8', this.value);
+        });
+    }
+
+    if (clientTheme15Selector) {
+        clientTheme15Selector.value = getCookie('ClientEPK1_5') || 'default-1.5.epk';
+        clientTheme15Selector.addEventListener('change', function() {
+            setCookie('ClientEPK1_5', this.value);
+        });
+    }
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     applyTheme(getCookie('theme') || 'styles/styles.css');
-
-    const loadSettings = () => {
-        if (!getCookie('version')) setCookie('version', 'Release 1.8.8');
-        if (!getCookie('theme')) setCookie('theme', 'styles/styles.css');
-        if (!getCookie('ClientEPK1_8')) setCookie('ClientEPK1_8', 'default-1.8.epk');
-        if (!getCookie('ClientEPK1_5')) setCookie('ClientEPK1_5', 'default-1.5.epk');
-
-        const versionSelector = document.getElementById('version-selector');
-        const themeSelector = document.getElementById('theme-selector');
-        const clientTheme18Selector = document.getElementById('client-theme-1.8');
-        const clientTheme15Selector = document.getElementById('client-theme-1.5');
-
-        if (versionSelector) versionSelector.value = getCookie('version');
-        if (themeSelector) themeSelector.value = getCookie('theme');
-        if (clientTheme18Selector) clientTheme18Selector.value = getCookie('ClientEPK1_8');
-        if (clientTheme15Selector) clientTheme15Selector.value = getCookie('ClientEPK1_5');
-    };
-
-    loadSettings();
 
     const tabs = document.querySelectorAll('nav ul li a');
     tabs.forEach(tab => {
@@ -105,14 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
         });
     });
-
-    const themeSelector = document.getElementById('theme-selector');
-    if (themeSelector) {
-        themeSelector.addEventListener('change', function() {
-            setCookie('theme', this.value);
-            applyTheme(this.value);
-        });
-    }
 
     loadPage('home');
 });
