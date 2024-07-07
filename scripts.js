@@ -1,3 +1,10 @@
+const clientVersions = {
+    'Release 1.8.8': '/1.8/index.html',
+    'Release 1.5.2': '/1.5/index.html',
+    'Beta 1.3': '/1.3/index.html'
+    // Add new versions here in the future
+};
+
 const getCookie = (name) => {
     const nameEQ = name + "=";
     const ca = document.cookie.split(';');
@@ -42,31 +49,26 @@ const initializePlayButton = () => {
     const playButton = document.getElementById('play-button');
     if (playButton) {
         playButton.addEventListener('click', () => {
-            const version = getCookie('version');
-            if (version) {
+            const version = document.getElementById('version-selector').value;
+            if (version && clientVersions[version]) {
                 loadVersionContent(version);
             } else {
-                console.error('Version not found in cookies!');
+                console.error('Invalid version:', version);
+                alert('Please select a valid version in the settings.');
             }
         });
     }
 };
 
 const loadVersionContent = (version) => {
-    const path = version.replace(' ', '-').toLowerCase() + '.html';
-    fetch(path)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.text();
-        })
-        .then(html => {
-            document.body.innerHTML = html;
-        })
-        .catch(error => {
-            console.error('Error loading version content:', error);
-        });
+    const path = clientVersions[version];
+    if (!path) {
+        console.error('Unknown version:', version);
+        alert('This version is not available. Please select a different version in the settings.');
+        return;
+    }
+
+    window.location.href = path;
 };
 
 const initializeSettingsPage = () => {
@@ -76,7 +78,14 @@ const initializeSettingsPage = () => {
     const clientTheme15Selector = document.getElementById('client-theme-1.5');
 
     if (versionSelector) {
-        versionSelector.value = getCookie('version') || 'Release 1.8.8';
+        versionSelector.innerHTML = ''; // Clear existing options
+        Object.keys(clientVersions).forEach(version => {
+            const option = document.createElement('option');
+            option.value = version;
+            option.textContent = version;
+            versionSelector.appendChild(option);
+        });
+        versionSelector.value = getCookie('version') || Object.keys(clientVersions)[0];
         versionSelector.addEventListener('change', function() {
             setCookie('version', this.value);
         });
