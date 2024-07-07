@@ -71,7 +71,79 @@ const loadVersionContent = (version) => {
         return;
     }
 
-    window.location.href = path;
+    fetch(path)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(html => {
+            // Replace the entire body with the new content
+            document.body.innerHTML = html;
+
+            // Add the return button
+            const returnButton = document.createElement('div');
+            returnButton.innerHTML = `
+                <style>
+                    #return-button {
+                        position: fixed;
+                        top: 10px;
+                        left: 10px;
+                        z-index: 9999;
+                        width: 30px;
+                        height: 30px;
+                        background-color: rgba(0, 0, 0, 0.5);
+                        border-radius: 5px;
+                        cursor: pointer;
+                        overflow: hidden;
+                        transition: width 0.3s ease;
+                    }
+                    #return-button:hover {
+                        width: 150px;
+                    }
+                    #return-button::before {
+                        content: '↖';
+                        font-size: 20px;
+                        color: white;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                    #return-button::after {
+                        content: 'Back to Launcher';
+                        color: white;
+                        position: absolute;
+                        top: 50%;
+                        left: 40px;
+                        transform: translateY(-50%);
+                        white-space: nowrap;
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+                    }
+                    #return-button:hover::after {
+                        opacity: 1;
+                    }
+                </style>
+                <div id="return-button"></div>
+            `;
+            document.body.appendChild(returnButton);
+
+            document.getElementById('return-button').addEventListener('click', () => {
+                location.reload();
+            });
+
+            // Run any scripts that were in the loaded HTML
+            const scripts = document.body.getElementsByTagName('script');
+            for (let script of scripts) {
+                eval(script.innerHTML);
+            }
+        })
+        .catch(error => {
+            console.error('Error loading version content:', error);
+            alert('Failed to load the game. Please try again.');
+        });
 };
 
 const initializeSettingsPage = () => {
