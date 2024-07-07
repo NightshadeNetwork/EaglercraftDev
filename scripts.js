@@ -49,7 +49,10 @@ const initializePlayButton = () => {
     const playButton = document.getElementById('play-button');
     if (playButton) {
         playButton.addEventListener('click', () => {
-            const version = document.getElementById('version-selector').value;
+            let version = getCookie('version');
+            if (!version || !clientVersions[version]) {
+                version = Object.keys(clientVersions)[0];
+            }
             if (version && clientVersions[version]) {
                 loadVersionContent(version);
             } else {
@@ -85,7 +88,8 @@ const initializeSettingsPage = () => {
             option.textContent = version;
             versionSelector.appendChild(option);
         });
-        versionSelector.value = getCookie('version') || Object.keys(clientVersions)[0];
+        const savedVersion = getCookie('version');
+        versionSelector.value = clientVersions[savedVersion] ? savedVersion : Object.keys(clientVersions)[0];
         versionSelector.addEventListener('change', function() {
             setCookie('version', this.value);
         });
