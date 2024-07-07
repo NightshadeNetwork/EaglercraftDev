@@ -3,6 +3,9 @@ main {
     padding: 20px;
     box-sizing: border-box;
 }
+aside h2 {
+    color: #fff;
+}
 #play-button,
 button,
 nav ul li a.active,
