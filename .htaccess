@@ -130,7 +130,7 @@ LimitRequestBody 10240000
     ServerSignature Off
 
     # Set cache control for static assets
-    <FilesMatch "\.(html|htm|css|js|jpg|jpeg|png|gif|ico)$">
+    <FilesMatch "\.(jpg|jpeg|png|gif|ico)$">
         Header set Cache-Control "max-age=86400, public"
     </FilesMatch>
 </IfModule>
