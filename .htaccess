@@ -111,7 +111,14 @@ LimitRequestBody 10240000
     Header unset Server
     Header always unset X-Powered-By
     ServerSignature Off
+
     <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "max-age=0, private, no-cache, no-store, must-revalidate"
+    </FilesMatch>
+    <FilesMatch "\.(css)$">
+        Header set Cache-Control "max-age=0, private, no-cache, no-store, must-revalidate"
+    </FilesMatch>
+    <FilesMatch "\.(js)$">
         Header set Cache-Control "max-age=0, private, no-cache, no-store, must-revalidate"
     </FilesMatch>
 </IfModule>
