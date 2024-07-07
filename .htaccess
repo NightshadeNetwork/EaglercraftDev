@@ -13,8 +13,8 @@ RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
 # Testing no scripts and styles from the browser
-RewriteCond %{HTTP_REFERER} !^https?://(www\.)?eaglercraft\.dev [NC]
-RewriteRule ^(scripts\.js|styles/) / [L,R=302]
+# RewriteCond %{HTTP_REFERER} !^https?://(www\.)?eaglercraft\.dev [NC]
+# RewriteRule ^(scripts\.js|styles/) / [L,R=302]
 
 # Allow access to common web files and directory-like URLs
 RewriteCond %{REQUEST_URI} !\.(js|css|epk|jpg|jpeg|png|gif|ico|svg|webp|html|xml|txt|mc)$ [NC]
