@@ -84,12 +84,6 @@ ErrorDocument 508 /errors/5xx.html
 ErrorDocument 510 /errors/5xx.html
 ErrorDocument 511 /errors/5xx.html
 
-<Directory "/errors">
-    Options -Indexes
-    AllowOverride None
-    Require all granted
-</Directory>
-
 RewriteCond %{HTTP_REFERER} !^$
 RewriteCond %{HTTP_REFERER} !^https?://(www\.)?eaglercraft\.dev [NC]
 RewriteRule \.(jpg|jpeg|png|gif)$ - [NC,F,L]
