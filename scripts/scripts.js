@@ -23,7 +23,7 @@ const applyTheme = (theme) => {
     }
 };
 
-applyTheme(getCookie('theme') || '/styles/styles.css');
+applyTheme(getCookie('theme') || '/styles/default-modern.css');
 document.addEventListener('DOMContentLoaded', function() {
 
     const loadSettings = () => {
@@ -151,11 +151,11 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'Alpha 1.2.6':
                 path = './1.2/index.html';
                 break;
-            case 'Indev':
-                path = './Indev/index.html';
-                break;
             case 'Infdev':
                 path = './Infdev/index.html';
+                break;
+            case 'Indev':
+                path = './Indev/index.html';
                 break;
             default:
                 path = './1.8/index.html'
