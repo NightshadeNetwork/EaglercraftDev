@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'Release 1.5.2':
                 path = './1.5/index.html';
                 break;
-            case 'Beta 1.3.':
+            case 'Beta 1.3':
                 path = './1.3/index.html';
                 break;
             case 'Alpha 1.2.6':
