@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const loadSettings = () => {
         if (!getCookie('version')) setCookie('version', 'Release 1.8.8');
-        if (!getCookie('theme')) setCookie('theme', 'styles/styles.css');
+        if (!getCookie('theme')) setCookie('theme', '/styles/default-modern.css');
         if (!getCookie('ClientEPK1_8')) setCookie('ClientEPK1_8', 'default-1.8.epk');
         if (!getCookie('ClientEPK1_5')) setCookie('ClientEPK1_5', 'default-1.5.epk');
 
