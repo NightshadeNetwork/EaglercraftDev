@@ -23,7 +23,7 @@ const applyTheme = (theme) => {
     }
 };
 
-applyTheme(getCookie('theme') || 'styles/styles.css');
+applyTheme(getCookie('theme') || '/styles/styles.css');
 document.addEventListener('DOMContentLoaded', function() {
 
     const loadSettings = () => {
@@ -190,7 +190,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const initializePlayButton = () => {
         const playButton = document.getElementById('play-button');
         if (playButton) {
-            //console.log('Play button found and initialized');
             playButton.addEventListener('click', () => {
                 const version = getCookie('version');
                 if (version) {
@@ -201,7 +200,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         } else {
             console.error('Play button not found :(');
-            setTimeout(initializePlayButton, 100);
         }
     };
 
@@ -214,5 +212,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     loadPage('home');
-    //initializePlayButton();
+    initializePlayButton();
 });

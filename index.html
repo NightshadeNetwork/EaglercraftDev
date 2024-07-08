@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eaglercraft Launcher | eaglercraft.dev</title>
     <link rel="stylesheet" href="styles/styles.css" id="theme-stylesheet">
-    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="icon" href="/images/logo.webp" type="image/png">
     <meta name="author" content="therealserver">
     <meta name="description" content="Launcher for Eaglercraft, a free 1.8, 1.5, and 1.3 Minecraft Java Edition version for your browser. Even supports mobile!">
     <meta name="keywords" content="eaglercraft, free minecraft, cracked minecraft, online minecraft, eaglercraftx, minecraft web, eaglercraft epk, eaglercraft minecraft, eaglercraft 3kh0, eaglercraft github, eaglercraft singleplayer, eaglercraft hacks, eaglercraft server, eaglecraft game, eaglercraft client, eagler, eaglercraft download">
@@ -32,36 +32,37 @@
             "description": "Launcher for Eaglercraft, a 1.8, 1.5, and 1.3 Minecraft Java Edition version for your browser. Even supports mobile!",
             "keywords": ["eaglercraft","eaglercraftx","minecraft web","eagtek","eaglercraft epk","eaglercraft minecraft","eaglercraft 3kh0","eaglercraft github","eaglercraft singleplayer","eaglercraft hacks","eaglercraft server","eaglecraft game","eaglercraft download"]        }
     </script>
-    <script src="/scripts/scripts.js"></script>
-</head>
-<body>
-<div id="launcher">
-    <aside>
-        <h2>Eaglercraft</h2>
-        <img src="logo.png" alt="Minecraft Logo" id="logo">
-        <nav>
-            <ul>
-                <li><a href="#" id="home-tab" class="active">Home</a></li>
-                <li><a href="#" id="news-tab">News</a></li>
-                <li><a href="#" id="settings-tab">Settings</a></li>
-                <li><a href="https://eaglercraft.dev/about" target="_blank" id="about-tab">About &#8599;</a></li>
-                <li><a href="https://discord.eaglercraft.dev/" target="_blank" id="discord-tab">Discord &#8599;</a></li>
-                <li><a href="https://reddit.eaglercraft.dev/" target="_blank" id="reddit-tab">Reddit &#8599;</a></li>
-            </ul>
-        </nav>
-    </aside>
-    <main>
-        <div id="home" class="content active">
-            <h1>Eaglercraft Launcher</h1>
-            <p>Enjoy playing Minecraft in your browser!</p>
-            <button id="play-button">Play Now</button>
+        <script src="/scripts/scripts.js"></script>
+    </head>
+    <body>
+    <div id="launcher">
+        <aside>
+            <h2>Eaglercraft</h2>
+            <img src="/images/logo.webp" alt="Minecraft Logo" id="logo">
+            <nav>
+                <ul>
+                    <li><a href="#" id="home-tab" class="active">Home</a></li>
+                    <li><a href="#" id="news-tab">News</a></li>
+                    <li><a href="#" id="settings-tab">Settings</a></li>
+                    <li><a href="https://eaglercraft.dev/about" target="_blank" id="about-tab">About &#8599;</a></li>
+                    <li><a href="https://discord.eaglercraft.dev/" target="_blank" id="discord-tab">Discord &#8599;</a></li>
+                    <li><a href="https://reddit.eaglercraft.dev/" target="_blank" id="reddit-tab">Reddit &#8599;</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="main-content">
+            <main>
+                <div id="home" class="content active"></div>
+                <div id="news" class="content"></div>
+                <div id="settings" class="content"></div>
+            </main>
+            <div id="play-bar">
+                <button id="play-button">Play Now</button>
+            </div>
         </div>
-        <div id="news" class="content"></div>
-        <div id="settings" class="content"></div>
-    </main>
-</div>
+    </div>
     <footer class="footer">
         <a href="https://eaglercraft.dev/about" target="_blank" title="About Eaglercraft Launcher">Copyright &copy; 2024 ServerSo (therealserver) &amp; Nightshade Systems, All Rights Reserved. &#8599;</a> 
     </footer>
-</body>
-</html>
+    </body>
+    </html>
