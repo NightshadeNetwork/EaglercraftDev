@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (clientTheme18Selector) clientTheme18Selector.value = getCookie('ClientEPK1_8');
         if (clientTheme15Selector) clientTheme15Selector.value = getCookie('ClientEPK1_5');
 
-        applyTheme(getCookie('theme') || 'styles/styles.css');
+        applyTheme(getCookie('theme') || '/styles/default-modern.css');
     };
 
     const saveSettings = () => {
