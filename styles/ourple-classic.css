@@ -8,12 +8,6 @@ aside h2 {
 }
 #play-button,
 button,
-nav ul li a.active,
-nav ul li a:hover {
-    background-color: #00b894;
-}
-#play-button,
-button,
 nav ul li a {
     color: #fff;
     transition: background-color 0.3s;
@@ -27,8 +21,10 @@ body,
 h1,
 h2,
 h3,
-html {
-    color: #2d3436;
+html,
+input,
+select {
+    color: #e0e0e0;
 }
 .content.active,
 nav ul li a {
@@ -39,11 +35,11 @@ html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #dfe6e9;
+    background-color: #20002c;
 }
 aside {
     width: 200px;
-    background-color: #3d4e56;
+    background-color: #290036;
     color: #fff;
 }
 #logo {
@@ -58,12 +54,15 @@ nav ul {
 nav ul li a {
     text-decoration: none;
     padding: 10px;
-    background-color: #4a5b67;
-    border-radius: 5px;
+    background-color: #3d004c;
+}
+nav ul li a.active,
+nav ul li a:hover {
+    background-color: #506;
 }
 main {
     flex-grow: 1;
-    background-color: #f0f0f0;
+    background-color: #250033;
     overflow-y: auto;
     padding-bottom: 60px;
 }
@@ -72,29 +71,33 @@ main {
 }
 #play-button,
 button {
+    background-color: #6a00a1;
     border: none;
     padding: 10px 20px;
     font-size: 18px;
-    border-radius: 5px;
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s;
 }
-#play-button:hover,
-button:hover {
-    background-color: #097;
-}
+#client-themes,
 input,
 select {
     padding: 10px;
-    border: 1px solid #bdc3c7;
-    border-radius: 5px;
+    border: 1px solid #3d004c;
+}
+#play-button:hover,
+button:hover {
+    background-color: #7f00c2;
+}
+input,
+select {
     font-size: 16px;
     width: calc(100% - 22px);
+    background-color: #405;
 }
 input:focus,
 select:focus {
-    border-color: #00b894;
+    border-color: #506;
     outline: 0;
 }
 #settings {
@@ -106,6 +109,7 @@ select:focus {
 #settings label {
     font-weight: 700;
     margin-bottom: 5px;
+    color: #e0e0e0;
 }
 #settings button {
     align-self: flex-end;
@@ -115,8 +119,15 @@ p {
     line-height: 1.6;
 }
 @media (max-width: 600px) {
+    #settings,
     aside {
         width: 100%;
+    }
+    #settings,
+    main {
+        padding: 10px;
+    }
+    aside {
         height: auto;
     }
 }
@@ -130,9 +141,8 @@ p {
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: #2c2c2c;
-    border: 1px solid #444;
-    border-radius: 5px;
+    background-color: #2c002f;
+    border: 1px solid #3d004c;
     padding: 15px;
     width: 250px;
     z-index: 1000;
@@ -147,26 +157,24 @@ p {
     display: block;
     margin-top: 10px;
     margin-bottom: 5px;
-    color: #e0e0e0;
+    color: #ddd;
 }
 #launcher-settings select,
 #client-settings select {
     width: 100%;
     padding: 5px;
     margin-bottom: 10px;
-    border: 1px solid #444;
-    border-radius: 3px;
-    background-color: #596c76;
-    color: #e0e0e0;
+    border: 1px solid #3d004c;
+    background-color: #3d004c;
+    color: #ddd;
 }
 #client-settings {
     margin-top: 20px;
-    border: 1px solid #4a5b67;
-    border-radius: 5px;
+    border: 1px solid #3d004c;
     padding: 15px;
     width: 450px;
-    background-color: #3d4e56;
-    color: #fff;
+    background-color: #290036;
+    color: #e0e0e0;
 }
 #client-settings h3 {
     margin-top: 0;
@@ -178,17 +186,17 @@ p {
     font-size: 0.8em;
     text-align: center;
     padding: 10px;
-    background-color: #3d4e56;
-    color: #fff;
+    background-color: #290036;
+    color: #e0e0e0;
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    border-top: 1px solid #4a5b67;
+    border-top: 1px solid #3d004c;
     z-index: 1001;
 }
 .footer a {
-    color: #fff;
+    color: #e0e0e0;
     text-decoration: none;
 }
 .main-content {
@@ -199,25 +207,21 @@ p {
 #play-bar {
     position: fixed;
     bottom: 40px;
-    left: 200px;
-    right: 0;
-    background-color: #f0f0f0;
+    right: 20px;
+    background-color: #250033;
     padding: 10px;
     z-index: 1000;
-    display: flex;
-    justify-content: flex-end;
 }
 #play-button {
-    background-color: #00b894;
+    background-color: #6a00a1;
     border: none;
     padding: 10px 20px;
     font-size: 18px;
-    border-radius: 5px;
     cursor: pointer;
     color: #fff;
 }
 #play-button:hover {
-    background-color: #097;
+    background-color: #7f00c2;
 }
 @media (max-width: 768px) {
     #launcher {

@@ -1,10 +1,18 @@
 User-agent: *
 Allow: /$
+Allow: /sitemap.xml
 Disallow: /
 Disallow: /1.8/
+Disallow: /1.7/
 Disallow: /1.5/
 Disallow: /1.3/
-Disallow: /errors/
+Disallow: /1.2/
+Disallow: /1.3/
+Disallow: /Infdev/
+Disallow: /Indev/
+Disallow: /scripts/
+Disallow: /styles/
+Disallow: /images/
 
 Host: eaglercraft.dev
 Host: blog.eaglercraft.dev
