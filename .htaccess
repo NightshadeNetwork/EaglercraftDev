@@ -29,9 +29,9 @@ RewriteRule . - [F,L]
 # RewriteRule ^(.*)$ $1?%{TIME_YEAR}%{TIME_MON}%{TIME_DAY} [L,R=302,NC]
 
 # Prevent direct access to specific directories
-RewriteCond %{REQUEST_URI} ^/(1\.8|1\.5|1\.3|Indev|Infdev)/ [NC]
-RewriteCond %{HTTP_REFERER} !^https?://(www\.)?eaglercraft\.dev [NC]
-RewriteRule ^ - [R=404,L]
+# RewriteCond %{REQUEST_URI} ^/(1\.8|1\.5|1\.3|Indev|Infdev)/ [NC]
+# RewriteCond %{HTTP_REFERER} !^https?://(www\.)?eaglercraft\.dev [NC]
+# RewriteRule ^ - [R=404,L]
 
 # Allow access only from our domain
 RewriteCond %{REQUEST_URI} ^/(1\.8|1\.5|1\.3|Indev|Infdev)/ [NC]
@@ -114,7 +114,7 @@ Options -Indexes
 LimitRequestBody 10240000
 
 <IfModule mod_headers.c>
-    Header set Content-Security-Policy "default-src 'self'; connect-src 'self' wss:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'self'; form-action 'self'; upgrade-insecure-requests; worker-src 'self' blob:;"
+    Header set Content-Security-Policy "default-src 'self'; connect-src 'self' wss:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; frame-src 'self' https://news.eaglercraft.dev; form-action 'self'; upgrade-insecure-requests; worker-src 'self' blob:;"
     Header always set X-Frame-Options "SAMEORIGIN" env=!CF-Visitor
     Header set X-Content-Type-Options "nosniff" env=!CF-Visitor
     Header set Referrer-Policy "strict-origin-when-cross-origin" env=!CF-Visitor
@@ -124,7 +124,7 @@ LimitRequestBody 10240000
     Header unset Server
     Header always unset X-Powered-By
     ServerSignature Off
-    <FilesMatch "\.(jpg|jpeg|png|gif|ico|css|js)$">
+    <FilesMatch "\.(jpg|jpeg|png|gif|ico|css)$">
         Header set Cache-Control "max-age=86400, public, must-revalidate"
     </FilesMatch>
     # For HTML files, we want the browser to check for updates
@@ -155,3 +155,18 @@ LimitRequestBody 10240000
     SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
     Header append Vary User-Agent env=!dont-vary
 </IfModule>
+
+<FilesMatch "\.js$">
+    # Only allow JavaScript files to be accessed from your domain
+    SetEnvIf Origin "^https?://(www\.)?(eaglercraft\.dev)$" origin_is=$0
+    Header set Access-Control-Allow-Origin %{origin_is}e env=origin_is
+    
+    # Prevent direct access to JavaScript files
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?eaglercraft\.dev/ [NC]
+    RewriteCond %{HTTP_HOST} !^(www\.)?eaglercraft\.dev$ [NC]
+    RewriteRule \.js$ - [F,L]
+    
+    # Disable caching for JavaScript files
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+</FilesMatch>
