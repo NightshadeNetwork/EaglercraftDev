@@ -11,6 +11,7 @@ button,
 nav ul li a.active,
 nav ul li a:hover {
     background-color: #00b894;
+    text-align: center;
 }
 #play-button,
 button,
@@ -45,6 +46,7 @@ aside {
     width: 200px;
     background-color: #3d4e56;
     color: #fff;
+    text-align: center;
 }
 #logo {
     max-width: 100%;
@@ -59,6 +61,7 @@ nav ul li a {
     text-decoration: none;
     padding: 10px;
     background-color: #4a5b67;
+    text-align: center;
     border-radius: 5px;
 }
 main {
@@ -83,6 +86,7 @@ button {
 #play-button:hover,
 button:hover {
     background-color: #097;
+    text-align: center;
 }
 input,
 select {

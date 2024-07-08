@@ -41,6 +41,7 @@ aside {
     width: 200px;
     background-color: #290036;
     color: #fff;
+    text-align: center;
 }
 #logo {
     max-width: 100%;
@@ -55,6 +56,7 @@ nav ul li a {
     text-decoration: none;
     padding: 10px;
     background-color: #3d004c;
+    text-align: center;
 }
 nav ul li a.active,
 nav ul li a:hover {
@@ -88,6 +90,7 @@ select {
 #play-button:hover,
 button:hover {
     background-color: #7f00c2;
+    text-align: center;
 }
 input,
 select {

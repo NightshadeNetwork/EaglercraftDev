@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-	<meta name="description" content="This isn't possible.">
-	<meta name="keywords" content="eaglercraft, eaglercraftx">
-	<title>Eaglercraft Launcher | Eaglercraft 1.8</title>
-	<meta property="og:locale" content="en-US">
-	<meta property="og:type" content="website">
-	<meta property="og:title" content="Eaglercraft Launcher | Eaglercraft 1.8">
-	<meta property="og:description" content="This isn't possible.">
+    <meta name="description" content="This isn't possible.">
+    <meta name="keywords" content="eaglercraft, eaglercraftx">
+    <title>Eaglercraft Launcher | Eaglercraft 1.8</title>
+    <meta property="og:locale" content="en-US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Eaglercraft Launcher | Eaglercraft 1.8">
+    <meta property="og:description" content="This isn't possible.">
     <link rel="icon" href="/images/logo.webp" type="image/webp">
-        <script type="text/javascript" src="/1.8/classes.js"></script>
+    <script type="text/javascript" src="/1.8/classes.js"></script>
+    <script type="text/javascript" src="/1.8/injectUserscript.js"></script>
         <script type="text/javascript">
-            "use strict";
-            window.addEventListener("load", () => {
-                if(document.location.href.startsWith("file:")) {
-                    alert("HTTP please, do not open this file locally, run a local HTTP server and load it via HTTP");
-                }else {                    
-                    const relayId = Math.floor(Math.random() * 3);
-                    window.eaglercraftXOpts = {
-                        demoMode: false,
-                        container: "game_frame",
-                        assetsURI: "/1.8/assets/" + getCookieValue('ClientEPK1.8'),
-                        localesURI: "/1.8/lang/",
-                        worldsDB: "worlds",
-                        servers: [
-                            { addr: "wss://us.nightshade.lol", name: "Nightshade Network" }
-                        ],
-                        relays: [
-                            { addr: "wss://relay.deev.is/", comment: "lax1dude relay #1", primary: relayId == 0 },
-                            { addr: "wss://relay.lax1dude.net/", comment: "lax1dude relay #2", primary: relayId == 1 },
-                            { addr: "wss://relay.shhnowisnottheti.me/", comment: "ayunami relay #1", primary: relayId == 2 }
-                        ]
-                    };                    
-                    var q = window.location.search;
-                    if(typeof q === "string" && q.startsWith("?")) {
-                        q = new URLSearchParams(q);
-                        var s = q.get("server");
-                        if(s) window.eaglercraftXOpts.joinServer = s;
-                    }
-                    
-                    main();
-                    
+        "use strict";
+        window.addEventListener("load", () => {
+            if (document.location.href.startsWith("file:")) {
+                alert("HTTP please, do not open this file locally, run a local HTTP server and load it via HTTP");
+            } else {                    
+                const relayId = Math.floor(Math.random() * 3);
+                window.eaglercraftXOpts = {
+                    demoMode: false,
+                    container: "game_frame",
+                    assetsURI: "/1.8/assets/" + getCookieValue('ClientEPK1.8'),
+                    localesURI: "/1.8/lang/",
+                    worldsDB: "worlds",
+                    servers: [
+                        { addr: "wss://us.nightshade.lol", name: "Nightshade Network" }
+                    ],
+                    relays: [
+                        { addr: "wss://relay.deev.is/", comment: "lax1dude relay #1", primary: relayId == 0 },
+                        { addr: "wss://relay.lax1dude.net/", comment: "lax1dude relay #2", primary: relayId == 1 },
+                        { addr: "wss://relay.shhnowisnottheti.me/", comment: "ayunami relay #1", primary: relayId == 2 }
+                    ]
+                };                    
+                var q = window.location.search;
+                if (typeof q === "string" && q.startsWith("?")) {
+                    q = new URLSearchParams(q);
+                    var s = q.get("server");
+                    if (s) window.eaglercraftXOpts.joinServer = s;
                 }
-            });
-            function getCookieValue(name) {
-                const value = `; ${document.cookie}`;
-                const parts = value.split(`; ${name}=`);
-                if (parts.length === 2) return parts.pop().split(';').shift();
-                return 'default-1.8.epk';
+                
+                main();
+                
             }
-
-        </script>
-    </head>
-    <body style="margin:0px;width:100vw;height:100vh;overflow:hidden;" id="game_frame">
-    </body>
+        });
+        function getCookieValue(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return 'default-1.8.epk';
+        }
+    </script>
+</head>
+<body style="margin:0px;width:100vw;height:100vh;overflow:hidden;" id="game_frame">
+</body>
 </html>

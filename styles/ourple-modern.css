@@ -41,6 +41,7 @@ aside {
     width: 200px;
     background-color: #290036;
     color: #fff;
+    text-align: center;
 }
 #logo {
     max-width: 100%;
@@ -54,6 +55,7 @@ nav ul {
 nav ul li a {
     text-decoration: none;
     padding: 10px;
+    text-align: center;
     background-color: #3d004c;
     border-radius: 5px;
 }
