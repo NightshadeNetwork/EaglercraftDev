@@ -138,37 +138,37 @@ document.addEventListener('DOMContentLoaded', function() {
         let path;
         switch (version) {
             case 'Release 1.8.8':
-                path = './1.8/index.html';
+                path = '/1.8/index.html';
                 break;
             case 'Beta 1.7.3':
-                path = './1.7/index.html';
+                path = '/1.7/index.html';
                 break;
             case 'Release 1.5.2':
-                path = './1.5/index.html';
+                path = '/1.5/index.html';
                 break;
             case 'Beta 1.3':
-                path = './1.3/index.html';
+                path = '/1.3/index.html';
                 break;
             case 'Alpha 1.2.6':
-                path = './1.2/index.html';
+                path = '/1.2/index.html';
                 break;
             case 'EaglerForge':
-                path = './EaglerForge/index.html';
+                path = '/EaglerForge/index.html';
                 break;
             case 'Resent 4.0':
-                path = './Resent/index.html';
+                path = '/Resent/index.html';
                 break;
             case 'Shadow 4.0':
-                path = './Shadow/index.html';
+                path = '/Shadow/index.html';
                 break;
             case 'Infdev':
-                path = './Infdev/index.html';
+                path = '/Infdev/index.html';
                 break;
             case 'Indev':
-                path = './Indev/index.html';
+                path = '/Indev/index.html';
                 break;
             default:
-                path = './1.8/index.html'
+                path = '/1.8/index.html'
                 console.error('Unknown version:', version, 'launching 1.8 instead.');
                 break;
         }

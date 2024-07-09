@@ -1,6 +1,6 @@
 function injectMobileUserscript() {
     const script = document.createElement('script');
-    script.src = '/1.8/eaglermobile.user.js';
+    script.src = '/scripts/eaglermobile.user.js';
     script.type = 'text/javascript';
     document.head.appendChild(script);
 }
