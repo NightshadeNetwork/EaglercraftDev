@@ -24,22 +24,9 @@ const applyTheme = (theme) => {
 };
 
 applyTheme(getCookie('theme') || '/styles/default-modern.css');
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleButton = document.getElementById("toggle-button");
-    const sidebar = document.getElementById("sidebar");
-    const icon = toggleButton.querySelector("i");
 
-    toggleButton.addEventListener("click", function() {
-        if (sidebar.classList.contains("collapsed")) {
-            sidebar.classList.remove("collapsed");
-            icon.classList.remove("fa-times");
-            icon.classList.add("fa-bars");
-        } else {
-            sidebar.classList.add("collapsed");
-            icon.classList.remove("fa-bars");
-            icon.classList.add("fa-times");
-        }
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    
     const loadSettings = () => {
         if (!getCookie('version')) setCookie('version', 'Release 1.8.8');
         if (!getCookie('theme')) setCookie('theme', '/styles/default-modern.css');
@@ -153,12 +140,6 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'Release 1.8.8':
                 path = './1.8/index.html';
                 break;
-            case 'EaglerReborn':
-                path = './EaglerReborn/index.html';
-                break;
-            case 'Resent 5.0':
-                path = './Resent/index.html';
-                break;
             case 'Beta 1.7.3':
                 path = './1.7/index.html';
                 break;
@@ -210,16 +191,56 @@ document.addEventListener('DOMContentLoaded', function() {
     const initializePlayButton = () => {
         const playButton = document.getElementById('play-button');
         if (playButton) {
-            playButton.addEventListener('click', () => {
-                const version = getCookie('version');
-                if (version) {
-                    loadVersionContent(version); 
+            playButton.addEventListener('click', (e) => {
+                if (getCookie('AcceptedTerms') !== 'Yes') {
+                    e.preventDefault();
+                    alert('Please accept the terms before playing.');
+                    showTermsOverlay();
                 } else {
-                    console.error('Version not found in cookies! :(');
+                    const version = getCookie('version');
+                    if (version) {
+                        loadVersionContent(version); 
+                    } else {
+                        console.error('Version not found in cookies! :(');
+                    }
                 }
             });
         } else {
             console.error('Play button not found :(');
+        }
+    };
+
+    const showTermsOverlay = () => {
+        const termsOverlay = document.createElement('div');
+        termsOverlay.id = 'terms-overlay';
+        termsOverlay.innerHTML = `
+            <div id="terms-box">
+                <h2>Welcome, User</h2>
+                <p>Before you proceed, please review and accept our:</p>
+                <ul>
+                    <li><a href="/terms/" target="_blank">Terms of Service</a></li>
+                    <li><a href="/privacy/" target="_blank">Privacy Policy</a></li>
+                    <li><a href="/legal/" target="_blank">Legal Disclaimer</a></li>
+                    <li><a href="/credits/" target="_blank">Credits</a></li>
+                </ul>
+                <p>By clicking "Accept", you agree to be bound by these documents.</p>
+                <button id="accept-terms">Accept</button>
+            </div>
+        `;
+        document.body.appendChild(termsOverlay);
+
+        const acceptTermsButton = document.getElementById('accept-terms');
+        if (acceptTermsButton) {
+            acceptTermsButton.addEventListener('click', () => {
+                setCookie('AcceptedTerms', 'Yes', 365);
+                termsOverlay.remove();
+            });
+        }
+    };
+
+    const checkTermsAcceptance = () => {
+        if (getCookie('AcceptedTerms') !== 'Yes') {
+            showTermsOverlay();
         }
     };
 
@@ -233,4 +254,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     loadPage('home');
     initializePlayButton();
+    checkTermsAcceptance();
 });
