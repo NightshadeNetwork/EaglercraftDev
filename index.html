@@ -22,6 +22,7 @@
       <meta name="twitter:description" content="Launcher for Eaglercraft, a 1.8, 1.5, and 1.3 Minecraft Java Edition version for your browser which can run on nearly any device, even a chromebook, phones too!">
       <meta name="twitter:image" content="/images/icon.webp">
       <meta name="twitter:url" content="https://eaglercraft.dev">
+      <link rel="stylesheet" href="/styles/all.min.css">
       <script type="application/ld+json">
          {
            "@context": "https://schema.org",
@@ -72,56 +73,56 @@
             <img src="/images/logo.webp" alt="Minecraft Logo" id="logo" width="126" height="126">
             <nav>
                <ul>
-                  <li><a href="#" id="home-tab" class="active" title="Home page of eaglercraft.dev">Home</a></li>
-                  <li><a href="#" id="news-tab" title="News and more about the eaglercraft.dev project.">News</a></li>
-                  <li><a href="#" id="settings-tab" title="Client and launcher settings.">Settings</a></li>
-                  <li><a href="/about" target="_blank" rel="noopener" id="about-tab" title="About the eaglercraft.dev project.">About</a></li>
-                  <li><a href="https://discord.eaglercraft.dev/" target="_blank" rel="noopener" id="discord-tab" title="Join our official Discord for eaglercraft.dev updates and more!">Discord</a></li>
-                  <li><a href="https://reddit.eaglercraft.dev/" target="_blank" rel="noopener" id="reddit-tab" title="Visit our official subreddit for eaglercraft.dev!">Reddit</a></li>
+                  <li><a href="#" id="home-tab" class="active" title="Home page of eaglercraft.dev"><i class="fas fa-home"></i> Home</a></li>
+                  <li><a href="#" id="news-tab" title="News and more about the eaglercraft.dev project."><i class="fas fa-newspaper"></i> News</a></li>
+                  <li><a href="#" id="settings-tab" title="Client and launcher settings."><i class="fas fa-cog"></i> Settings</a></li>
+                  <li><a href="/about" target="_blank" rel="noopener" id="about-tab" title="About the eaglercraft.dev project."><i class="fas fa-info-circle"></i> About</a></li>
+                  <li><a href="https://discord.eaglercraft.dev/" target="_blank" rel="noopener" id="discord-tab" title="Join our official Discord for eaglercraft.dev updates and more!"><i class="fab fa-discord"></i> Discord</a></li>
+                  <li><a href="https://reddit.eaglercraft.dev/" target="_blank" rel="noopener" id="reddit-tab" title="Visit our official subreddit for eaglercraft.dev!"><i class="fab fa-reddit"></i> Reddit</a></li>
                </ul>
             </nav>
          </aside>
          <div class="main-content">
             <main>
                <div id="home" class="content active"><div>
-    <h1>Welcome to Eaglercraft Launcher</h1>
-    <p>Eaglercraft is an exciting project that brings the beloved Minecraft experience to your browser. With multiple versions available, you can enjoy classic Minecraft gameplay without the need for any downloads or installations.</p>
-    <h2>Features</h2>
-    <ul>
-        <li>Play Minecraft directly in your browser</li>
-        <li>Multiple versions available, including 1.8.8, 1.5.2, and more</li>
-        <li>Customizable themes and settings</li>
-        <li>Cross-platform compatibility</li>
-    </ul>
-    <p>Explore the world of Minecraft like never before with Eaglercraft. Whether you're a seasoned player or new to the game, our browser-based platform offers a seamless and accessible gaming experience.</p>
-</div></div>
+                  <h1>Welcome to Eaglercraft Launcher</h1>
+                  <p>Eaglercraft is an exciting project that brings the beloved Minecraft experience to your browser. With multiple versions available, you can enjoy classic Minecraft gameplay without the need for any downloads or installations.</p>
+                  <h2>Features</h2>
+                  <ul>
+                     <li>Play Minecraft directly in your browser</li>
+                     <li>Multiple versions available, including 1.8.8, 1.5.2, and more</li>
+                     <li>Customizable themes and settings</li>
+                     <li>Cross-platform compatibility</li>
+                  </ul>
+                  <p>Explore the world of Minecraft like never before with Eaglercraft. Whether you're a seasoned player or new to the game, our browser-based platform offers a seamless and accessible gaming experience.</p>
+               </div></div>
                <div id="news" class="content"></div>
                <div id="settings" class="content"></div>
             </main>
             <div id="play-bar">
-                <!-- AddToAny BEGIN -->
-<div align="left" class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="https://eaglercraft.dev" data-a2a-title="Eaglercraft Launcher">
-<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-<a class="a2a_button_email"></a>
-<a class="a2a_button_x"></a>
-<a class="a2a_button_google_gmail"></a>
-<a class="a2a_button_reddit"></a>
-<a class="a2a_button_copy_link"></a>
-<a class="a2a_button_google_classroom"></a>
-</div>
-<script>
-var a2a_config = a2a_config || {};
-a2a_config.onclick = 1;
-a2a_config.num_services = 6;
-</script>
-<script async src="https://static.addtoany.com/menu/page.js"></script>
-            <!-- AddToAny END -->
+               <!-- AddToAny BEGIN -->
+               <div align="left" class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="https://eaglercraft.dev" data-a2a-title="Eaglercraft Launcher">
+                  <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                  <a class="a2a_button_email"></a>
+                  <a class="a2a_button_x"></a>
+                  <a class="a2a_button_google_gmail"></a>
+                  <a class="a2a_button_reddit"></a>
+                  <a class="a2a_button_copy_link"></a>
+                  <a class="a2a_button_google_classroom"></a>
+               </div>
+               <script>
+               var a2a_config = a2a_config || {};
+               a2a_config.onclick = 1;
+               a2a_config.num_services = 6;
+               </script>
+               <script async src="https://static.addtoany.com/menu/page.js"></script>
+               <!-- AddToAny END -->
                <button id="play-button">Play Now</button>
             </div>
          </div>
       </div>
       <footer class="footer">
-         <a href="/about" target="_blank" rel="noopener" title="About Eaglercraft Launcher">Copyright &copy; 2024 ServerSo (therealserver) &amp; Nightshade Systems, All Rights Reserved. &#8599;</a> 
+         <a href="/about" target="_blank" rel="noopener" title="About Eaglercraft Launcher">Copyright &copy; 2024 ServerSo (therealserver) & Nightshade Systems, All Rights Reserved. &#8599;</a> 
       </footer>
    </body>
 </html>
