@@ -152,6 +152,15 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'Alpha 1.2.6':
                 path = './1.2/index.html';
                 break;
+            case 'EaglerForge':
+                path = './EaglerForge/index.html';
+                break;
+            case 'Resent 4.0':
+                path = './Resent/index.html';
+                break;
+            case 'Shadow 4.0':
+                path = './Shadow/index.html';
+                break;
             case 'Infdev':
                 path = './Infdev/index.html';
                 break;
