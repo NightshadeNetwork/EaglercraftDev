@@ -47,48 +47,48 @@ RewriteRule ^(.*)$ $1.html [L]
 RewriteRule ^news/(.*)$ https://news.eaglercraft.dev/$1 [R=301,L]
 
 # Custom Error Pages
-ErrorDocument 400 /errors/400.html
-ErrorDocument 401 /errors/401.html
-ErrorDocument 403 /errors/403.html
-ErrorDocument 404 /errors/404.html
-ErrorDocument 500 /errors/500.html
-ErrorDocument 402 /errors/4xx.html
-ErrorDocument 405 /errors/4xx.html
-ErrorDocument 406 /errors/4xx.html
-ErrorDocument 407 /errors/4xx.html
-ErrorDocument 408 /errors/4xx.html
-ErrorDocument 409 /errors/4xx.html
-ErrorDocument 410 /errors/4xx.html
-ErrorDocument 411 /errors/4xx.html
-ErrorDocument 412 /errors/4xx.html
-ErrorDocument 413 /errors/4xx.html
-ErrorDocument 414 /errors/4xx.html
-ErrorDocument 415 /errors/4xx.html
-ErrorDocument 416 /errors/4xx.html
-ErrorDocument 417 /errors/4xx.html
-ErrorDocument 421 /errors/4xx.html
-ErrorDocument 422 /errors/4xx.html
-ErrorDocument 423 /errors/4xx.html
-ErrorDocument 424 /errors/4xx.html
-ErrorDocument 426 /errors/4xx.html
-ErrorDocument 428 /errors/4xx.html
-ErrorDocument 429 /errors/4xx.html
-ErrorDocument 431 /errors/4xx.html
-ErrorDocument 451 /errors/4xx.html
-ErrorDocument 501 /errors/5xx.html
-ErrorDocument 502 /errors/5xx.html
-ErrorDocument 503 /errors/5xx.html
-ErrorDocument 504 /errors/5xx.html
-ErrorDocument 505 /errors/5xx.html
-ErrorDocument 506 /errors/5xx.html
-ErrorDocument 507 /errors/5xx.html
-ErrorDocument 508 /errors/5xx.html
-ErrorDocument 510 /errors/5xx.html
-ErrorDocument 511 /errors/5xx.html
+ErrorDocument 400 400.html
+ErrorDocument 401 401.html
+ErrorDocument 403 403.html
+ErrorDocument 404 404.html
+ErrorDocument 500 500.html
+ErrorDocument 402 4xx.html
+ErrorDocument 405 4xx.html
+ErrorDocument 406 4xx.html
+ErrorDocument 407 4xx.html
+ErrorDocument 408 4xx.html
+ErrorDocument 409 4xx.html
+ErrorDocument 410 4xx.html
+ErrorDocument 411 4xx.html
+ErrorDocument 412 4xx.html
+ErrorDocument 413 4xx.html
+ErrorDocument 414 4xx.html
+ErrorDocument 415 4xx.html
+ErrorDocument 416 4xx.html
+ErrorDocument 417 4xx.html
+ErrorDocument 421 4xx.html
+ErrorDocument 422 4xx.html
+ErrorDocument 423 4xx.html
+ErrorDocument 424 4xx.html
+ErrorDocument 426 4xx.html
+ErrorDocument 428 4xx.html
+ErrorDocument 429 4xx.html
+ErrorDocument 431 4xx.html
+ErrorDocument 451 4xx.html
+ErrorDocument 501 5xx.html
+ErrorDocument 502 5xx.html
+ErrorDocument 503 5xx.html
+ErrorDocument 504 5xx.html
+ErrorDocument 505 5xx.html
+ErrorDocument 506 5xx.html
+ErrorDocument 507 5xx.html
+ErrorDocument 508 5xx.html
+ErrorDocument 510 5xx.html
+ErrorDocument 511 5xx.html
 
 RewriteCond %{HTTP_REFERER} !^$
 RewriteCond %{HTTP_REFERER} !^https?://(www\.)?eaglercraft\.dev [NC]
-RewriteRule \.(jpg|jpeg|png|gif)$ - [NC,F,L]
+RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [NC,F,L]
 
 # Block access to sensitive files
 <FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
