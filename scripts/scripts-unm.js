@@ -25,7 +25,21 @@ const applyTheme = (theme) => {
 
 applyTheme(getCookie('theme') || '/styles/default-modern.css');
 document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById("toggle-button");
+    const sidebar = document.getElementById("sidebar");
+    const icon = toggleButton.querySelector("i");
 
+    toggleButton.addEventListener("click", function() {
+        if (sidebar.classList.contains("collapsed")) {
+            sidebar.classList.remove("collapsed");
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+        } else {
+            sidebar.classList.add("collapsed");
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-times");
+        }
+    });
     const loadSettings = () => {
         if (!getCookie('version')) setCookie('version', 'Release 1.8.8');
         if (!getCookie('theme')) setCookie('theme', '/styles/default-modern.css');
@@ -138,6 +152,12 @@ document.addEventListener('DOMContentLoaded', function() {
         switch (version) {
             case 'Release 1.8.8':
                 path = './1.8/index.html';
+                break;
+            case 'EaglerReborn':
+                path = './EaglerReborn/index.html';
+                break;
+            case 'Resent 5.0':
+                path = './Resent/index.html';
                 break;
             case 'Beta 1.7.3':
                 path = './1.7/index.html';
