@@ -19,10 +19,9 @@ Disallow: /Indev/
 Disallow: /scripts/
 Disallow: /styles/
 Disallow: /images/
+Sitemap: https://eaglercraft.dev/sitemap.xml
 
 Host: eaglercraft.dev
 Host: blog.eaglercraft.dev
 Host: servers.eaglercraft.dev
 Host: reddit.eaglercraft.dev
-
-Sitemap: https://eaglercraft.dev/sitemap.xml
