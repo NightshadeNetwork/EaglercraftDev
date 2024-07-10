@@ -161,9 +161,6 @@ document.addEventListener('DOMContentLoaded', function() {
             case 'Shadow 4.0':
                 path = '/Shadow/index.html';
                 break;
-            case 'Infdev':
-                path = '/Infdev/index.html';
-                break;
             case 'Indev':
                 path = '/Indev/index.html';
                 break;
