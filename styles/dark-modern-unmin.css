@@ -291,3 +291,32 @@ a:hover {
         transform: translateY(0);
     }
 }
+
+.legal-submenu {
+    display: none;
+    padding-left: 20px;
+}
+
+.legal-submenu.active {
+    display: block;
+}
+
+#legal-tab .fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+#legal-tab.active .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* Adjust the existing styles for the legal submenu items */
+.legal-submenu li a {
+    padding: 5px 10px;
+    font-size: 0.9em;
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+}
+
+.legal-submenu li a:hover {
+    background-color: #4a4a4a;
+}
