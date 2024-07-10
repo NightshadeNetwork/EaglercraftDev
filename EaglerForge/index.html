@@ -5,16 +5,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="EaglercraftX 1.8 test directory HTML page" />
 		<meta name="keywords" content="eaglercraft, eaglercraftx, minecraft, 1.8, 1.8.8" />
-		<title>EaglerForge</title>
-		<meta property="og:locale" content="en-US" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="EaglercraftX 1.8" />
-		<meta property="og:description" content="test directory HTML page" />
-		<link type="image/png" rel="shortcut icon" href="favicon.png" />
-		<script type="text/javascript" src="ModAPI.js"></script>
-                <script type="text/javascript" src="ModLoader.js"></script>
-		<script type="text/javascript" src="ModGUI.js"></script>
-		<script type="text/javascript" src="classes.js"></script>
+		<title>Eaglercraft Launcher | EaglerForge</title>
+		<meta property="og:locale" content="en-US">
+		<link rel="icon" href="/images/logo.webp" type="image/webp">
+		<script type="text/javascript" src="/EaglerForge/ModAPI.js"></script>
+        <script type="text/javascript" src="/EaglerForge/ModLoader.js"></script>
+		<script type="text/javascript" src="/EaglerForge/ModGUI.js"></script>
+		<script type="text/javascript" src="/EaglerForge/classes.js"></script>
 		<script type="text/javascript">
 			"use strict";
 			window.addEventListener("load", () => {
@@ -25,12 +22,12 @@
 					window.eaglercraftXOpts = {
 						demoMode: false,
 						container: "game_frame",
-						assetsURI: "assets.epk",
-						localesURI: "lang/",
+						assetsURI: "/EaglerForge/assets.epk",
+						localesURI: "/EaglerForge/lang/",
 						worldsDB: "worlds",
 						logInvalidCerts: true,
 						servers: [
-							{ addr: "wss://us.nightshade.lol", name: "Nightshade" }
+							{ addr: "wss://us.nightshade.lol", name: "Nightshade Network" }
 						],
 						relays: [
 							{ addr: "wss://relay.deev.is/", comment: "lax1dude relay #1", primary: relayId == 0 },

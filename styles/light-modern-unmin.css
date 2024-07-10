@@ -28,6 +28,7 @@ main {
 button,
 nav ul li a {
     color: #fff;
+    /*transition: background-color 0.3s;*/
 }
 .content.active,
 nav ul li a {
