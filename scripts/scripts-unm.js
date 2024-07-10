@@ -71,18 +71,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const tabs = document.querySelectorAll('nav ul li a');
     const contents = document.querySelectorAll('.content');
+    const legalTab = document.getElementById('legal-tab');
+    const legalSubmenu = document.querySelector('.legal-submenu');
 
     tabs.forEach(tab => {
         tab.addEventListener('click', function(event) {
-            if (this.id === 'about-tab' || this.id === 'discord-tab' || this.id === 'reddit-tab' || this.id === 'legal-tab' || this.id === 'terms-tab' || this.id === 'privacy-tab') {
+            if (this.id === 'about-tab' || this.id === 'discord-tab' || this.id === 'reddit-tab') {
                 return;
             }
 
             event.preventDefault();
-            tabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            const target = tab.id.split('-')[0];
-            loadPage(target);
+            
+            if (this.id === 'legal-tab') {
+                this.classList.toggle('active');
+                legalSubmenu.classList.toggle('active');
+            } else {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const target = tab.id.split('-')[0];
+                loadPage(target);
+            }
         });
     });
 
