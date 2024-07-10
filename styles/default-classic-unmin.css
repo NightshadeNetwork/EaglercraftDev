@@ -22,7 +22,8 @@ nav ul li a {
 #play-button,
 button,
 nav ul li a {
-    transition: background-color 0.3s;
+    /*transition: background-color 0.3s;*/
+    color: #fff;
 }
 #launcher,
 aside,
