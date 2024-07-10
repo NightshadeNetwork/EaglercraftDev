@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 path = '/1.3/index.html';
                 break;
             case 'Alpha 1.2.6':
-                path = '/1.2/index.html';
+                path = '/Alpha-1.2/index.html';
                 break;
             case 'EaglerForge':
                 path = '/EaglerForge/index.html';
