@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Eaglercraft Launcher | Resent Client</title>
-		<meta name="robots" content="noindex, nofollow">
-		<link rel="icon" href="/images/logo.webp" type="image/webp">
-		<script type="textNode/javascript" src="/Resent/classes.js"></script>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Resent 1.8" />
+		<meta name="keywords" content="eaglercraft, eaglercraftx, minecraft, 1.8, 1.8.8, resent, hooman, kone, nitwit, lax1dude" />
+		<title>Resent Client</title>
+		<meta property="og:locale" content="en-US" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Resent 1.8" />
+		<meta property="og:description" content="Resent 1.8" />
+		<link type="image/png" rel="shortcut icon" href="favicon.png" id="favicon"/>
+		<script type="text/javascript" src="./classes.js"></script>
 		<style>
             @font-face {
                 font-family: Aller;
@@ -14,7 +19,7 @@
             }
 			html {
 				font-family: sans-serif;
-				textNode-align: center;
+				text-align: center;
 			}
 
 			*{
@@ -105,7 +110,7 @@
 				background-color: black;
 			}
 		</style>
-		<script type="textNode/javascript">
+		<script type="text/javascript">
 					
 			let versionNum = "";
 			let hasSiteInteractionHappened = false;
@@ -143,7 +148,7 @@
 				let size = Math.round(epkSize/1024/1024);
 				document.getElementById("progress").style.width = (Math.round(progress/size*100)+3.5)+"%";
 				document.getElementById("progresstext").innerText = Math.round(event.loaded/epkSize*10000)/100 + "% " + "(" + Math.round(event.loaded/1024/1024) + "MB" + "/" +  Math.round(epkSize/1024/1024) + "MB)";
-				// why would you need to set the progress textNode in a different function???
+				// why would you need to set the progress text in a different function???
 			}
 
 			function setPatchNum(patchNum){
@@ -289,7 +294,7 @@
 				}
 			}
 		</script>
-		<script type="textNode/javascript">
+		<script type="text/javascript">
 			"use strict";
 			window.addEventListener("load", () => {
 				if(document.location.href.startsWith("file:")) {
@@ -298,10 +303,16 @@
 					const relayId = Math.floor(Math.random() * 3);
 					window.eaglercraftXOpts = {
 						container: "game_frame",
-						assetsURI: "/Resent/assets.epk",
-						localesURI: "/Resent/lang/",
+						assetsURI: "assets.epk",
+						localesURI: "lang/",
 						servers: [
-							{ addr: "wss://us.nightshade.lol/", name: "Nightshade Network" }
+							{ addr: "wss://mc.arch.lol/", name: "ArchMC" },
+							{ addr: "wss://ep.rufan.tech", name: "TimeLegacy"},
+							{ addr: "wss://play.ragexwaternet.online", name: "Water Network"},
+							{ addr: "wss://mc.asspixel.net/", name: "Ass Pixel" },
+							{ addr: "wss://vanillacraft.kones.tech/", name: "VanillaMC Legacy" },
+							{ addr: "wss://clever-teaching.com", name: "Clever Teaching" },
+							{ addr: "wss://ggsmp.net", name: "GG SMP"}
 						],
 						demoMode: false,
 						worldsDB: "worlds",
@@ -358,7 +369,7 @@
 				 
 			</div>
 		
-			<button id="keyboardButton" style="display:none; position: absolute; left: 85vw; top: 0px; font-size: 15px; height: 50px; width: 100px; -webkit-tap-highlight-color: transparent;">Open Keyboard</button>	<input type="textNode" id="fakeKeyboard" style="display:none; position: absolute; top: 0px; left: 85vw; width: 100px; height: 50px; opacity: 0; -webkit-tap-highlight-color: transparent;">
+			<button id="keyboardButton" style="display:none; position: absolute; left: 85vw; top: 0px; font-size: 15px; height: 50px; width: 100px; -webkit-tap-highlight-color: transparent;">Open Keyboard</button>	<input type="text" id="fakeKeyboard" style="display:none; position: absolute; top: 0px; left: 85vw; width: 100px; height: 50px; opacity: 0; -webkit-tap-highlight-color: transparent;">
 			<button id="toggleControls" style="display:none; position: absolute; left: 85vw; top: 50px; font-size: 15px; height: 50px; width: 100px; -webkit-tap-highlight-color: transparent;">Toggle Controls</button>	
 		</body>
 </html>
