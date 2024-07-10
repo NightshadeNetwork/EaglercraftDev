@@ -83,7 +83,7 @@ chat.link.open=
 mInDu'lIj bey' ghun
 chat.link.warning=vay' Davoqqu'be'chugh, 'Internet rarwI'mey DungeHbogh tInaw'Qo'!
 chat.stream.emote=(%s) * %s %s
-chat.stream.textNode=(%s) <%s> %s
+chat.stream.text=(%s) <%s> %s
 chat.type.achievement=%s chav neH bajpu' %s
 commands.ban.success=lon ghot %s
 commands.ban.usage=/ban <pong> [meq ...]
