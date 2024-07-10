@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const legalTab = document.getElementById('legal-tab');
     const legalSubmenu = document.querySelector('.legal-submenu');
 
+
     tabs.forEach(tab => {
         tab.addEventListener('click', function(event) {
             if (this.id === 'about-tab' || this.id === 'discord-tab' || this.id === 'reddit-tab') {
@@ -81,16 +82,35 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             event.preventDefault();
-            
+
             if (this.id === 'legal-tab') {
                 this.classList.toggle('active');
                 legalSubmenu.classList.toggle('active');
+                // Toggle the rotation of the chevron
+                const chevron = this.querySelector('.fa-chevron-down');
+                if (chevron) {
+                    chevron.style.transform = this.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                }
             } else {
                 tabs.forEach(t => t.classList.remove('active'));
                 tab.classList.add('active');
                 const target = tab.id.split('-')[0];
                 loadPage(target);
+
+                legalTab.classList.remove('active');
+                legalSubmenu.classList.remove('active');
+                const legalChevron = legalTab.querySelector('.fa-chevron-down');
+                if (legalChevron) {
+                    legalChevron.style.transform = 'rotate(0deg)';
+                }
             }
+        });
+    });
+
+    const legalSubmenuItems = document.querySelectorAll('.legal-submenu li a');
+    legalSubmenuItems.forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.stopPropagation(); // Trust me I know what I'm doing :)
         });
     });
 
