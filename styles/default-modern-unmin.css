@@ -333,3 +333,6 @@ a:hover {
 .legal-submenu li a:hover {
     background-color: #6a7b87;
 }
+nav ul li:has(> .legal-submenu) {
+    margin-bottom: 15px;
+}
