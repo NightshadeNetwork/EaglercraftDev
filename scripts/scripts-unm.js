@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Toggle the rotation of the chevron
                 const chevron = this.querySelector('.fa-chevron-down');
                 if (chevron) {
-                    chevron.style.transform = this.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                    chevron.style.transform = this.classList.contains('active') ? 'rotate(90deg)' : 'rotate(0deg)';
                 }
             } else {
                 tabs.forEach(t => t.classList.remove('active'));
