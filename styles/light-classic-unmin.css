@@ -114,11 +114,13 @@ button {
     padding: 10px 20px;
     font-size: 18px;
     cursor: pointer;
+    color: #fff;
 }
 #play-button:hover,
 button:hover {
     background-color: #3b9f72;
     text-align: center;
+    color: #fff;
 }
 input,
 select {

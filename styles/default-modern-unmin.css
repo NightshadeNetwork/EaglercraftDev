@@ -105,12 +105,13 @@ button {
     border: none;
     border-radius: 5px;
     text-align: center;
-    transition: background-color 0.3s;
+    color: #fff;
 }
 #play-button:hover,
 button:hover {
     background-color: #097;
     text-align: center;
+    color: #fff;
 }
 input,
 select {

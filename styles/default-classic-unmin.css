@@ -1,11 +1,3 @@
-#play-button,
-.footer a,
-aside,
-aside h2,
-button,
-nav ul li a {
-    color: #fff;
-}
 a,
 body,
 h1,
@@ -19,10 +11,8 @@ a,
 nav ul li a {
     text-decoration: none;
 }
-#play-button,
-button,
-nav ul li a {
-    /*transition: background-color 0.3s;*/
+aside,
+aside h2 {
     color: #fff;
 }
 #launcher,
@@ -36,33 +26,26 @@ main {
     right: 0;
     padding: 10px;
 }
+aside,
+main {
+    padding: 20px;
+}
 #play-button,
 button,
 nav ul li a.active,
 nav ul li a:hover {
     background-color: #00b894;
-}
-#play-button,
-button {
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    cursor: pointer;
-}
-#play-button,
-.footer,
-aside,
-button,
-nav ul li a {
     text-align: center;
-}
-aside,
-main {
-    padding: 20px;
 }
 #play-bar,
 main {
     background-color: #f0f0f0;
+}
+#play-button,
+button,
+nav ul li a {
+    color: #fff;
+    /*transition: background-color 0.3s;*/
 }
 input,
 nav ul li,
@@ -83,6 +66,7 @@ html {
 aside {
     width: 200px;
     background-color: #3d4e56;
+    text-align: center;
 }
 #logo {
     max-width: 100%;
@@ -96,6 +80,7 @@ nav ul {
 nav ul li a {
     padding: 10px;
     background-color: #4a5b67;
+    text-align: center;
 }
 main {
     flex-grow: 1;
@@ -111,10 +96,20 @@ main {
 .larger {
     display: flex;
 }
+#play-button,
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    color: #fff;
+}
 #play-button:hover,
 button:hover {
     background-color: #097;
     text-align: center;
+    color: #fff;
 }
 input,
 select {
@@ -200,11 +195,15 @@ p {
 .footer {
     font-family: "Courier New", Courier, monospace;
     font-size: 0.8em;
+    text-align: center;
     bottom: 0;
-    left: 0;
     padding: 5px;
+    left: 0;
     border-top: 1px solid #4a5b67;
     z-index: 999;
+}
+.footer a {
+    color: #fff;
 }
 .main-content {
     display: flex;
@@ -216,6 +215,11 @@ p {
     left: 200px;
     z-index: 1000;
     justify-content: flex-end;
+}
+#play-button {
+    background-color: #00b894;
+    border: none;
+    color: #fff;
 }
 #play-button:hover {
     background-color: #097;

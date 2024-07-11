@@ -106,7 +106,7 @@ button {
     border: none;
     border-radius: 5px;
     text-align: center;
-    transition: background-color 0.3s;
+    color: #fff;
 }
 #client-themes,
 input,
@@ -117,6 +117,7 @@ select {
 #play-button:hover,
 button:hover {
     background-color: #7f00c2;
+    color: fff;
 }
 input,
 select {
