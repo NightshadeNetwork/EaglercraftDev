@@ -124,8 +124,11 @@ LimitRequestBody 10240000
     Header unset Server
     Header always unset X-Powered-By
     ServerSignature Off
-    <FilesMatch "\.(jpg|jpeg|png|gif|ico|css|webp)$">
+    <FilesMatch "\.(jpg|jpeg|png|gif|ico|webp)$">
         Header set Cache-Control "max-age=86400, public, must-revalidate"
+    </FilesMatch>
+    <FilesMatch "\.css$">
+        Header set Cache-Control "max-age=21600, public, must-revalidate"
     </FilesMatch>
     <FilesMatch "\.(html)$">
         Header set Cache-Control "no-cache, must-revalidate"
