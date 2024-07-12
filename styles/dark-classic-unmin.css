@@ -40,11 +40,18 @@ nav ul li,
 select {
     margin-bottom: 10px;
 }
-input,
-nav ul li a.active,
+nav ul li a {
+    padding: 10px;
+    background-color: #2c2c2c;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    color: #fff;
+}
+
 nav ul li a:hover,
-select {
+nav ul li a.active {
     background-color: #3a3a3a;
+    color: #fff;
 }
 #play-button,
 .footer,
