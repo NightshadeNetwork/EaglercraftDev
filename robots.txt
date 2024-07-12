@@ -9,16 +9,7 @@ Allow: /about/
 Allow: /credits/
 
 Disallow: /
-Disallow: /1.8/
-Disallow: /1.7/
-Disallow: /1.5/
-Disallow: /1.3/
-Disallow: /1.2/
-Disallow: /Alpha-1.2/
-Disallow: /Resent/
-Disallow: /EaglerForge/
-Disallow: /Shadow/
-Disallow: /Indev/
+Disallow: /clients/
 Disallow: /scripts/
 Disallow: /styles/
 Disallow: /images/
