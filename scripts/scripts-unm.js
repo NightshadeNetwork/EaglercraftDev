@@ -166,37 +166,37 @@ document.addEventListener('DOMContentLoaded', function() {
         let path;
         switch (version) {
             case 'Release 1.8.8':
-                path = '/1.8/index.html';
+                path = '/clients/1.8/index.html';
                 break;
             case 'Beta 1.7.3':
-                path = '/1.7/index.html';
+                path = '/clients/1.7/index.html';
                 break;
             case 'Release 1.5.2':
-                path = '/1.5/index.html';
+                path = '/clients/1.5/index.html';
                 break;
             case 'Beta 1.3':
-                path = '/1.3/index.html';
+                path = '/clients/1.3/index.html';
                 break;
             case 'Release 1.2.5':
-                path = '/1.2/index.html';
+                path = '/clients/1.2/index.html';
                 break;
             case 'EaglerForge':
-                path = '/EaglerForge/index.html';
+                path = '/clients/EaglerForge/index.html';
                 break;
             case 'Resent 4.0':
-                path = '/Resent/index.html';
+                path = '/clients/Resent/index.html';
                 break;
             case 'Shadow 4.0':
-                path = '/Shadow/index.html';
+                path = '/clients/Shadow/index.html';
                 break;
             case 'Indev':
-                path = '/Indev/index.html';
+                path = '/clients/Indev/index.html';
                 break;
             case 'Alpha 1.2.6':
-                path = '/Alpha-1.2/index.html';
+                path = '/clients/Alpha-1.2/index.html';
                 break;
             default:
-                path = '/1.8/index.html'
+                path = '/clients/1.8/index.html'
                 console.error('Unknown version:', version, 'launching 1.8 instead.');
                 break;
         }
@@ -255,9 +255,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 <h2>Welcome, User</h2>
                 <p>Before you proceed, please review and accept our:</p>
                 <ul>
-                    <li><a href="/terms/" target="_blank">Terms of Service</a></li>
-                    <li><a href="/privacy/" target="_blank">Privacy Policy</a></li>
-                    <li><a href="/legal/" target="_blank">Legal Disclaimer</a></li>
+                    <li><a href="/terms/" target="_blank">Terms of Service</a></li><br>
+                    <li><a href="/privacy/" target="_blank">Privacy Policy</a></li><br>
+                    <li><a href="/legal/" target="_blank">Legal Disclaimer</a></li><br>
                     <li><a href="/credits/" target="_blank">Credits</a></li>
                 </ul>
                 <p>By clicking "Accept", you agree to be bound by these documents.</p>
