@@ -344,3 +344,10 @@ a:hover {
 nav ul li:has(> .legal-submenu) {
     margin-bottom: 15px;
 }
+a {
+    color: #00b894;
+    transition: color 0.3s;
+}
+a:hover {
+    color: #097;
+}
