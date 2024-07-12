@@ -30,7 +30,8 @@ nav ul li a {
 #play-bar,
 .footer {
     position: fixed;
-    padding: 10px;
+    right: 0;
+    left: 0;
 }
 #play-bar,
 main {
@@ -70,6 +71,9 @@ html {
 aside {
     width: 200px;
     background-color: #290036;
+    width: 200px;
+    text-align: center;
+    padding: 20px;
 }
 #logo {
     max-width: 100%;
@@ -153,19 +157,6 @@ select:focus {
 p {
     line-height: 1.6;
 }
-@media (max-width: 600px) {
-    #settings,
-    aside {
-        width: 100%;
-    }
-    #settings,
-    main {
-        padding: 10px;
-    }
-    aside {
-        height: auto;
-    }
-}
 #launcher {
     display: flex;
     min-height: 100vh;
@@ -240,42 +231,6 @@ p {
     border: none;
     border-radius: 5px;
 }
-@media (max-width: 768px) {
-    .main-content,
-    aside {
-        width: 100%;
-    }
-    aside,
-    main {
-        padding: 10px;
-    }
-    #launcher {
-        flex-direction: column;
-    }
-    aside {
-        height: auto;
-    }
-    aside h2 {
-        font-size: 1.2em;
-    }
-    nav ul li a {
-        padding: 8px;
-        font-size: 0.9em;
-    }
-    #play-bar {
-        left: 0;
-        bottom: 30px;
-    }
-    .footer {
-        font-size: 0.7em;
-        padding: 5px;
-    }
-    #client-settings,
-    #launcher-settings {
-        width: 90%;
-        max-width: none;
-    }
-}
 .larger {
     display: flex;
     justify-content: center;
@@ -305,17 +260,6 @@ a:hover {
     cursor: pointer;
     font-size: 24px;
     color: #fff;
-}
-
-@media (max-width: 768px) {
-    #sidebar {
-        transform: translateY(-100%);
-        width: 100%;
-    }
-
-    #sidebar.collapsed {
-        transform: translateY(0);
-    }
 }
 .legal-submenu {
     display: none;
@@ -353,4 +297,9 @@ a {
 }
 a:hover {
     color: #9b4dff;
+}
+img {
+  display: block;
+  margin: 0 auto;
+  border-radius:5px;
 }

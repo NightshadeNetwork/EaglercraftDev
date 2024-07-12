@@ -1,0 +1,1 @@
+@media (max-width:768px){.main-content,aside{width:100%}aside,main{padding:10px}#launcher{flex-direction:column}aside{top:0;height:auto;z-index:100}aside h2{font-size:1.2em}nav ul li a{padding:8px;font-size:.9em}#play-bar{right:0;bottom:30px}.footer{font-size:.7em;padding:5px}#client-settings,#launcher-settings{width:90%;max-width:none}}
