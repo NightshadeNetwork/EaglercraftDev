@@ -13,6 +13,7 @@ Disallow: /1.8/
 Disallow: /1.7/
 Disallow: /1.5/
 Disallow: /1.3/
+Disallow: /1.2/
 Disallow: /Alpha-1.2/
 Disallow: /Resent/
 Disallow: /EaglerForge/
