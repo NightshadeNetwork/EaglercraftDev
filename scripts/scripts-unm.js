@@ -252,13 +252,13 @@ document.addEventListener('DOMContentLoaded', function() {
         termsOverlay.id = 'terms-overlay';
         termsOverlay.innerHTML = `
             <div id="terms-box">
-                <h2>Welcome, User</h2>
+                <h2>Welcome!</h2>
                 <p>Before you proceed, please review and accept our:</p>
                 <ul>
-                    <li><a href="/terms/" target="_blank">Terms of Service</a></li><br>
-                    <li><a href="/privacy/" target="_blank">Privacy Policy</a></li><br>
-                    <li><a href="/legal/" target="_blank">Legal Disclaimer</a></li><br>
-                    <li><a href="/credits/" target="_blank">Credits</a></li>
+                    <li><a href="/terms/" rel="noopener" target="_blank">Terms of Service</a></li>
+                    <li><a href="/privacy/" rel="noopener" target="_blank">Privacy Policy</a></li>
+                    <li><a href="/legal/" rel="noopener" target="_blank">Legal Disclaimer</a></li>
+                    <li><a href="/credits/" rel="noopener" target="_blank">Credits</a></li>
                 </ul>
                 <p>By clicking "Accept", you agree to be bound by these documents.</p>
                 <button id="accept-terms">Accept</button>

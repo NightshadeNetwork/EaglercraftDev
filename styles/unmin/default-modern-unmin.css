@@ -24,7 +24,7 @@ main {
 .footer {
     position: fixed;
     right: 0;
-    padding: 10px;
+    left: 0;
 }
 aside,
 main {
@@ -73,7 +73,9 @@ html {
 aside {
     width: 200px;
     background-color: #3d4e56;
+    width: 200px;
     text-align: center;
+    padding: 20px;
 }
 #logo {
     max-width: 100%;
@@ -238,42 +240,6 @@ p {
 #play-button:hover {
     background-color: #097;
 }
-@media (max-width: 768px) {
-    .main-content,
-    aside {
-        width: 100%;
-    }
-    aside,
-    main {
-        padding: 10px;
-    }
-    #launcher {
-        flex-direction: column;
-    }
-    aside {
-        height: auto;
-    }
-    aside h2 {
-        font-size: 1.2em;
-    }
-    nav ul li a {
-        padding: 8px;
-        font-size: 0.9em;
-    }
-    #play-bar {
-        left: 0;
-        bottom: 30px;
-    }
-    .footer {
-        font-size: 0.7em;
-        padding: 5px;
-    }
-    #client-settings,
-    #launcher-settings {
-        width: 90%;
-        max-width: none;
-    }
-}
 .larger {
     justify-content: center;
     align-items: center;
@@ -287,11 +253,6 @@ a:hover {
 #sidebar {
     transition: transform 0.3s ease;
 }
-
-#sidebar.collapsed {
-    transform: translateX(-100%);
-}
-
 #toggle-button {
     position: fixed;
     top: 20px;
@@ -302,17 +263,6 @@ a:hover {
     cursor: pointer;
     font-size: 24px;
     color: #fff;
-}
-
-@media (max-width: 768px) {
-    #sidebar {
-        transform: translateY(-100%);
-        width: 100%;
-    }
-
-    #sidebar.collapsed {
-        transform: translateY(0);
-    }
 }
 .legal-submenu {
     display: none;
@@ -350,4 +300,9 @@ a {
 }
 a:hover {
     color: #097;
+}
+img {
+  display: block;
+  margin: 0 auto;
+  border-radius:5px;
 }

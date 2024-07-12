@@ -34,7 +34,7 @@
 }
 #accept-terms {
     background-color: #006400;
-    color: #ffffff;
+    color: #fff;
     border: none;
     padding: 10px 20px;
     margin-top: 20px;
@@ -45,4 +45,7 @@
 }
 #accept-terms:hover {
     background-color: #008000;
+}
+#terms-box li {
+    margin-bottom: 1em;
 }
