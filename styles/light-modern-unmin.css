@@ -82,10 +82,15 @@ nav ul li a {
     padding: 10px;
     background-color: #34495e;
     border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    color: #fff;
 }
-nav ul li a.active,
-nav ul li a:hover {
+
+nav ul li a:hover,
+nav ul li a.active {
     background-color: #1abc9c;
+    color: #fff;
 }
 .main-content {
     display: flex;
