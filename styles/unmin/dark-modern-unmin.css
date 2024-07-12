@@ -92,6 +92,7 @@ nav ul li a {
     padding: 10px;
     background-color: #2c2c2c;
     border-radius: 5px;
+    color: #fff;
 }
 .main-content {
     display: flex;
@@ -325,8 +326,8 @@ a:hover {
 .legal-submenu li a:hover {
     background-color: #4a4a4a;
 }
-nav ul li:has(> .legal-submenu) {
-    margin-bottom: 15px;
+#legal-info-tab {
+    margin-top: 10px;
 }
 a {
     color: #00b894;

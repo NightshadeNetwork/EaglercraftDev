@@ -338,8 +338,8 @@ a:hover {
 .legal-submenu li a:hover {
     background-color: #5d0076;
 }
-nav ul li:has(> .legal-submenu) {
-    margin-bottom: 15px;
+#legal-info-tab {
+    margin-top: 10px;
 }
 a {
     color: #8a2be2;
