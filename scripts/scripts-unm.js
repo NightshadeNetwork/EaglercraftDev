@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     tabs.forEach(tab => {
         tab.addEventListener('click', function(event) {
-            if (this.id === 'about-tab' || this.id === 'discord-tab' || this.id === 'reddit-tab') {
+            if (this.id === 'about-tab' || this.id === 'discord-tab' || this.id === 'reddit-tab' || this.id === 'terms-tab' || this.id === 'privacy-tab' || this.id === 'legal-info-tab') {
                 return;
             }
 
