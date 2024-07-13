@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const legalSubmenuItems = document.querySelectorAll('.legal-submenu li a');
     legalSubmenuItems.forEach(item => {
         item.addEventListener('click', function(event) {
-            event.stopPropagation(); // Trust me I know what I'm doing :)
+            event.stopPropagation();
         });
     });
 
