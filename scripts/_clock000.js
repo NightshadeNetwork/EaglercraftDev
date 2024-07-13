@@ -8,5 +8,3 @@ const obfuscatedConfig = btoa(JSON.stringify(spotifyConfig));
 window.getSpotifyConfig = function() {
     return JSON.parse(atob(obfuscatedConfig));
 };
-
-// server guy was here don't take my super secret client id :(
