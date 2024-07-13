@@ -8,12 +8,12 @@ Allow: /terms/
 Allow: /about/
 Allow: /credits/
 Allow: /articles/
+Allow: /images/
 
 Disallow: /
 Disallow: /clients/
 Disallow: /scripts/
 Disallow: /styles/
-Disallow: /images/
 Sitemap: https://eaglercraft.dev/sitemap.xml
 
 Host: eaglercraft.dev
