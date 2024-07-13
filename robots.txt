@@ -7,6 +7,7 @@ Allow: /privacy/
 Allow: /terms/
 Allow: /about/
 Allow: /credits/
+Allow: /articles/
 
 Disallow: /
 Disallow: /clients/
@@ -17,5 +18,4 @@ Sitemap: https://eaglercraft.dev/sitemap.xml
 
 Host: eaglercraft.dev
 Host: discord.eaglercraft.dev
-Host: news.eaglercraft.dev
 Host: reddit.eaglercraft.dev
