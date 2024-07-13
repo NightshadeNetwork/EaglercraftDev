@@ -1,6 +1,6 @@
-// Spotify API credentials
-const CLIENT_ID = 'YOUR_SPOTIFY_CLIENT_ID';
-const REDIRECT_URI = 'YOUR_REDIRECT_URI';
+const config = window.getSpotifyConfig();
+const CLIENT_ID = config.clientId;
+const REDIRECT_URI = config.redirectUri;
 
 // Spotify Web Player SDK
 let player;
@@ -58,25 +58,36 @@ function setDeviceId(deviceId) {
 
 // Update the player UI based on the current state
 function updatePlayerUI(state) {
-  if (!state) return;
+    if (!state) return;
 
-  const trackInfo = document.getElementById('track-info');
-  if (state.track_window.current_track) {
-    const track = state.track_window.current_track;
-    trackInfo.textContent = `Now playing: ${track.name} by ${track.artists[0].name}`;
-  } else {
-    trackInfo.textContent = 'No track currently playing';
-  }
+    const trackInfo = document.getElementById('track-info');
+    if (state.track_window.current_track) {
+        const track = state.track_window.current_track;
+        trackInfo.textContent = `${track.name} - ${track.artists[0].name}`;
+    } else {
+        trackInfo.textContent = 'No track currently playing';
+    }
 
-  const playButton = document.getElementById('spotify-play');
-  playButton.textContent = state.paused ? 'Play' : 'Pause';
+    const playButton = document.getElementById('spotify-play');
+    const playIcon = playButton.querySelector('i');
+    if (state.paused) {
+        playIcon.classList.remove('fa-pause');
+        playIcon.classList.add('fa-play');
+    } else {
+        playIcon.classList.remove('fa-play');
+        playIcon.classList.add('fa-pause');
+    }
 }
 
 // Authenticate with Spotify
 function authenticateSpotify() {
-  const scopes = 'streaming user-read-email user-read-private';
-  window.location = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=${encodeURIComponent(scopes)}&response_type=token`;
+    const config = window.getSpotifyConfig();
+    const scopes = 'streaming user-read-email user-read-private';
+    window.location = `https://accounts.spotify.com/authorize?client_id=${config.clientId}&redirect_uri=${encodeURIComponent(config.redirectUri)}&scope=${encodeURIComponent(scopes)}&response_type=token`;
 }
+
+// And when you need to use the token:
+const accessToken = localStorage.getItem('spotify_access_token');
 
 // Play a track
 function playTrack(trackUri) {
@@ -101,3 +112,38 @@ document.getElementById('spotify-previous').addEventListener('click', () => play
 const script = document.createElement('script');
 script.src = 'https://sdk.scdn.co/spotify-player.js';
 document.body.appendChild(script);
+
+// Get the player and minimize button elements
+const player = document.getElementById('spotify-player');
+const minimizeButton = document.getElementById('spotify-minimize');
+
+// Function to toggle minimize state
+function toggleMinimize() {
+    player.classList.toggle('minimized');
+
+    // Change the icon and title based on the current state
+    if (player.classList.contains('minimized')) {
+        minimizeButton.innerHTML = '<i class="fas fa-music"></i>';
+        minimizeButton.title = 'Expand Spotify Player';
+    } else {
+        minimizeButton.innerHTML = '<i class="fas fa-minus"></i>';
+        minimizeButton.title = 'Minimize Spotify Player';
+    }
+}
+
+// Add click event listener to the minimize button
+minimizeButton.addEventListener('click', toggleMinimize);
+
+// Optional: Minimize player when clicking outside
+document.addEventListener('click', function(event) {
+    const isClickInside = player.contains(event.target);
+
+    if (!isClickInside && !player.classList.contains('minimized')) {
+        toggleMinimize();
+    }
+});
+
+// Prevent player from minimizing when clicking inside it
+player.addEventListener('click', function(event) {
+    event.stopPropagation();
+});

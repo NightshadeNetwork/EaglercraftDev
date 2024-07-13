@@ -68,6 +68,7 @@
          }
       </script>
       <script src="/scripts/scripts.js"></script>
+      <script src="/scripts/_clock000.js"></script>
       <script src="/scripts/spotifyPlayer.js"></script>
       <link rel="stylesheet" href="/fontawesome/css/all.min.css">
       <link rel="stylesheet" href="/styles/blanket.css">
@@ -76,13 +77,18 @@
    </head>
    <body>
    <div id="spotify-player">
-       <button id="spotify-login">Login to Spotify</button>
-       <div>
-           <button id="spotify-previous">⏮</button>
-           <button id="spotify-play">▶/⏸</button>
-           <button id="spotify-next">⏭</button>
+       <button id="spotify-minimize"><i class="fas fa-minus"></i></button>
+       <div id="spotify-content">
+           <button id="spotify-login">
+               <i class="fab fa-spotify"></i> Login to Spotify
+           </button>
+           <div id="spotify-controls">
+               <button id="spotify-previous"><i class="fas fa-step-backward"></i></button>
+               <button id="spotify-play"><i class="fas fa-play"></i></button>
+               <button id="spotify-next"><i class="fas fa-step-forward"></i></button>
+           </div>
+           <div id="track-info">No track playing</div>
        </div>
-       <div id="track-info">No track playing</div>
    </div>
       <div id="launcher">
          <aside id="sidebar">
