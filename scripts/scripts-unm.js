@@ -152,9 +152,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         clientTheme15Selector.addEventListener('change', saveSettings);
                     }
                 }
-                if (page === 'home') {
+                /*if (page === 'home') {
                     initializePlayButton();
-                }
+                }*/
             })
             .catch(error => {
                 contentSection.innerHTML = '<p>Failed to load content.</p>';
