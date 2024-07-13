@@ -1,5 +1,5 @@
 const spotifyConfig = {
-    clientId: 'ca84349ab59149b48ea2a88626fde165',
+    clientId: '',
     redirectUri: 'https://eaglercraft.dev/callback/'
 };
 
