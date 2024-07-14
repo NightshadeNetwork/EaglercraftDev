@@ -8,6 +8,12 @@
     border-radius: 8px;
     padding: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#google_translate_element:hover {
+    background-color: #252525;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
 }
 
 .goog-te-gadget {
@@ -50,7 +56,6 @@
     display: none;
 }
 
-/* Dropdown Styles */
 .goog-te-menu2 {
     background: #1e1e1e !important;
     border: 1px solid #bb86fc !important;
@@ -99,7 +104,6 @@
     color: #e0e0e0;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     #google_translate_element {
         top: 10px;
