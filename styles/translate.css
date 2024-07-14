@@ -1,0 +1,100 @@
+#google_translate_element {
+    --bg-color: rgba(255, 255, 255, 0.1);
+    --text-color: inherit;
+    --hover-bg-color: rgba(255, 255, 255, 0.2);
+    --border-color: rgba(255, 255, 255, 0.3);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+
+    background: var(--bg-color);
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+#google_translate_element:hover {
+    background: var(--hover-bg-color);
+}
+
+.goog-te-gadget {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: var(--text-color) !important;
+}
+
+.goog-te-gadget-simple {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.goog-te-menu-value {
+    color: var(--text-color) !important;
+    text-decoration: none !important;
+    display: flex;
+    align-items: center;
+}
+
+.goog-te-menu-value span {
+    margin-right: 5px;
+}
+
+.goog-te-menu-value span:last-child {
+    display: none;
+}
+
+.goog-te-gadget-icon {
+    display: none;
+}
+
+/* Dropdown Styles */
+.goog-te-menu2 {
+    background: var(--bg-color) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 8px 16px var(--shadow-color) !important;
+    border-radius: 8px !important;
+    padding: 8px 0 !important;
+}
+
+.goog-te-menu2-item div, .goog-te-menu2-item:link div, .goog-te-menu2-item:visited div, .goog-te-menu2-item:active div {
+    color: var(--text-color) !important;
+    background: transparent !important;
+    padding: 8px 16px !important;
+    transition: background 0.2s ease;
+}
+
+.goog-te-menu2-item:hover div {
+    background: var(--hover-bg-color) !important;
+}
+
+.goog-te-menu2-item-selected div {
+    background: var(--hover-bg-color) !important;
+}
+
+/* Adjusting colors based on background */
+@media (prefers-color-scheme: dark) {
+    #google_translate_element {
+        --bg-color: rgba(0, 0, 0, 0.5);
+        --hover-bg-color: rgba(255, 255, 255, 0.1);
+        --border-color: rgba(255, 255, 255, 0.1);
+        --shadow-color: rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #google_translate_element {
+        top: 5px;
+        right: 5px;
+    }
+
+    .goog-te-gadget-simple {
+        font-size: 12px;
+    }
+}
