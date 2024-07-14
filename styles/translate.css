@@ -1,27 +1,19 @@
 #google_translate_element {
-    --bg-color: rgba(255, 255, 255, 0.1);
-    --text-color: inherit;
-    --hover-bg-color: rgba(255, 255, 255, 0.2);
-    --border-color: rgba(255, 255, 255, 0.3);
-    --shadow-color: rgba(0, 0, 0, 0.1);
-
-    background: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #1e1e1e;
     border-radius: 8px;
-    padding: 8px;
-    box-shadow: 0 4px 6px var(--shadow-color);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-}
-
-#google_translate_element:hover {
-    background: var(--hover-bg-color);
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .goog-te-gadget {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
     font-size: 14px;
-    color: var(--text-color) !important;
+    color: #e0e0e0 !important;
 }
 
 .goog-te-gadget-simple {
@@ -35,10 +27,15 @@
 }
 
 .goog-te-menu-value {
-    color: var(--text-color) !important;
+    color: #03dac6 !important;
     text-decoration: none !important;
     display: flex;
     align-items: center;
+    transition: color 0.3s;
+}
+
+.goog-te-menu-value:hover {
+    color: #018786 !important;
 }
 
 .goog-te-menu-value span {
@@ -55,43 +52,58 @@
 
 /* Dropdown Styles */
 .goog-te-menu2 {
-    background: var(--bg-color) !important;
-    border: 1px solid var(--border-color) !important;
-    box-shadow: 0 8px 16px var(--shadow-color) !important;
+    background: #1e1e1e !important;
+    border: 1px solid #bb86fc !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3) !important;
     border-radius: 8px !important;
     padding: 8px 0 !important;
 }
 
 .goog-te-menu2-item div, .goog-te-menu2-item:link div, .goog-te-menu2-item:visited div, .goog-te-menu2-item:active div {
-    color: var(--text-color) !important;
+    color: #e0e0e0 !important;
     background: transparent !important;
     padding: 8px 16px !important;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .goog-te-menu2-item:hover div {
-    background: var(--hover-bg-color) !important;
+    background: #2e2e2e !important;
+    color: #03dac6 !important;
 }
 
 .goog-te-menu2-item-selected div {
-    background: var(--hover-bg-color) !important;
+    background: #2e2e2e !important;
+    color: #03dac6 !important;
 }
 
-/* Adjusting colors based on background */
-@media (prefers-color-scheme: dark) {
-    #google_translate_element {
-        --bg-color: rgba(0, 0, 0, 0.5);
-        --hover-bg-color: rgba(255, 255, 255, 0.1);
-        --border-color: rgba(255, 255, 255, 0.1);
-        --shadow-color: rgba(0, 0, 0, 0.3);
-    }
+/* Style for the language switcher */
+.goog-te-combo {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    background-color: #2e2e2e;
+    color: #e0e0e0;
+    border: 1px solid #bb86fc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.goog-te-combo:focus {
+    border-color: #03dac6;
+    box-shadow: 0 0 0 2px rgba(3, 218, 198, 0.2);
+}
+
+.goog-te-combo option {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     #google_translate_element {
-        top: 5px;
-        right: 5px;
+        top: 10px;
+        right: 10px;
     }
 
     .goog-te-gadget-simple {
