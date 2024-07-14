@@ -1,172 +1,97 @@
-# Setting Up an Apache Web Server for Eaglercraft Launcher
+# EaglercraftDev
 
-## Prerequisites
+Welcome to the **EaglercraftDev** project! Our mission is to offer a safer, faster, and more supportive alternative to the other Eaglercraft communities, particularly **eaglercraft.com**. We aim to create an engaging and secure environment for Eaglercraft enthusiasts.
 
-Before you start, ensure you have the following:
-- A server running a Unix-like OS (e.g., Ubuntu, Debian).
-- Root or sudo access to the server.
-- A registered domain name (`eaglercraft.dev`).
-- A Cloudflare account.
-- A GitHub account with access to the private repository.
-- A GitHub personal access token.
+## Table of Contents
 
-## Step 1: Install Apache Web Server
+- [Introduction](#introduction)
+- [Features](#features)
+- [Getting Started](#getting-started)
+   - [Requirements](#requirements)
+   - [Installation](#installation)
+- [Contributing](#contributing)
+   - [Roles and Requirements](#roles-and-requirements)
+- [Community and Support](#community-and-support)
+- [License](#license)
 
-1. **Update your package index:**
+## Introduction
 
-    ```bash
-    sudo apt update
-    ```
+EaglercraftDev is a community-driven project that focuses on improving the Eaglercraft experience. By leveraging modern development practices, we aim to deliver a platform that is not only enjoyable but also secure and performant. We prioritize user safety, speed, and comprehensive support to ensure that our community members have the best possible experience.
 
-2. **Install Apache:**
+Our official domain is **eaglercraft.dev**. Here, you will find all the necessary resources, support, and updates related to our project.
 
-    ```bash
-    sudo apt install apache2
-    ```
+## Features
 
-3. **Start and enable Apache to run on boot:**
+- **Enhanced Security**: We implement rigorous security measures to protect our users and their data.
+- **Performance Optimization**: Our platform is optimized for speed, ensuring a smooth and responsive experience.
+- **Community Support**: We offer extensive support to our community members through various channels.
+- **Modern Design**: Our themes and user interface are designed to be visually appealing and user-friendly.
+- **Continuous Updates**: We regularly update our platform with new features and improvements based on community feedback.
 
-    ```bash
-    sudo systemctl start apache2
-    sudo systemctl enable apache2
-    ```
+## Getting Started
 
-4. **Verify Apache installation:**
+To get started with EaglercraftDev, follow the steps below.
 
-    Open a web browser and go to your server's IP address. You should see the Apache default welcome page.
+### Requirements
 
-## Step 2: Clone the Eaglercraft Launcher Repository
+- **Operating System**: Any OS that supports WebGL 2.0
+- **Internet Connection**: Required for downloading resources and updates
 
-1. **Install Git if it's not already installed:**
+### Installation
 
-    ```bash
-    sudo apt install git
-    ```
+1. **Visit our website** at EaglercraftDev from our [official website](https://eaglercraft.dev).
+2. **Play or Download** an offline download or the hosted client.
+3. **Join our community** by visiting our [Reddit](https://reddit.eaglercraft.dev/) or [Discord](https://discord.eaglercraft.dev/) for additional support and updates.
 
-2. **Create a directory for your project:**
+## Contributing
 
-    ```bash
-    sudo mkdir -p /var/www/eaglercraft
-    ```
+See our [LICENSE](LICENSE), and if you have permission you can contribute.
+### Roles and Requirements
 
-3. **Clone the private repository using your personal access token:**
+We are looking for individuals to fill the following roles:
 
-    Replace `YOUR_TOKEN` with your GitHub personal access token.
+1. **CSS Developer**
+   - **Skills Required**: Proficiency in CSS, experience with theming
+   - **Role**: Adding new themes to the launcher
+   - **Commitment**: Regular, meaningful contributions to the repository
 
-    ```bash
-    git clone https://YOUR_TOKEN@github.com/NightshadeNetwork/TheOrg.git /var/www/eaglercraft
-    ```
+2. **JavaScript Developer**
+   - **Skills Required**: High-level JavaScript knowledge
+   - **Role**: Various frontend tasks and potential future work with React
+   - **Commitment**: Regular, meaningful contributions to the repository
 
-4. **Set proper permissions:**
+3. **Security Specialist**
+   - **Skills Required**: Expertise in security practices and protocols
+   - **Role**: Ensuring the safety and integrity of the platform
+   - **Commitment**: Regular, meaningful contributions to the repository
 
-    ```bash
-    sudo chown -R www-data:www-data /var/www/eaglercraft
-    sudo chmod -R 755 /var/www/eaglercraft
-    ```
+4. **Eaglercraft Client Developer**
+   - **Skills Required**: Proficiency in developing Eaglercraft clients
+   - **Role**: Developing and maintaining custom Eaglercraft clients
+   - **Commitment**: Regular, meaningful contributions to the repository
 
-## Step 3: Configure Apache for Eaglercraft Launcher
+5. **Community Manager**
+   - **Skills Required**: Excellent communication and organizational skills
+   - **Role**: Engaging with the community and managing support channels
+   - **Commitment**: Regular, meaningful contributions to the repository
 
-1. **Create a new virtual host configuration file:**
+To apply for any of these roles, please email [support@eaglercraft.dev](mailto:support@eaglercraft.dev) with your resume and a brief description of your experience and skills.
 
-    ```bash
-    sudo nano /etc/apache2/sites-available/eaglercraft.conf
-    ```
+## Community and Support
 
-2. **Add the following configuration to the file:**
+Join our community(s) to stay updated on the latest developments, seek support, and engage with fellow Eaglercraft enthusiasts. You can find us on:
 
-    ```apache
-    <VirtualHost *:80>
-        ServerAdmin webmaster@eaglercraft.dev
-        ServerName eaglercraft.dev
-        ServerAlias www.eaglercraft.dev
-        DocumentRoot /var/www/eaglercraft
+- **[Reddit](https://reddit.eaglercraft.dev/)**
+- **[Discord](https://discord.eaglercraft.dev/)**
 
-        <Directory /var/www/eaglercraft>
-            Options Indexes FollowSymLinks
-            AllowOverride All
-            Require all granted
-        </Directory>
+For direct support, you can also email us at [support@eaglercraft.dev](mailto:support@eaglercraft.dev).
 
-        ErrorLog ${APACHE_LOG_DIR}/eaglercraft_error.log
-        CustomLog ${APACHE_LOG_DIR}/eaglercraft_access.log combined
+## License
 
-        <IfModule mod_headers.c>
-            Header always set X-Content-Type-Options "nosniff"
-            Header always set X-Frame-Options "SAMEORIGIN"
-            Header always set X-XSS-Protection "1; mode=block"
-            Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-        </IfModule>
+EaglercraftDev is released under the MIT License. See the [LICENSE](LICENSE) file for more information.
 
-        <IfModule mod_ssl.c>
-            SSLEngine on
-            SSLCertificateFile /etc/ssl/certs/ssl-cert-snakeoil.pem
-            SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
-        </IfModule>
-    </VirtualHost>
-    ```
+**Note:** This repository is private and only open to contributors.
 
-3. **Enable the necessary Apache modules and the new virtual host:**
+---
 
-    ```bash
-    sudo a2enmod rewrite headers ssl
-    sudo a2ensite eaglercraft.conf
-    ```
-
-4. **Reload Apache to apply changes:**
-
-    ```bash
-    sudo systemctl reload apache2
-    ```
-
-## Step 4: Set Up Custom Domain with Cloudflare
-
-1. **Add your domain to Cloudflare:**
-
-    - Log in to your Cloudflare account.
-    - Click on the **Add a Site** button.
-    - Enter your domain name (`eaglercraft.dev`) and click **Begin Scan**.
-    - After the scan, click **Continue Setup**.
-
-2. **Update your domain's nameservers to Cloudflare's nameservers:**
-
-    - Cloudflare will provide two nameservers. Update your domain registrar settings to use these nameservers.
-
-3. **Configure DNS settings:**
-
-    - In the Cloudflare dashboard, go to the DNS tab.
-    - Add a DNS record for your server:
-      - Type: A
-      - Name: @
-      - IPv4 address: Your server's IP address
-      - TTL: Auto
-      - Proxy status: Proxied (orange cloud)
-
-4. **Enable SSL/TLS:**
-
-    - Go to the SSL/TLS tab in the Cloudflare dashboard.
-    - Select **Full** SSL mode for end-to-end encryption.
-
-5. **Verify your setup:**
-
-    - Wait for the DNS changes to propagate (this can take up to 24 hours).
-    - Visit `eaglercraft.dev` in a web browser. You should see your Eaglercraft Launcher project served over HTTPS.
-
-## Step 5: Update Eaglercraft Launcher Using Git
-
-1. **Navigate to your project directory:**
-
-    ```bash
-    cd /var/www/eaglercraft
-    ```
-
-2. **Pull the latest changes from the repository:**
-
-    ```bash
-    git pull https://YOUR_TOKEN@github.com/NightshadeNetwork/TheOrg.git
-    ```
-
-3. **Verify the updates:**
-
-    Reload your site to ensure the updates are applied correctly.
-
-you're done!
+We are excited to have you join us on this journey to create a better Eaglercraft experience. Together, we can make EaglercraftDev the ultimate platform for all Eaglercraft players!
