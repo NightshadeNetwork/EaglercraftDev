@@ -21,3 +21,4 @@ Sitemap: https://discord.eaglercraft.dev/sitemap.xml
 Host: eaglercraft.dev
 Host: discord.eaglercraft.dev
 Host: reddit.eaglercraft.dev
+Host: forum.eaglercraft.dev
