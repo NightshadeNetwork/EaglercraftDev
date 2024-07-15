@@ -291,3 +291,24 @@ img {
   display: block;
   margin: 0 auto;
 }
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f0e6ff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8a2be2;
+    border: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6a0dad;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #8a2be2 #f0e6ff;
+}
