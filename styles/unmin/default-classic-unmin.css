@@ -311,8 +311,7 @@ img {
 }
 ::-webkit-scrollbar-thumb {
     background: #888;
-    border:none;
-    border: 3px solid #f1f1f1;
+    border: none;
 }
 
 ::-webkit-scrollbar-thumb:hover {
