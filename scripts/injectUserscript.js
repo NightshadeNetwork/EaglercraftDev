@@ -1,1 +1,14 @@
-(function(_0x2d8707,_0x4dcbdd){const _0x38062c=_0x36e8,_0x53c2db=_0x2d8707();while(!![]){try{const _0x10f5b1=parseInt(_0x38062c(0xa0))/0x1*(parseInt(_0x38062c(0xa3))/0x2)+-parseInt(_0x38062c(0x9b))/0x3+parseInt(_0x38062c(0x97))/0x4*(parseInt(_0x38062c(0x9d))/0x5)+-parseInt(_0x38062c(0xa2))/0x6+parseInt(_0x38062c(0xa7))/0x7*(-parseInt(_0x38062c(0x9c))/0x8)+-parseInt(_0x38062c(0x9e))/0x9+parseInt(_0x38062c(0x98))/0xa;if(_0x10f5b1===_0x4dcbdd)break;else _0x53c2db['push'](_0x53c2db['shift']());}catch(_0x36544a){_0x53c2db['push'](_0x53c2db['shift']());}}}(_0xf8da,0xf11cb));function injectMobileUserscript(){const _0x381f09=_0x36e8,_0x1adaa4=document[_0x381f09(0xa5)](_0x381f09(0x99));_0x1adaa4[_0x381f09(0xa9)]=_0x381f09(0xa8),_0x1adaa4[_0x381f09(0xa6)]=_0x381f09(0xa1),document[_0x381f09(0xa4)][_0x381f09(0x9f)](_0x1adaa4);}function _0xf8da(){const _0x537fd8=['35833460OaxdqV','script','userAgent','2320785wuKARU','267248qiKHxS','5shgqCI','17326314wzdBLy','appendChild','3781qDFKUw','text/javascript','5253462iqpMeI','1020eDPipT','head','createElement','type','259ZAGmqM','/scripts/eaglermobile.user.js','src','1145116RMWRCt'];_0xf8da=function(){return _0x537fd8;};return _0xf8da();}function _0x36e8(_0x25cd12,_0xe93674){const _0xf8daed=_0xf8da();return _0x36e8=function(_0x36e893,_0x249bd4){_0x36e893=_0x36e893-0x97;let _0x308d51=_0xf8daed[_0x36e893];return _0x308d51;},_0x36e8(_0x25cd12,_0xe93674);}function isMobileDevice(){const _0x56202a=_0x36e8;return/Mobi|Android/i['test'](navigator[_0x56202a(0x9a)]);}isMobileDevice()&&injectMobileUserscript();
+function injectMobileUserscript() {
+    const script = document.createElement('script');
+    script.src = '/scripts/eaglermobile.user.js';
+    script.type = 'text/javascript';
+    document.head.appendChild(script);
+}
+
+function isMobileDevice() {
+    return /Mobi|Android/i.test(navigator.userAgent);
+}
+
+if (isMobileDevice()) {
+    injectMobileUserscript();
+}
