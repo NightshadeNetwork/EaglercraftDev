@@ -236,10 +236,6 @@ a:hover {
     transition: transform 0.3s ease;
 }
 
-#sidebar.collapsed {
-    transform: translateX(-100%);
-}
-
 #toggle-button {
     position: fixed;
     top: 20px;
@@ -305,7 +301,7 @@ a:hover {
 .social-submenu li a:hover {
     background-color: #4a4a4a;
 }
-#social-info-tab {
+#forum-tab, #legal-info-tab {
     margin-top: 10px;
 }
 a {

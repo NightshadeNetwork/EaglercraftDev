@@ -243,10 +243,6 @@ a:hover {
     transition: transform 0.3s ease;
 }
 
-#sidebar.collapsed {
-    transform: translateX(-100%);
-}
-
 #toggle-button {
     position: fixed;
     top: 20px;
@@ -272,7 +268,7 @@ a:hover {
 }
 
 #legal-tab.active .fa-chevron-down {
-    transform: rotate(180deg);
+    transform: rotate(-90deg);
 }
 
 .legal-submenu li a {
@@ -285,8 +281,35 @@ a:hover {
 .legal-submenu li a:hover {
     background-color: #4a4a4a;
 }
-#legal-info-tab {
+#legal-info-tab, #forum-tab {
     margin-top: 10px;
+}
+.social-submenu {
+    display: none;
+    padding-left: 20px;
+}
+
+.social-submenu.active {
+    display: block;
+}
+
+#social-tab .fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+#social-tab.active .fa-chevron-down {
+    transform: rotate(-90eg);
+}
+
+.social-submenu li a {
+    padding: 5px 10px;
+    font-size: 0.9em;
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+}
+
+.social-submenu li a:hover {
+    background-color: #4a4a4a;
 }
 a {
     color: #00b894;

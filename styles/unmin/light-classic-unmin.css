@@ -268,8 +268,35 @@ a:hover {
 .legal-submenu li a:hover {
     background-color: #4d5e66;
 }
-#legal-info-tab {
+#legal-info-tab, #forum-tab {
     margin-top: 10px;
+}
+.social-submenu {
+    display: none;
+    padding-left: 20px;
+}
+
+.social-submenu.active {
+    display: block;
+}
+
+#social-tab .fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+#social-tab.active .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.social-submenu li a {
+    padding: 5px 10px;
+    font-size: 0.9em;
+    background-color: #3d4e56;
+    color: #fff;
+}
+
+.social-submenu li a:hover {
+    background-color: #4d5e66;
 }
 a {
     color: #1abc9c;
