@@ -1,15 +1,4 @@
-#client-settings,
-#settings label,
-.footer,
-.footer a,
-a,
-body,
-h1,
-h2,
-h3,
-html,
-input,
-select {
+#client-settings, #settings label, .footer, .footer a, a, body, h1, h2, h3, html, input, select {
     color: #e0e0e0;
 }
 .footer a,
@@ -277,8 +266,35 @@ a:hover {
 .legal-submenu li a:hover {
     background-color: #5d0076;
 }
-#legal-info-tab {
+#legal-info-tab, #forum-tab {
     margin-top: 10px;
+}
+.social-submenu {
+    display: none;
+    padding-left: 20px;
+}
+
+.social-submenu.active {
+    display: block;
+}
+
+#social-tab .fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+#social-tab.active .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.social-submenu li a {
+    padding: 5px 10px;
+    font-size: 0.9em;
+    background-color: #4d0066;
+    color: #fff;
+}
+
+.social-submenu li a:hover {
+    background-color: #5d0076;
 }
 a {
     color: #8a2be2;
