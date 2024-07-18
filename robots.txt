@@ -8,6 +8,9 @@ Allow: /terms/
 Allow: /about/
 Allow: /credits/
 Allow: /articles/
+Allow: /articles/what-is-eaglercraft/
+Allow: /articles/is-eaglercraft-a-virus/
+Allow: /articles/is-eaglercraft-illegal/
 Allow: /images/
 
 Disallow: /
