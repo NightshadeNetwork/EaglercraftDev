@@ -71,29 +71,10 @@
     <link rel="stylesheet" href="/styles/blanket.css">
     <link rel="stylesheet" href="/styles/overlay.css">
     <link rel="stylesheet" href="/styles/viewports.css">
-    <!--script src="/scripts/autoTranslate.js"></script>
-    <link rel="stylesheet" href="/styles/translate.css">
-    <script src="/scripts/_clock000.js"></script>
-    <script src="/scripts/_clock666.js"></script>
-    <script src="/scripts/spotifyPlayer.js"></script-->
     <link rel="stylesheet" href="/styles/default-modern.css" id="theme-stylesheet">
     <link rel="stylesheet" href="/styles/priority-blanket.css">
 </head>
 <body>
-<!-- spotify player :< div id="spotify-player">
-    <button id="spotify-minimize"><i class="fas fa-minus"></i></button>
-    <div id="spotify-content">
-        <button id="spotify-login">
-            <i class="fab fa-spotify"></i> Login to Spotify
-        </button>
-        <div id="spotify-controls">
-            <button id="spotify-previous"><i class="fas fa-step-backward"></i></button>
-            <button id="spotify-play"><i class="fas fa-play"></i></button>
-            <button id="spotify-next"><i class="fas fa-step-forward"></i></button>
-        </div>
-        <div id="track-info">No track playing</div>
-    </div>
-</div-->
 <div id="launcher">
     <aside id="sidebar">
         <img src="/images/logo126x.webp" title="Eaglercraft Logo" alt="Eaglercraft Logo" id="logo" width="126" height="126">
@@ -103,15 +84,15 @@
                 <li><a href="#" id="home-tab" class="active" title="Home page of eaglercraft.dev"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="#" id="articles-tab" title="Articles relating to the eaglercraft.dev project."><i class="fas fa-newspaper"></i> Articles</a></li>
                 <li><a href="#" id="settings-tab" title="Client and launcher settings."><i class="fas fa-cog"></i> Settings</a></li>
-                <li><a href="/about/" target="_blank" rel="noopener" id="about-tab" title="About the eaglercraft.dev project."><i class="fas fa-info-circle"></i> About <i class="fa-solid fa-up-right-from-square"></i></a></li>
+                <li><a href="/about/" target="_blank" rel="noopener noreferrer" id="about-tab" title="About the eaglercraft.dev project."><i class="fas fa-info-circle"></i> About <i class="fa-solid fa-up-right-from-square"></i></a></li>
                 <li>
                     <a href="#" id="legal-tab" title="Legal information">
                         <i class="fa-solid fa-scale-unbalanced-flip"></i> Legal <i class="fas fa-chevron-down"></i>
                     </a>
                     <ul class="legal-submenu">
-                        <li><a href="/legal/" target="_blank" rel="noopener" id="legal-info-tab" title="Legal info regarding our project."><i class="fa-solid fa-gavel"></i> Legal Info <i class="fa-solid fa-up-right-from-square"></i></a></li>
-                        <li><a href="/terms/" target="_blank" rel="noopener" id="terms-tab" title="Terms of Service for the eaglercraft.dev project."><i class="fa-solid fa-file-contract"></i> Terms <i class="fa-solid fa-up-right-from-square"></i></a></li>
-                        <li><a href="/privacy/" target="_blank" rel="noopener" id="privacy-tab" title="Privacy Policy for the eaglercraft.dev project."><i class="fa-solid fa-user-lock"></i> Privacy <i class="fa-solid fa-up-right-from-square"></i></a></li>
+                        <li><a href="/legal/" target="_blank" rel="noopener noreferrer" id="legal-info-tab" title="Legal info regarding our project."><i class="fa-solid fa-gavel"></i> Legal Info <i class="fa-solid fa-up-right-from-square"></i></a></li>
+                        <li><a href="/terms/" target="_blank" rel="noopener noreferrer" id="terms-tab" title="Terms of Service for the eaglercraft.dev project."><i class="fa-solid fa-file-contract"></i> Terms <i class="fa-solid fa-up-right-from-square"></i></a></li>
+                        <li><a href="/privacy/" target="_blank" rel="noopener noreferrer" id="privacy-tab" title="Privacy Policy for the eaglercraft.dev project."><i class="fa-solid fa-user-lock"></i> Privacy <i class="fa-solid fa-up-right-from-square"></i></a></li>
                     </ul>
                 </li>
                 <li>
@@ -119,9 +100,9 @@
                         <i class="fa-solid fa-bell"></i> Socials <i class="fas fa-chevron-down"></i>
                     </a>
                     <ul class="social-submenu">
-                        <li><a href="https://forums.eaglercraft.dev/" target="_blank" rel="noopener" id="forum-tab" title="EaglercraftDev forums! Reach out, discuss anything, etc."><i class="fa-solid fa-comments"></i> Forums <i class="fa-solid fa-up-right-from-square"></i></a></li>
-                        <li><a href="https://discord.eaglercraft.dev/" target="_blank" rel="noopener" id="discord-tab" title="Join our official Discord for eaglercraft.dev updates and more!"><i class="fab fa-discord"></i> Discord <i class="fa-solid fa-up-right-from-square"></i></a></li>
-                        <li><a href="https://reddit.eaglercraft.dev/" target="_blank" rel="noopener" id="reddit-tab" title="Visit our official subreddit for eaglercraft.dev!"><i class="fab fa-reddit"></i> Reddit <i class="fa-solid fa-up-right-from-square"></i></a></li>
+                        <li><a href="https://forums.eaglercraft.dev/" target="_blank" rel="noopener noreferrer" id="forum-tab" title="EaglercraftDev forums! Reach out, discuss anything, etc."><i class="fa-solid fa-comments"></i> Forums <i class="fa-solid fa-up-right-from-square"></i></a></li>
+                        <li><a href="https://discord.eaglercraft.dev/" target="_blank" rel="noopener noreferrer" id="discord-tab" title="Join our official Discord for eaglercraft.dev updates and more!"><i class="fab fa-discord"></i> Discord <i class="fa-solid fa-up-right-from-square"></i></a></li>
+                        <li><a href="https://reddit.eaglercraft.dev/" target="_blank" rel="noopener noreferrer" id="reddit-tab" title="Visit our official subreddit for eaglercraft.dev!"><i class="fab fa-reddit"></i> Reddit <i class="fa-solid fa-up-right-from-square"></i></a></li>
                     </ul>
                 </li>
                 <li><a href="https://clients.eaglercraft.dev/" target="_blank" rel="noopener" id="client-tab" title="Eaglercraft client list!"><i class="fa-solid fa-square-poll-vertical"></i> Clients <i class="fa-solid fa-up-right-from-square"></i></a></li>
@@ -136,7 +117,7 @@
                     <p>This website is a Development website. We are not currently finished, but we hope that our service will eventually become more usable and more informative.</p>
                     <img src="/images/eaglercraft-game.webp" alt="Eaglercraft Title Screen" title="Eaglercraft Title Screen" style="width: 40vw; height: auto;" class="larger">
                     <h2>Who are we?</h2>
-                    <p>Please see our <a href="/about/" target="_blank" rel="noopener">About Page</a> to see information regarding who we are, why we exist, and what our goals are. We will work until this project is mainstream, then keep working! (Hopefully...)</p>
+                    <p>Please see our <a href="/about/" target="_blank" rel="noopener noreferrer">About Page</a> to see information regarding who we are, why we exist, and what our goals are. We will work until this project is mainstream, then keep working! (Hopefully...)</p>
                     <h2>Clients Hosted on EaglercraftDev</h2>
                     <ul>
                         <li>Eaglercraft 1.8.8</li>
@@ -152,7 +133,7 @@
                         <li><a href="mailto:support@eaglercraft.dev">Send us an email to request a client.</a></li>
                     </ul>
                     <h2>Server List</h2>
-                    <p>We have an official server listing on our <a href="https://discord.eaglercraft.dev/" target="_blank" rel="noopener">Discord</a>.</p>
+                    <p>We have an official server listing on our <a href="https://discord.eaglercraft.dev/" target="_blank" rel="noopener noreferrer">Discord</a>.</p>
                     <h2>How to Get Started with Eaglercraft</h2>
                     <ol>
                         <li>Open your web browser and visit <a href="/">Our Website</a>. (Or download an offline download (Coming Soon!)</li>
@@ -168,16 +149,20 @@
             <div id="articles" class="content">
                 <div class="article-list">
                     <div class="article">
-                        <a href="/articles/is-eaglercraft-illegal/" target="_blank" rel="noopener" class="article-title">Is Eaglercraft Illegal?</a>
+                        <a href="/articles/how-to-make-an-eaglercraft-server/" target="_blank" rel="noopener noreferrer" title="How to make an Eaglercraft server?" class="article-title">Is Eaglercraft Illegal?</a>
+                        <p class="article-description">An in-depth guide on how to make an Eaglercraft server, for any version.</p>
+                    </div>
+                    <div class="article">
+                        <a href="/articles/is-eaglercraft-illegal/" target="_blank" rel="noopener noreferrer" title="Is Eaglercraft legal?" class="article-title">Is Eaglercraft Illegal?</a>
                         <p class="article-description">Explore the legality of Eaglercraft, including potential legal loopholes. (I see you Saul.)</p>
                     </div>
                     <div class="article">
-                        <a href="/articles/is-eaglercraft-a-virus/" target="_blank" rel="noopener" class="article-title">Is Eaglercraft a Virus?</a>
+                        <a href="/articles/is-eaglercraft-a-virus/" target="_blank" rel="noopener noreferrer" title="Is Eaglercraft a Virus?" class="article-title">Is Eaglercraft a Virus?</a>
                         <p class="article-description">Discover the truth about Eaglercraft's safety.</p>
                     </div>
                     <div class="article">
-                        <a href="/articles/what-is-eaglercraft/" target="_blank" rel="noopener" class="article-title">What is Eaglercraft?</a>
-                        <p class="article-description">What is Eaglercraft? Find out now./p>
+                        <a href="/articles/what-is-eaglercraft/" target="_blank" rel="noopener noreferrer" title="What is Eaglercraft?" class="article-title">What is Eaglercraft?</a>
+                        <p class="article-description">What is Eaglercraft? Find out now.</p>
                     </div>
                 </div>
             </div>
@@ -185,7 +170,7 @@
         </main>
         <div id="play-bar">
             <!-- AddToAny BEGIN -->
-            <div class="a2a_kit a2a_kit_size_32 a2a_default_style a2a_index" data-a2a-url="https://eaglercraft.dev/" data-a2a-title="Come play Eaglercraft for free online at eaglercraft.dev!">
+            <div class="a2a_kit a2a_kit_size_32 a2a_default_style a2a_index left-a2a" data-a2a-url="https://eaglercraft.dev/" data-a2a-title="Come play Eaglercraft for free online at eaglercraft.dev!">
                 <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
                 <a title="Share via Email" class="a2a_button_email"></a>
                 <a title="Share via X.com" class="a2a_button_x"></a>
