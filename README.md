@@ -88,7 +88,7 @@ For direct support, you can also email us at [support@eaglercraft.dev](mailto:su
 
 ## License
 
-EaglercraftDev is released under the MIT License. See the [LICENSE](LICENSE) file for more information.
+EaglercraftDev is released under our own License. See the [LICENSE](LICENSE.md) file for more information.
 
 **Note:** This repository is private and only open to contributors.
 
