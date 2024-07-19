@@ -2,6 +2,8 @@
     .main-content,
     aside {
         width: 100%;
+        max-width: 100%
+        height: auto;
     }
     aside,
     main {
@@ -13,6 +15,7 @@
     aside {
         top: 0;
         width: 100%;
+        max-width: 100%;
         height: auto;
         z-index: 100;
     }
@@ -29,7 +32,7 @@
     }
     .footer {
         font-size: 0.7em;
-        padding: 5px;
+        margin-top: 1px;
     }
     #client-settings,
     #launcher-settings {
