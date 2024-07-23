@@ -16,6 +16,16 @@ RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 # RewriteRule ^(scripts\.js|styles/) / [L,R=302]
 
 # Make downloads
+RewriteCond %{REQUEST_URI} !^/downloads/EaglerForge_v1\.3\.2_1\.8_Offline_en_US\.html$ [NC]
+RewriteCond %{REQUEST_URI} !^/downloads/Eaglercraft-1\.2\.5\.html$ [NC]
+RewriteCond %{REQUEST_URI} !^/downloads/Eaglercraft-1\.5-Desktop-Runtime\.zip$ [NC]
+RewriteCond %{REQUEST_URI} !^/downloads/Eaglercraft-1\.5\.2-Offline\.html$ [NC]
+RewriteCond %{REQUEST_URI} !^/downloads/Eaglercraft-1\.8-Desktop-Runtime\.zip$ [NC]
+RewriteCond %{REQUEST_URI} !^/downloads/Eaglercraft-1\.8-Offline\.html$ [NC]
+RewriteCond %{REQUEST_URI} !^/downloads/Eaglercraft-Beta-1\.3-Desktop-Runtime\.zip$ [NC]
+RewriteCond %{REQUEST_URI} !^/downloads/Eaglercraft-Beta-1\.3\.html$ [NC]
+RewriteCond %{REQUEST_URI} !^/downloads/Resent-Signed\.html$ [NC]
+RewriteCond %{REQUEST_URI} !^/downloads/Shadow_Client\.html$ [NC]
 RewriteCond %{REQUEST_URI} ^/downloads/
 RewriteRule ^(.*)$ - [F=attachment]
 
