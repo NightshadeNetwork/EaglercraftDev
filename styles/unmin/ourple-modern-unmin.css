@@ -224,8 +224,9 @@ p {
 }
 #play-bar {
     bottom: 40px;
-    right: 20px;
+    justify-content: flex-end;
     z-index: 1000;
+    left: 200px;
 }
 #play-button {
     border: none;
@@ -245,11 +246,6 @@ a:hover {
 #sidebar {
     transition: transform 0.3s ease;
 }
-
-#sidebar.collapsed {
-    transform: translateX(-100%);
-}
-
 #toggle-button {
     position: fixed;
     top: 20px;
@@ -275,7 +271,7 @@ a:hover {
 }
 
 #legal-tab.active .fa-chevron-down {
-    transform: rotate(180deg);
+    transform: rotate(-90deg);
 }
 
 .legal-submenu li a {
