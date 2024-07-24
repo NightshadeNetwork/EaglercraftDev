@@ -216,6 +216,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 case "Release 1.5.2":
                   _0x5a71a5 = '/clients/1.5/index.html';
                   break;
+                case "Precision Client 1.5.2":
+                  _0x5a71a5 = '/clients/Precision/index.html';
+                  break;
                 case "Beta 1.3":
                   _0x5a71a5 = '/clients/1.3/index.html';
                   break;
@@ -225,10 +228,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 case "EaglerForge":
                   _0x5a71a5 = "/clients/EaglerForge/index.html";
                   break;
-                case "Resent 4.0":
+                case "Resent Client 4.0":
                   _0x5a71a5 = "/clients/Resent/index.html";
                   break;
-                case "Shadow 4.0":
+                case "Shadow Client 4.0":
                   _0x5a71a5 = "/clients/Shadow/index.html";
                   break;
                 case 'Indev':
