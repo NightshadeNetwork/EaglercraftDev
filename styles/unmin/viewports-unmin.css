@@ -26,6 +26,8 @@
         max-width: 100%;
         height: auto;
         padding: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
     #play-bar {
@@ -55,6 +57,16 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .a2a_kit {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     #client-settings,
