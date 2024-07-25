@@ -1,15 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Select the image element
-    const logo = document.querySelector('#logo');
+    const logo = document.getElementById('logo');
 
-    // Check if the logo element exists because apparently that's an issue
     if (!logo) {
         console.error('Unable to find the image element with id "logo"');
         return;
     }
 
-    function updateImage() {
-        if (window.innerWidth <= 768) { // Adjust this breakpoint as needed
+    function literallyLostEveryoneIRLByDoingThisShit() {
+        if (window.innerWidth <= 768) {
             logo.src = '/images/logo126x.webp';
             logo.width = 126;
             logo.height = 126;
@@ -20,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    updateImage();
+    literallyLostEveryoneIRLByDoingThisShit();
 
-    window.addEventListener('resize', updateImage); // If you didn't see my last commit, don't touch it.
+    console.log('Image src set to:', logo.src);
 });
