@@ -266,7 +266,7 @@ a:hover {
 }
 
 #legal-tab.active .fa-chevron-down {
-    transform: rotate(180deg);
+    transform: rotate(-90deg);
 }
 
 .legal-submenu li a {
