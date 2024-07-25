@@ -234,6 +234,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 case "Shadow Client 4.0":
                   _0x5a71a5 = "/clients/Shadow/index.html";
                   break;
+                case "Astra Client 1.2":
+                  _0x5a71a5 = "/clients/Astra/index.html";
+                  break;
                 case 'Indev':
                   _0x5a71a5 = "/clients/Indev/index.html";
                   break;
