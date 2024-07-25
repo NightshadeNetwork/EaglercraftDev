@@ -106,6 +106,12 @@ main {
 .content {
     display: none;
 }
+#launcher,
+#play-bar,
+#settings,
+.larger {
+    display: flex;
+}
 #play-button,
 button {
     background-color: #6a00a1;
@@ -301,7 +307,7 @@ a:hover {
 }
 
 #social-tab.active .fa-chevron-down {
-    transform: rotate(180deg);
+    transform: rotate(-90deg);
 }
 
 .social-submenu li a {
