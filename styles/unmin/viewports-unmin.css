@@ -43,7 +43,7 @@
         padding: 8px 15px;
     }
 
-    .footer {
+    .footer, #play-bar {
         position: fixed;
         left: 0;
         right: 0;
