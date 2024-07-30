@@ -194,10 +194,15 @@ function launchGame(version) {
     .then(html => {
       const parser = new DOMParser();
       const htmlDoc = parser.parseFromString(html, 'text/html');
-      document.documentElement.innerHTML = htmlDoc.documentElement.innerHTML;
+      document.open();
+      document.write(htmlDoc.documentElement.outerHTML);
+      document.close();
     })
     .catch(error => {
       console.error('Error loading version content:', error);
+      console.error('Error name:', error.name);
+      console.error('Error message:', error.message);
+      console.error('Error stack:', error.stack);
     });
 }
 
