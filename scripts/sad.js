@@ -179,6 +179,7 @@ function launchGame(version) {
     'EaglerForge': '/clients/EaglerForge/index.html',
     'Resent Client 4.0': '/clients/Resent/index.html',
     'Shadow Client 4.0': '/clients/Shadow/index.html',
+    'Kone Client': '/clients/Kone/index.html',
     'Astra Client 1.2': '/clients/Astra/index.html',
     'Indev': '/clients/Indev/index.html',
     'Alpha 1.2.6': '/clients/Alpha-1.2/index.html'
