@@ -1,4 +1,4 @@
-## EaglercraftDev License (Version 1.3)
+## EaglercraftDev License (Version 1.4)
 
 ### 1. Definitions
 
@@ -109,7 +109,3 @@ While EaglercraftDev can load Eaglercraft, it is not affiliated with, endorsed b
 ### 24. User Responsibility
 
 Users of EaglercraftDev are responsible for ensuring that their use of the software, including any clients they choose to load, complies with all applicable laws and regulations. The Licensor and Contributors are not responsible for any illegal or unauthorized use of the software.
-
----
-
-This license provides a legally binding agreement governing the use, modification, and distribution of the EaglercraftDev Source Code, ensuring the control remains with the Licensor and authorized Maintainer while allowing for collaboration and contribution under strict guidelines. It also ensures the continuity of the project in the event of the Licensor's absence or death, and clarifies the nature of EaglercraftDev as a launcher distinct from the Eaglercraft project itself.
