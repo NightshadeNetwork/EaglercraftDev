@@ -213,14 +213,14 @@ function showTermsOverlay() {
   overlay.innerHTML = `
     <div id="terms-box">
       <h2>Welcome!</h2>
-      <p>Before you proceed, please review and accept our:</p>
+      <p>Before you proceed, review and accept our:</p>
       <ul>
         <li><a href="/terms/" rel="noopener noreferrer" target="_blank">Terms of Service</a></li>
         <li><a href="/privacy/" rel="noopener noreferrer" target="_blank">Privacy Policy</a></li>
         <li><a href="/legal/" rel="noopener noreferrer" target="_blank">Legal Disclaimer</a></li>
         <li><a href="/credits/" rel="noopener noreferrer" target="_blank">Credits</a></li>
       </ul>
-      <p>By clicking "Accept", you agree to be bound by these documents.</p>
+      <p>By clicking "Accept," you agree to be bound by these documents.</p>
       <button id="accept-terms">Accept</button>
     </div>
   `;

@@ -26,8 +26,8 @@
         max-width: 100%;
         height: auto;
         padding: 10px;
-        margin-left: 0px;
-        margin-right: 0px;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     #play-bar {
@@ -60,7 +60,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
     }
 
     .a2a_kit {

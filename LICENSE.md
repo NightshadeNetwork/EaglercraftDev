@@ -1,4 +1,4 @@
-## EaglercraftDev License (Version 1.4)
+## EaglercraftDev License (Version 1.5)
 
 ### 1. Definitions
 
@@ -18,11 +18,11 @@ EaglercraftDev is a launcher for modified clients which can load Eaglercraft if 
 
 ### 3. Grant of License
 
-Subject to the terms and conditions of this License, the Licensor grants You a non-exclusive, non-transferable, limited right to use, modify, and distribute the Source Code solely for the purpose of contributing to the EaglercraftDev project.
+Subject to the terms and conditions of this License, the Licensor grants You a non-exclusive, non-transferable, limited right to use, modify, and distribute the Source Code solely for contributing to the EaglercraftDev project.
 
 ### 4. Modification and Distribution
 
-You may only modify and distribute the Source Code if you have received explicit written permission from the Licensor or the Maintainer (if authorized by the Licensor). This permission must come directly from one of the entities or individuals collectively referred to as the Licensor: ServerNootNoot, ServerDotSo, Server.So, ServerSo, therealserver, or from the Maintainer (Solenten/luckiersnail/Atticuss320) if they have been granted this authority by the Licensor.
+You may only modify and distribute the Source Code if you've received explicit written permission from the Licensor or the Maintainer (if authorized by the Licensor). This permission must come directly from one of the entities or individuals collectively referred to as the Licensor: ServerNootNoot, ServerDotSo, Server.So, ServerSo, therealserver, or from the Maintainer (Solenten/luckiersnail/Atticuss320) if they've been granted this authority by the Licensor.
 
 To request permission, reach out to `therealserver` or the Maintainer on Discord through the official EaglercraftDev Discord server ([https://discord.eaglercraft.dev/](https://discord.eaglercraft.dev/)).
 
@@ -40,7 +40,7 @@ Reuploading any part of the Repository, including but not limited to the Source 
 
 ### 7. Compliance with Laws
 
-You must comply with all applicable laws and regulations regarding the use, modification, and distribution of the Source Code. This includes, but is not limited to, copyright laws, export regulations, and any relevant local, national, or international laws.
+You must comply with all applicable laws and regulations regarding the use, modification, and distribution of the Source Code. This includes but is not limited to copyright laws, export regulations, and any relevant local, national, or international laws.
 
 ### 8. Disclaimer of Warranty
 
@@ -68,7 +68,7 @@ This License shall be governed by and construed in accordance with the laws of t
 
 ### 14. Entire Agreement
 
-This License constitutes the entire agreement between You and the Licensor concerning the subject matter hereof and supersedes any prior agreements or understandings, whether written or oral.
+This License constitutes the entire agreement between You and the Licensor concerning the subject hereof and supersedes any prior agreements or understandings, whether written or oral.
 
 ### 15. Severability
 
@@ -100,7 +100,7 @@ By contributing to the EaglercraftDev project, you agree that your contributions
 
 ### 22. Third-Party Software and Licenses
 
-EaglercraftDev may include or depend on third-party software, each of which may have its own license terms. Your use of such software is subject to the terms of those licenses. The Licensor does not grant any rights to such third-party software beyond what is necessary for the operation of EaglercraftDev.
+EaglercraftDev may include or depend on third-party software, each of which may have its own license terms. Your use of such software is subject to the terms of those licenses. The Licensor doesn't grant any rights to such third-party software beyond what is necessary for the operation of EaglercraftDev.
 
 ### 23. Disclaimer of Association
 
@@ -108,4 +108,4 @@ While EaglercraftDev can load Eaglercraft, it is not affiliated with, endorsed b
 
 ### 24. User Responsibility
 
-Users of EaglercraftDev are responsible for ensuring that their use of the software, including any clients they choose to load, complies with all applicable laws and regulations. The Licensor and Contributors are not responsible for any illegal or unauthorized use of the software.
+Users of EaglercraftDev are responsible for ensuring that their use of the software, including any clients they choose to load, complies with all applicable laws and regulations. The Licensor and Contributors aren't responsible for any illegal or unauthorized use of the software.

@@ -71,7 +71,6 @@ html {
 aside {
     width: 200px;
     background-color: #290036;
-    width: 200px;
     text-align: center;
     padding: 20px;
 }
@@ -132,7 +131,7 @@ select {
 #play-button:hover,
 button:hover {
     background-color: #7f00c2;
-    color: fff;
+    color: #fff;
 }
 input,
 select {
