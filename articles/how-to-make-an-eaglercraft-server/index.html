@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eaglercraft Launcher Articles | How to Make an Eaglercraft Server</title>
+    <title>Eaglercraft Launcher | How to Make an Eaglercraft Server</title>
     <link rel="stylesheet" href="/styles/articles.css" type="text/css">
     <link rel="icon" href="/images/favicon.ico">
     <meta name="author" content="therealserver">
     <meta name="description" content="Learn how to set up your own Eaglercraft server with this guide. Covers Waterfall proxy, backend setup, EaglercraftXBungee plugin, and Caddy configuration.">
     <meta name="keywords" content="how to make an eaglercraft, how to make a eaglercraft, how to make eaglercraft server, how to make a eaglercraft server, how to make an eaglercraft server, eaglercraft download, chromebook minecraft, eaglercraft updates, eaglercraft website, eaglercraft takedown, eaglercraft replit tos, eaglercraft legal">
-    <meta property="og:title" content="Eaglercraft Launcher Articles | How to Make an Eaglercraft Server">
+    <meta property="og:title" content="Eaglercraft Launcher | How to Make an Eaglercraft Server">
     <meta property="og:locale" content="en-US">
     <meta property="og:type" content="website">
     <meta property="og:image" content="/images/logo.webp">
@@ -18,7 +18,7 @@
     <link rel="canonical" href="https://eaglercraft.dev/articles/how-to-make-an-eaglercraft-server/">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@EaglercraftDev">
-    <meta name="twitter:title" content="Eaglercraft Launcher Articles | How to Make an Eaglercraft Server">
+    <meta name="twitter:title" content="Eaglercraft Launcher | How to Make an Eaglercraft Server">
     <meta name="twitter:description" content="Learn how to set up your own Eaglercraft server with this guide. Covers Waterfall proxy, backend setup, EaglercraftXBungee plugin, and Caddy configuration.">
     <meta name="twitter:image" content="/images/logo.webp">
     <meta name="twitter:url" content="https://eaglercraft.dev/articles/how-to-make-an-eaglercraft-server/">
@@ -27,7 +27,7 @@
         {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "Eaglercraft Launcher Articles | How to Make an Eaglercraft Server",
+            "name": "Eaglercraft Launcher | How to Make an Eaglercraft Server",
             "url": "https://eaglercraft.dev/articles/how-to-make-an-eaglercraft-server/",
             "description": "Learn how to set up your own Eaglercraft server with this guide. Covers Waterfall proxy, backend setup, EaglercraftXBungee plugin, and Caddy configuration.",
             "keywords": [
@@ -85,7 +85,7 @@
     <h1>How to Set Up an Eaglercraft Server</h1>
 
     <main>
-        <p>Have you seen other people (even your friends) hosting their own Eaglercraft servers? They probably used this guide! (Or not... but you can!)</p>
+        <p>Have you seen other people (even your friends) hosting their own Eaglercraft servers? They probably used this guide! (Or not, but you can!)</p>
         <p>In this guide, we will be going over setting up a Waterfall proxy server, a backend server, a Caddyserver instance, port forwarding, and more. </p>
 
         <h2>Prerequisites</h2>
@@ -100,7 +100,7 @@
         <ol>
             <li>Download Waterfall from <a href="https://papermc.io/downloads/waterfall" target="_blank" rel="noopener noreferrer">here</a>.</li>
             <li>Create a new directory for your server and place the Waterfall JAR file in it</li>
-            <li>Create a start script (e.g., <code>start.bat</code> for Windows or <code>start.sh</code> for Linux) with the following content:
+            <li>Create a start script (for example, <code>start.bat</code> for Windows or <code>start.sh</code> for Linux) with the following content:
                 <pre><code>java -Xms512M -Xmx512M -jar server-jar-name.jar</code></pre>
                 Or better yet,
                 use <a href="https://docs.papermc.io/misc/tools/start-script-gen" target="_blank" rel="noopener noreferrer">this tool</a>
@@ -112,15 +112,15 @@
 
         <h2>Step 2: Set Up Backend Server</h2>
         <ol>
-            <li>Download a compatible Minecraft server JAR (e.g., Paper 1.8.8)</li>
+            <li>Download a compatible Minecraft server JAR (for example, Paper 1.8.8)</li>
             <li>Set up the backend server in a separate directory</li>
-            <li>Create a start script (e.g., <code>start.bat</code> for Windows or <code>start.sh</code> for Linux) with the following content: (Déjà vu?)
+            <li>Create a start script (for example, <code>start.bat</code> for Windows or <code>start.sh</code> for Linux) with the following content: (Déjà vu?)
                 <pre><code>java -Xms1024M -Xmx1024M -jar server-jar-name.jar</code></pre>
                 Or better yet,
                 use <a href="https://docs.papermc.io/misc/tools/start-script-gen" target="_blank" rel="noopener noreferrer">this tool</a>
                 to generate optimized startup flags.
             </li>
-            <li>Configure <code>server.properties</code> (Disable online mode, change the port, etc.)</li>
+            <li>Configure <code>server.properties</code> (Disable online mode, change the port, and so on)</li>
             <li>Configure <code>spigot.yml</code> to have this: <code>bungeecord: true</code></li>
             <li>If your server is on a different version than 1.8.8, you need to download the <a href="" target="_blank" rel="noopener noreferrer">Via Plugins</a> from this link.</li>
             <li>Add the backend server to your Waterfall <code>config.yml</code> by scrolling to the servers section and editing/adding an entry for your server, such as <code>localhost:port</code>.</li>
