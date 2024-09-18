@@ -137,7 +137,7 @@
 
         <h2>Step 3: Install EaglercraftXBungee Plugin</h2>
         <ol>
-            <li>Download the EaglercraftXBungee plugin from <a title="EaglercraftXBungee Download" href="https://deev.is/eagler/EaglerXBungee-1.2.6.jar" download target="_blank" rel="noopener noreferrer">here</a>.</li>
+            <li>Download the EaglercraftXBungee plugin from <a title="EaglercraftXBungee Download" href="https://deev.is/eagler/EaglerXBungee-1.2.6.jar" download rel="noopener noreferrer">here</a>.</li>
             <li>Place the downloaded JAR file in the Waterfall server's <code>plugins</code> folder</li>
             <li>Restart the Waterfall server to generate the plugin's configuration files</li>
             <li>Configure the EaglercraftXBungee plugin as needed (disabling online mode, etc.)</li>
@@ -145,8 +145,58 @@
 
         <h2>Step 4: Port Forwarding</h2>
         <ol>
-            <li>Access your router's admin panel</li>
-            <li>Set up port forwarding for port <code>8081</code> (Eaglercraft) and <code>25565</code> (Minecraft) to your server's local IP address</li>
+            <li>Access your router's admin panel (usually <code>192.168.0.1</code> or <code>192.168.1.1</code></li>
+            <li>Look for a menu labeled "Port Forwarding," "Virtual Server," or "NAT." This is usually under the "Advanced" settings.</li>
+            <li>For the service name, you can name it whatever you want (for example, "Eaglercraft Server").</li>
+            <li>If given the chance to select a protocol (you should be), then select TCP, or both. Both being TCP and UDP.</li>
+            <li>For the external ports, pick <code>8081</code> (Eaglercraft) and <code>25565</code> (Minecraft).</li>
+            <li>For the internal IP, Enter the local IP address of your server/computer (run <code>ipconfig</code> in Windows, or <code>hostname -I</code> for Linux).</li>
+            <li>For the internal ports, pick the same ports you chose earlier for the external port section.</li>
+            <li>Save the configuration and reboot your router.</li>
+            <li>Optional: Ensure that these ports are open on your firewall, and use a tool like <a title="Port Checking Tool" href="https://canyouseeme.org/" target="_blank" rel="noopener noreferrer">canyouseeme</a> on port <code>25565</code>.</li>
+        </ol>
+        <p>General instructions for specific routers:</p>
+        <details>
+            <summary><strong>Linksys Routers</strong></summary>
+            <ol>
+                <li>Go to "Applications & Gaming" > "Port Range Forwarding."</li>
+                <li>Add a new rule with the ports and internal IP talked about in the more general instructions above.</li>
+                <li>Select "Both" for protocols.</li>
+                <li>Save and reboot the router.</li>
+            </ol>
+        </details>
+
+        <details>
+            <summary><strong>Netgear Routers</strong></summary>
+            <ol>
+                <li>Go to "Advanced" > "Advanced Setup" > "Port Forwarding/Port Triggering."</li>
+                <li>Select "Add Custom Service."</li>
+                <li>Add a new rule with the ports and internal IP talked about in the more general instructions above.</li>
+                <li>Save the changes.</li>
+            </ol>
+        </details>
+
+        <details>
+            <summary><strong>TP-Link Routers</strong></summary>
+            <ol>
+                <li>Go to "Forwarding" > "Virtual Servers."</li>
+                <li>Add a new rule with the ports and internal IP talked about in the more general instructions above.</li>
+                <li>Save the configuration and reboot.</li>
+            </ol>
+        </details>
+
+        <details>
+            <summary><strong>Asus Routers</strong></summary>
+            <ol>
+                <li>Go to "WAN" > "Virtual Server/Port Forwarding."</li>
+                <li>Add a new rule with the ports and internal IP talked about in the more general instructions above.</li>
+                <li>Save and apply the settings.</li>
+            </ol>
+        </details>
+
+        <h2>Step 5: Caddy(server) Setup</h2>
+        <p>You will need to set up Caddyserver as a reverse proxy if you wish to connect using Eaglercraft.</p>
+        <ol>
             <li>Download and install Caddy from <a title="Caddyserver Download" href="https://caddyserver.com/download" target="_blank" rel="noopener noreferrer">here</a>.</li>
             <li>Create a file called Caddyfile with this configuration:
                 <pre><code>0.0.0.0 {
@@ -156,7 +206,7 @@
             <li>If you aren't planning on using a custom domain, then you can start Caddy with <code>caddy start</code> and jump to <a title="Connect to your server" href="#connecting">this section to connect</a> to your server.</li>
         </ol>
 
-        <h2>Step 5: Domain Configuration (Optional)</h2>
+        <h2>Step 6: Domain Configuration (Optional)</h2>
         <p>If you want to use a custom domain:</p>
         <ol>
             <li>Purchase a domain from a domain registrar</li>
@@ -179,7 +229,7 @@
         <p>Ensure you keep all software (especially the EaglercraftXBungee Plugin) up to date and properly secure your server to protect against potential vulnerabilities.</p>
 
         <h2>Legal</h2>
-        <p>Eaglercraft is illegal, but the server software/plugin is not. We wrote <a href="/articles/is-eaglercraft-illegal/">an article</a> about this!</p>
+        <p>Playing Eaglercraft is piracy, but the server software/plugin is not. We wrote <a href="/articles/is-eaglercraft-illegal/">an article</a> about this!</p>
     </main>
     <footer>
         <div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="https://eaglercraft.dev/articles/how-to-make-an-eaglercraft-server/" data-a2a-title="How to Make an Eaglercraft Server">

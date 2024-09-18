@@ -368,3 +368,45 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+details {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 1.5em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+details[open] {
+    background-color: rgba(100, 181, 246, 0.1);
+    box-shadow: 0 0 15px rgba(100, 181, 246, 0.2);
+}
+
+summary {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--heading-color);
+    cursor: pointer;
+}
+
+summary:hover {
+    color: var(--link-hover-color);
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+details[open] summary {
+    color: var(--link-hover-color);
+}
+
+details ol {
+    padding-left: 1.5em;
+    margin-top: 1em;
+}
+
+details li {
+    margin-bottom: 0.75em;
+}
