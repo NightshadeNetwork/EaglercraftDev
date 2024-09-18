@@ -1,0 +1,3 @@
+Site: EaglercraftDev
+Developer: therealserver, also known as ServerDotSo.
+Contact: support@eaglercraft.dev

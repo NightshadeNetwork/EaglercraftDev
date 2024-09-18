@@ -1,0 +1,48 @@
+{
+  "name": "EaglercraftDev",
+  "short_name": "Eaglercraft",
+  "description": "Launcher for Eaglercraft, a 1.8, 1.5, and 1.3 Minecraft Java Edition version for your browser which can run on nearly any device, even a chromebook, phones too!",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#121212",
+  "background_color": "transparent",
+  "orientation": "landscape",
+  "categories": ["games", "entertainment", "utilities"],
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/images/logo189.webp",
+      "sizes": "189x189",
+      "type": "image/webp"
+    },
+    {
+      "src": "/images/logo126x.webp",
+      "sizes": "126x126",
+      "type": "image/webp"
+    },
+    {
+      "src": "/images/favicon.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/images/logo.webp",
+      "sizes": "270x270",
+      "type": "image/webp"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "270x270",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/eaglercraft-game.webp",
+      "sizes": "2398x1598",
+      "type": "image/webp"
+    }
+  ]
+
+}
