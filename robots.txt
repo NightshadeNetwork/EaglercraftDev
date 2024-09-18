@@ -12,9 +12,9 @@ Allow: /articles/what-is-eaglercraft/
 Allow: /articles/is-eaglercraft-a-virus/
 Allow: /articles/is-eaglercraft-illegal/
 Allow: /images/
+Allow: /clients/
 
 Disallow: /
-Disallow: /clients/
 Disallow: /scripts/
 Disallow: /styles/
 Disallow: /downloads/

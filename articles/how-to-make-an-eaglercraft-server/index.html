@@ -73,13 +73,13 @@
             <img src="/images/logo126x.webp" alt="EaglercraftDev Logo">
         </div>
         <nav class="nav-links">
-            <a href="/">Home</a>
-            <a href="/articles/">Article Index</a>
-            <a href="/about">About</a>
-            <a href="/legal">Legal</a>
+            <a title="Eaglercraft Home Page" href="/" target="_blank" rel="noopener noreferrer">Home</a>
+            <a title="Eaglercraft Article Index" href="/articles/" target="_blank" rel="noopener noreferrer">Article Index</a>
+            <a title="About EaglercraftDev" href="/about/" target="_blank" rel="noopener noreferrer">About</a>
+            <a title="EaglercraftDev Legal Information" href="/legal/" target="_blank" rel="noopener noreferrer">Legal</a>
         </nav>
     </div>
-    <a href="/" class="play-button">Play Now</a>
+    <a title="Play Eaglercraft safely for free online." href="/" target="_blank" rel="noopener noreferrer" class="play-button">Play Now</a>
 </header>
 <article class="article-container">
     <h1>How to Set Up an Eaglercraft Server</h1>
@@ -91,19 +91,19 @@
         <h2>Prerequisites</h2>
         <ul>
             <li>A server/computer with stable internet access and decent bandwidth.</li>
-            <li>Java Development Kit (JDK) 17 installed (Get it from <a href="https://adoptium.net/temurin/releases/?version=17" target="_blank" rel="noopener noreferrer">here</a>.</li>
+            <li>Java Development Kit (JDK) 17 installed (Get it from <a title="Temurin JDK 17 Download" href="https://adoptium.net/temurin/releases/?version=17" target="_blank" rel="noopener noreferrer">here</a>.</li>
             <li>Basic knowledge of your OSes Command-Line/Terminal.</li>
             <li>Access to your network router (for port forwarding)</li>
         </ul>
 
         <h2>Step 1: Set Up Waterfall</h2>
         <ol>
-            <li>Download Waterfall from <a href="https://papermc.io/downloads/waterfall" target="_blank" rel="noopener noreferrer">here</a>.</li>
+            <li>Download Waterfall from <a title="Waterfall proxy software download" href="https://papermc.io/downloads/waterfall" target="_blank" rel="noopener noreferrer">here</a>.</li>
             <li>Create a new directory for your server and place the Waterfall JAR file in it</li>
             <li>Create a start script (for example, <code>start.bat</code> for Windows or <code>start.sh</code> for Linux) with the following content:
                 <pre><code>java -Xms512M -Xmx512M -jar server-jar-name.jar</code></pre>
                 Or better yet,
-                use <a href="https://docs.papermc.io/misc/tools/start-script-gen" target="_blank" rel="noopener noreferrer">this tool</a>
+                use <a title="Startup Flag Generator for Minecraft" href="https://docs.papermc.io/misc/tools/start-script-gen" target="_blank" rel="noopener noreferrer">this tool</a>
                 to generate optimized startup flags.
             </li>
             <li>Run the start script to generate configuration files, then stop the server</li>
@@ -117,7 +117,7 @@
             <li>Create a start script (for example, <code>start.bat</code> for Windows or <code>start.sh</code> for Linux) with the following content: (Déjà vu?)
                 <pre><code>java -Xms1024M -Xmx1024M -jar server-jar-name.jar</code></pre>
                 Or better yet,
-                use <a href="https://docs.papermc.io/misc/tools/start-script-gen" target="_blank" rel="noopener noreferrer">this tool</a>
+                use <a title="Startup Flag Generator for Minecraft" href="https://docs.papermc.io/misc/tools/start-script-gen" target="_blank" rel="noopener noreferrer">this tool</a>
                 to generate optimized startup flags.
             </li>
             <li>Configure <code>server.properties</code> (Disable online mode, change the port, and so on)</li>
@@ -128,7 +128,7 @@
 
         <h2>Step 3: Install EaglercraftXBungee Plugin</h2>
         <ol>
-            <li>Download the EaglercraftXBungee plugin from <a href="https://deev.is/eagler/EaglerXBungee-1.2.6.jar" target="_blank" rel="noopener noreferrer">here</a>.</li>
+            <li>Download the EaglercraftXBungee plugin from <a title="EaglercraftXBungee Download" href="https://deev.is/eagler/EaglerXBungee-1.2.6.jar" download target="_blank" rel="noopener noreferrer">here</a>.</li>
             <li>Place the downloaded JAR file in the Waterfall server's <code>plugins</code> folder</li>
             <li>Restart the Waterfall server to generate the plugin's configuration files</li>
             <li>Configure the EaglercraftXBungee plugin as needed (disabling online mode, etc.)</li>
@@ -138,13 +138,13 @@
         <ol>
             <li>Access your router's admin panel</li>
             <li>Set up port forwarding for port <code>8081</code> (Eaglercraft) and <code>25565</code> (Minecraft) to your server's local IP address</li>
-            <li>Download and install Caddy from <a href="https://caddyserver.com/download" target="_blank" rel="noopener noreferrer">here</a>.</li>
+            <li>Download and install Caddy from <a title="Caddyserver Download" href="https://caddyserver.com/download" target="_blank" rel="noopener noreferrer">here</a>.</li>
             <li>Create a file called Caddyfile with this configuration:
                 <pre><code>0.0.0.0 {
     reverse_proxy localhost:8081
 }</code></pre>
             </li>
-            <li>If you aren't planning on using a custom domain, then you can start Caddy with <code>caddy start</code> and jump to <a href="#connecting">this section to connect</a> to your server.</li>
+            <li>If you aren't planning on using a custom domain, then you can start Caddy with <code>caddy start</code> and jump to <a title="Connect to your server" href="#connecting">this section to connect</a> to your server.</li>
         </ol>
 
         <h2>Step 5: Domain Configuration (Optional)</h2>
@@ -161,7 +161,7 @@
         </ol>
 
         <h2 id="connecting">Connecting to Your Server</h2>
-        <p>Players can connect to your server using an Eaglercraft client (like <a href="/" target="_blank" rel="noopener noreferrer">eaglercraft.dev</a>) entering your server's IP address or domain (if configured) and port 8081.</p>
+        <p>Players can connect to your server using an Eaglercraft client (like <a title="Play Eaglercraft at our Home Page!" href="/" target="_blank" rel="noopener noreferrer">eaglercraft.dev</a>) entering your server's IP address or domain (if configured) and port 8081.</p>
         <p>Examples:</p>
         <pre><code>ws://localhost:8081</code></pre>
         <pre><code>wss://us.nightshade.lol</code></pre>
