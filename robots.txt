@@ -14,7 +14,17 @@ Allow: /articles/is-eaglercraft-illegal/
 Allow: /images/
 Allow: /clients/
 
-Disallow: /
+Disallow: home.html
+Disallow: downloads.html
+Disallow: articles.html
+Disallow: settings.html
+Disallow: 4xx.html
+Disallow: 5xx.html
+Disallow: 400.html
+Disallow: 401.html
+Disallow: 403.html
+Disallow: 404.html
+Disallow: 500.html
 Disallow: /scripts/
 Disallow: /styles/
 Disallow: /downloads/
