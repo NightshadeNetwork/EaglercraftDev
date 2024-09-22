@@ -196,7 +196,7 @@ function launchGame(version) {
       const parser = new DOMParser();
       const htmlDoc = parser.parseFromString(html, 'text/html');
       document.open();
-      document.write(htmlDoc.documentElement.outerHTML);
+      document.write('<!DOCTYPE html>' + htmlDoc.documentElement.outerHTML);
       document.close();
     })
     .catch(error => {
