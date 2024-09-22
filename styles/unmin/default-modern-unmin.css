@@ -354,3 +354,14 @@ img {
     scrollbar-width: thin;
     scrollbar-color: #888 #f1f1f1;
 }
+.download-item {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+}
+.download-button {
+    background-color: #00b894;
+    color: #fff;
+}
+.download-button:hover {
+    background-color: #097;
+}
