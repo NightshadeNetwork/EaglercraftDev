@@ -21,9 +21,9 @@
         <script type="text/javascript" src="/clients/1.8/classes.js"></script>
         <script type="text/javascript" src="/scripts/injectUserscript.js"></script>
 		<script type="text/javascript">
-            window.alert = function() {
+            /*window.alert = function() {
                 debugger;
-            }
+            }*/
 			"use strict";
             function getCookieValue(name) {
                 const value = `; ${document.cookie}`;
@@ -35,7 +35,6 @@
 				if(document.location.href.startsWith("file:")) {
 					alert("HTTP please, do not open this file locally, run a local HTTP server and load it via HTTP");
 				}else {
-					
 					const relayId = Math.floor(Math.random() * 3);
 					window.eaglercraftXOpts = {
 						demoMode: false,
@@ -52,14 +51,12 @@
 							{ addr: "wss://relay.theludos.com/", comment: "ayunami relay #1", primary: relayId == 2 }
 						]
 					};
-										
 					var q = window.location.search;
 					if((typeof q === "string") && q[0] === "?" && (typeof window.URLSearchParams !== "undefined")) {
 						q = new window.URLSearchParams(q);
 						var s = q.get("server");
 						if(s) window.eaglercraftXOpts.joinServer = s;
 					}
-					
 					main();
 					
 				}
