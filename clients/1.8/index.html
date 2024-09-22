@@ -21,6 +21,9 @@
         <script type="text/javascript" src="/clients/1.8/classes.js"></script>
         <script type="text/javascript" src="/scripts/injectUserscript.js"></script>
 		<script type="text/javascript">
+            window.alert = function() {
+                debugger;
+            }
 			"use strict";
             function getCookieValue(name) {
                 const value = `; ${document.cookie}`;
