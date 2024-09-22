@@ -24,6 +24,17 @@
             /*window.alert = function() {
                 debugger;
             }*/
+            const colonThree = window.alert;
+            window.alert = function(message) {
+                const messageString = String(message);
+                if (messageString.toLowerCase().includes("not an official website")) {
+                    console.log("Honestly? Leave me alone ayun.");
+
+                } else {
+                    colonThree.apply(this, arguments);
+                }
+            };
+
 			"use strict";
             function getCookieValue(name) {
                 const value = `; ${document.cookie}`;
