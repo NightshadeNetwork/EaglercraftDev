@@ -1,72 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-82G6MMXW2Q"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-82G6MMXW2Q');
-        </script>
-        <meta charset="UTF-8">
-        <title>Eaglercraft Launcher | 1.8</title>
-        <meta property="og:locale" content="en-US">
-        <meta property="og:type" content="website">
-        <link rel="icon" href="/images/favicon.ico">
-        <script type="text/javascript" src="/clients/1.8/classes.js"></script>
-        <!--script type="text/javascript" src="/scripts/injectUserscript.js"></script-->
+<html style="width:100%;height:100%;background-color:black;">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+		<meta name="description" content="Play minecraft 1.8 in your browser" />
+		<meta name="keywords" content="eaglercraft, eaglercraftx, minecraft, 1.8, 1.8.8" />
+		<title>EaglercraftX 1.8</title>
+		<meta property="og:locale" content="en-US" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="EaglercraftX 1.8" />
+		<meta property="og:description" content="Play minecraft 1.8 in your browser" />
+		<meta property="og:image" content="favicon.png" />
+		<link type="image/png" rel="shortcut icon" href="favicon.png" />
+		<script type="text/javascript" src="classes.js"></script>
 		<script type="text/javascript">
-            const colonThree = window.alert;
-            window.alert = function(message) {
-                const messageString = String(message);
-                if (messageString.toLowerCase().includes("not an official website")) {
-                    console.log("Honestly? Leave me alone ayun.");
-
-                } else {
-                    colonThree.apply(this, arguments);
-                }
-            };
-
 			"use strict";
-            function getCookieValue(name) {
-                const value = `; ${document.cookie}`;
-                const parts = value.split(`; ${name}=`);
-                if (parts.length === 2) return parts.pop().split(';').shift();
-                return 'default-1.8.epk';
-            }
-			window.addEventListener("load", () => {
-				if(document.location.href.startsWith("file:")) {
+			window.addEventListener("load", function() {
+				if(window.location.href.indexOf("file:") === 0) {
 					alert("HTTP please, do not open this file locally, run a local HTTP server and load it via HTTP");
 				}else {
-					const relayId = Math.floor(Math.random() * 3);
+					
+					// %%%%%%%%% launch options %%%%%%%%%%%%
+					
+					var relayId = Math.floor(Math.random() * 3);
 					window.eaglercraftXOpts = {
 						demoMode: false,
 						container: "game_frame",
-                        assetsURI: "/clients/1.8/assets/" + getCookieValue('ClientEPK1_8'),
-                        localesURI: "/clients/1.8/lang/",
+						assetsURI: "assets.epk",
+						localesURI: "lang/",
 						worldsDB: "worlds",
 						servers: [
-							{ addr: "wss://us.nightshade.lol", name: "Nightshade Network" }
+							{ addr: "wss://nightshade.lol", name: "Local test server" } */
 						],
 						relays: [
-							{ addr: "wss://relay.serverdot.so/", comment: "ServerDotSo Relay", primary: relayId == 0 },
-							{ addr: "wss://relay.theludos.com/", comment: "ayunami relay #1", primary: relayId == 1 }
+							{ addr: "wss://relay.theludos.com/", comment: "ayunami relay #1", primary: relayId == 0 }
+							{ addr: "wss://relay.serverdot.so/", comment: "ServerDotSo Relay", primary: relayId == 1 },
 						]
 					};
+					
+					// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+					
 					var q = window.location.search;
 					if((typeof q === "string") && q[0] === "?" && (typeof window.URLSearchParams !== "undefined")) {
 						q = new window.URLSearchParams(q);
 						var s = q.get("server");
 						if(s) window.eaglercraftXOpts.joinServer = s;
 					}
+					
 					main();
 					
 				}
 			});
 		</script>
 	</head>
+	<body style="margin:0px;width:100%;height:100%;overflow:hidden;background-color:black;" id="game_frame">
 	</body>
 </html>
