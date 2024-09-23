@@ -58,8 +58,8 @@
 						]
 					};
 					var q = window.location.search;
-					if((typeof q === "string") && q[0] === "?" && (typeof window.URLSearchParams !== "undefined")) {
-						q = new window.URLSearchParams(q);
+					if(typeof q === "string" && q.startsWith("?")) {
+						q = new URLSearchParams(q);
 						var s = q.get("server");
 						if(s) window.eaglercraftXOpts.joinServer = s;
 					}
