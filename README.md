@@ -17,7 +17,7 @@ Our official domain is **eaglercraft.dev**, as well as **eaglercraftx.com**.
 
 ## Contributing
 
-See our [LICENSE](LICENSE), and if you meet it, then please do contribute!
+See our [LICENSE](LICENSE.md), and if you meet it, then please do contribute!
 
 ## Community and Support
 
