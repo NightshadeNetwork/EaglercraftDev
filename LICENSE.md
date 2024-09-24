@@ -1,3 +1,7 @@
+The majority of this License means nothing and you will not be held to it while this is publicly available. It is only here for archival purposes. The only real rule is that if you wish to use my code, please credit me by linking to my domain, [serverdot.so](https://serverdot.so/)
+
+---
+
 ## EaglercraftDev License (Version 1.5)
 
 ### 1. Definitions
