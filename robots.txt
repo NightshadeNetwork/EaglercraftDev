@@ -31,5 +31,3 @@ Disallow: /downloads/
 Sitemap: https://eaglercraft.dev/sitemap.xml
 Sitemap: https://reddit.eaglercraft.dev/sitemap.xml
 Sitemap: https://discord.eaglercraft.dev/sitemap.xml
-
-Host: eaglercraft.dev
