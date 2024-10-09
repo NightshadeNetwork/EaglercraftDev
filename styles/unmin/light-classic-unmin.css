@@ -207,9 +207,6 @@ p {
     border-top: 1px solid #ccc;
     z-index: 999;
 }
-.footer p {
-    line-height: 1;
-}
 .footer a {
     color: #333;
 }

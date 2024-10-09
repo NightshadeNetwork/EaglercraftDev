@@ -204,13 +204,10 @@ p {
     font-size: 0.8em;
     text-align: center;
     bottom: 0;
-    padding: 1px;
+    padding: 5px;
     left: 0;
     border-top: 1px solid #4a5b67;
     z-index: 999;
-}
-.footer p {
-    line-height: 1;
 }
 .footer a {
     color: #fff;
