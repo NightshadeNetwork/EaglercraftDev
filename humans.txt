@@ -1,3 +1,3 @@
 Site: EaglercraftDev
-Developer: therealserver, also known as ServerDotSo.
+Developer: ServerDotSo, https://git.eaglercraft.dev/EaglercraftDev/EaglercraftDev/
 Contact: support@eaglercraft.dev

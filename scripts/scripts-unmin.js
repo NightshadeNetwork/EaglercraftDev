@@ -156,7 +156,7 @@ function handleThemeChange() {
 function handlePlayClick(event) {
   if (cookieCache.AcceptedTerms !== 'Yes') {
     event.preventDefault();
-    alert('Please accept the terms before playing.');
+    alert('Please accept our terms before playing!');
     showTermsOverlay();
   } else {
     launchGame(cookieCache.version);
@@ -171,11 +171,12 @@ function launchGame(version) {
     'Precision Client 1.5.2': '/clients/Precision/index.html',
     'Beta 1.3': '/clients/1.3/index.html',
     'Release 1.2.5': '/clients/1.2/index.html',
-    'EaglerForge': '/clients/EaglerForge/index.html',
+    'EaglerForgeInjector': '/clients/EaglerForgeInjector/index.html',
     'Resent Client 4.0': '/clients/Resent/index.html',
     'Shadow Client 4.0': '/clients/Shadow/index.html',
     'Kone Client': '/clients/Kone/index.html',
     'Astra Client 1.2': '/clients/Astra/index.html',
+    'EaglerForge-Legacy': '/clients/EaglerForge-Legacy/index.html',
     'Indev': '/clients/Indev/index.html',
     'Alpha 1.2.6': '/clients/Alpha-1.2/index.html'
   };
